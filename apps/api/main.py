@@ -7,7 +7,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
-app = FastAPI(title="K-OS Cloud Pro API", version="0.1.0")
+from core.approvals.engine import evaluate_action, list_approvals
+from core.connectors.registry import get_connector, list_connectors
+
+app = FastAPI(title="K-OS Cloud Pro API", version="0.2.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -26,21 +29,18 @@ AGENTS = [
     {"id": "DEV-001", "name": "Programador", "status": "standby", "role": "Executa tarefas de código"},
 ]
 
-CONNECTORS = [
-    {"id": "github", "name": "GitHub", "status": "connected"},
-    {"id": "gcp", "name": "Google Cloud", "status": "connected"},
-    {"id": "ollama", "name": "Ollama", "status": "pending"},
-    {"id": "render", "name": "Render", "status": "pending"},
-    {"id": "whatsapp", "name": "WhatsApp", "status": "pending"},
-    {"id": "instagram", "name": "Instagram", "status": "pending"},
-]
-
 TASKS: list[dict] = []
 
 
 class CommandIn(BaseModel):
     text: str = Field(min_length=3, max_length=4000)
     project: str = Field(default="OS-v1", min_length=1, max_length=120)
+
+
+class ActionEvaluationIn(BaseModel):
+    connector_id: str = Field(min_length=1, max_length=80)
+    action: str = Field(min_length=1, max_length=120)
+    payload: dict = Field(default_factory=dict)
 
 
 @app.get("/", include_in_schema=False)
@@ -67,7 +67,25 @@ def agents() -> list[dict]:
 
 @app.get("/api/connectors")
 def connectors() -> list[dict]:
-    return CONNECTORS
+    return list_connectors()
+
+
+@app.get("/api/connectors/{connector_id}")
+def connector(connector_id: str) -> dict:
+    definition = get_connector(connector_id)
+    if definition is None:
+        raise HTTPException(status_code=404, detail="Conector não encontrado")
+    return definition.public_dict()
+
+
+@app.get("/api/approvals")
+def approvals() -> list[dict]:
+    return list_approvals()
+
+
+@app.post("/api/actions/evaluate")
+def evaluate_connector_action(request: ActionEvaluationIn) -> dict:
+    return evaluate_action(request.connector_id, request.action, request.payload)
 
 
 @app.get("/api/tasks")
