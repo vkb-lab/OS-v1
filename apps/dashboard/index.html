@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>K-OS Cloud Pro</title>
+  <style>
+    :root { color-scheme: dark; --bg:#07110d; --panel:#0d1b15; --panel2:#13251d; --text:#eefcf4; --muted:#9bb8a7; --line:#244235; --accent:#4ade80; --warn:#facc15; --bad:#fb7185; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:Inter,system-ui,sans-serif; background:radial-gradient(circle at top,#123323 0,#07110d 45%); color:var(--text); }
+    button,input,select { font:inherit; }
+    .app { min-height:100vh; display:grid; grid-template-columns:230px 1fr; }
+    aside { border-right:1px solid var(--line); padding:24px 16px; background:rgba(7,17,13,.9); position:sticky; top:0; height:100vh; }
+    .brand { font-weight:800; font-size:1.25rem; margin-bottom:6px; }
+    .sub { color:var(--muted); font-size:.85rem; margin-bottom:28px; }
+    nav button { width:100%; text-align:left; border:0; background:transparent; color:var(--muted); padding:11px 12px; border-radius:10px; cursor:pointer; margin-bottom:5px; }
+    nav button.active, nav button:hover { background:var(--panel2); color:var(--text); }
+    main { padding:28px; max-width:1400px; width:100%; }
+    header { display:flex; justify-content:space-between; align-items:center; gap:16px; margin-bottom:22px; }
+    h1 { font-size:1.55rem; margin:0; }
+    .pill { border:1px solid var(--line); background:var(--panel); padding:8px 12px; border-radius:999px; color:var(--muted); }
+    .grid { display:grid; gap:14px; }
+    .metrics { grid-template-columns:repeat(4,minmax(0,1fr)); }
+    .two { grid-template-columns:1.15fr .85fr; margin-top:14px; }
+    .card { border:1px solid var(--line); background:rgba(13,27,21,.92); border-radius:16px; padding:18px; }
+    .metric strong { display:block; font-size:1.8rem; margin-top:8px; }
+    .muted { color:var(--muted); }
+    .list { display:grid; gap:10px; margin-top:14px; }
+    .row { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px; background:var(--panel2); border-radius:12px; }
+    .status { font-size:.78rem; padding:4px 8px; border-radius:999px; background:#173c28; color:#a7f3d0; }
+    .status.pending { background:#3a3010; color:#fde68a; }
+    .status.failed { background:#3c1620; color:#fecdd3; }
+    form { display:grid; gap:10px; }
+    textarea, input, select { width:100%; color:var(--text); background:#09160f; border:1px solid var(--line); border-radius:10px; padding:11px; }
+    textarea { min-height:112px; resize:vertical; }
+    .primary { border:0; border-radius:10px; padding:11px 14px; background:var(--accent); color:#05200f; font-weight:800; cursor:pointer; }
+    .section { display:none; }
+    .section.active { display:block; }
+    table { width:100%; border-collapse:collapse; }
+    th,td { text-align:left; padding:11px 8px; border-bottom:1px solid var(--line); font-size:.92rem; }
+    @media (max-width:900px){ .app{grid-template-columns:1fr} aside{height:auto;position:static;border-right:0;border-bottom:1px solid var(--line)} nav{display:flex;overflow:auto;gap:6px} nav button{min-width:max-content}.metrics,.two{grid-template-columns:1fr 1fr} }
+    @media (max-width:600px){ main{padding:18px}.metrics,.two{grid-template-columns:1fr} header{align-items:flex-start;flex-direction:column} }
+  </style>
+</head>
+<body>
+<div class="app">
+  <aside>
+    <div class="brand">K-OS Cloud Pro</div>
+    <div class="sub">Command center de agentes</div>
+    <nav id="nav">
+      <button class="active" data-target="overview">Visão geral</button>
+      <button data-target="agents">Agentes</button>
+      <button data-target="connectors">Conectores</button>
+      <button data-target="tasks">Tarefas</button>
+      <button data-target="approvals">Aprovações</button>
+      <button data-target="command">Novo comando</button>
+    </nav>
+  </aside>
+  <main>
+    <header>
+      <div><h1 id="title">Visão geral</h1><div class="muted">Ambiente inicial do OS-v1</div></div>
+      <div class="pill" id="apiStatus">API: verificando...</div>
+    </header>
+
+    <section id="overview" class="section active">
+      <div class="grid metrics">
+        <div class="card metric"><span class="muted">Agentes</span><strong id="mAgents">0</strong></div>
+        <div class="card metric"><span class="muted">Conectores ativos</span><strong id="mConnectors">0</strong></div>
+        <div class="card metric"><span class="muted">Tarefas na fila</span><strong id="mTasks">0</strong></div>
+        <div class="card metric"><span class="muted">Aprovações</span><strong>0</strong></div>
+      </div>
+      <div class="grid two">
+        <div class="card"><h3>Agentes principais</h3><div id="agentsPreview" class="list"></div></div>
+        <div class="card"><h3>Conectores</h3><div id="connectorsPreview" class="list"></div></div>
+      </div>
+    </section>
+
+    <section id="agents" class="section"><div class="card"><h3>Registro de agentes</h3><div id="agentsList" class="list"></div></div></section>
+    <section id="connectors" class="section"><div class="card"><h3>Registro de conectores</h3><div id="connectorsList" class="list"></div></div></section>
+    <section id="tasks" class="section"><div class="card"><h3>Fila de tarefas</h3><table><thead><tr><th>Comando</th><th>Agente</th><th>Status</th></tr></thead><tbody id="taskRows"></tbody></table></div></section>
+    <section id="approvals" class="section"><div class="card"><h3>Central de aprovações</h3><p class="muted">Nenhuma ação crítica aguardando aprovação.</p></div></section>
+    <section id="command" class="section">
+      <div class="card">
+        <h3>Enviar ordem ao K-OS</h3>
+        <form id="commandForm">
+          <label>Projeto<input id="project" value="OS-v1" /></label>
+          <label>Comando<textarea id="commandText" placeholder="Ex.: audite o repositório e crie um plano de execução"></textarea></label>
+          <button class="primary" type="submit">Enviar ao Orquestrador</button>
+          <div id="feedback" class="muted" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+</div>
+<script>
+  const API = location.hostname === 'localhost' ? 'http://localhost:8000' : '';
+  const titles = {overview:'Visão geral',agents:'Agentes',connectors:'Conectores',tasks:'Tarefas',approvals:'Aprovações',command:'Novo comando'};
+  document.querySelectorAll('#nav button').forEach(btn => btn.addEventListener('click', () => {
+    document.querySelectorAll('#nav button,.section').forEach(x => x.classList.remove('active'));
+    btn.classList.add('active'); document.getElementById(btn.dataset.target).classList.add('active'); document.getElementById('title').textContent=titles[btn.dataset.target];
+  }));
+  const row = (name, detail, status) => `<div class="row"><div><strong>${name}</strong><div class="muted">${detail||''}</div></div><span class="status ${status==='pending'?'pending':''}">${status}</span></div>`;
+  async function json(path, options){ const r=await fetch(API+path, options); if(!r.ok) throw new Error(await r.text()); return r.json(); }
+  async function refresh(){
+    try {
+      const [health,agents,connectors,tasks]=await Promise.all([json('/health'),json('/api/agents'),json('/api/connectors'),json('/api/tasks')]);
+      apiStatus.textContent='API: online'; mAgents.textContent=agents.length; mConnectors.textContent=connectors.filter(x=>x.status==='connected').length; mTasks.textContent=tasks.filter(x=>x.status==='queued').length;
+      agentsPreview.innerHTML=agents.slice(0,4).map(x=>row(`${x.id} · ${x.name}`,x.role,x.status)).join('');
+      connectorsPreview.innerHTML=connectors.slice(0,5).map(x=>row(x.name,'',x.status)).join('');
+      agentsList.innerHTML=agents.map(x=>row(`${x.id} · ${x.name}`,x.role,x.status)).join('');
+      connectorsList.innerHTML=connectors.map(x=>row(x.name,'',x.status)).join('');
+      taskRows.innerHTML=tasks.length?tasks.map(x=>`<tr><td>${x.command}</td><td>${x.assigned_agent}</td><td><span class="status">${x.status}</span></td></tr>`).join(''):'<tr><td colspan="3" class="muted">Nenhuma tarefa criada.</td></tr>';
+    } catch(e){ apiStatus.textContent='API: offline'; apiStatus.style.color='var(--bad)'; }
+  }
+  commandForm.addEventListener('submit', async e => {
+    e.preventDefault(); feedback.textContent='Enviando...';
+    try { const task=await json('/api/commands',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text:commandText.value,project:project.value})}); feedback.textContent=`Tarefa ${task.id.slice(0,8)} criada com sucesso.`; commandText.value=''; await refresh(); }
+    catch(err){ feedback.textContent='Não foi possível enviar. Verifique a API.'; }
+  });
+  refresh(); setInterval(refresh,15000);
+</script>
+</body>
+</html>
