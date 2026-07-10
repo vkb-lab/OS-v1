@@ -5,119 +5,251 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>K-OS Cloud Pro</title>
   <style>
-    :root { color-scheme: dark; --bg:#07110d; --panel:#0d1b15; --panel2:#13251d; --text:#eefcf4; --muted:#9bb8a7; --line:#244235; --accent:#4ade80; --warn:#facc15; --bad:#fb7185; }
+    :root {
+      color-scheme: dark;
+      --bg: #050906;
+      --surface: #09120d;
+      --surface-2: #0d1a13;
+      --surface-3: #12251a;
+      --text: #effcf4;
+      --muted: #9ab4a5;
+      --soft: #6f8f7b;
+      --line: #1f3b2b;
+      --accent: #4ade80;
+      --accent-2: #16a34a;
+      --warn: #eab308;
+      --bad: #fb7185;
+      --info: #38bdf8;
+      --shadow: 0 24px 70px rgba(0, 0, 0, .34);
+    }
+
     * { box-sizing: border-box; }
-    body { margin:0; font-family:Inter,system-ui,sans-serif; background:radial-gradient(circle at top,#123323 0,#07110d 45%); color:var(--text); }
-    button,input,select { font:inherit; }
-    .app { min-height:100vh; display:grid; grid-template-columns:230px 1fr; }
-    aside { border-right:1px solid var(--line); padding:24px 16px; background:rgba(7,17,13,.9); position:sticky; top:0; height:100vh; }
-    .brand { font-weight:800; font-size:1.25rem; margin-bottom:6px; }
-    .sub { color:var(--muted); font-size:.85rem; margin-bottom:28px; }
-    nav button { width:100%; text-align:left; border:0; background:transparent; color:var(--muted); padding:11px 12px; border-radius:10px; cursor:pointer; margin-bottom:5px; }
-    nav button.active, nav button:hover { background:var(--panel2); color:var(--text); }
-    main { padding:28px; max-width:1400px; width:100%; }
-    header { display:flex; justify-content:space-between; align-items:center; gap:16px; margin-bottom:22px; }
-    h1 { font-size:1.55rem; margin:0; }
-    .pill { border:1px solid var(--line); background:var(--panel); padding:8px 12px; border-radius:999px; color:var(--muted); }
-    .grid { display:grid; gap:14px; }
-    .metrics { grid-template-columns:repeat(4,minmax(0,1fr)); }
-    .two { grid-template-columns:1.15fr .85fr; margin-top:14px; }
-    .card { border:1px solid var(--line); background:rgba(13,27,21,.92); border-radius:16px; padding:18px; }
-    .metric strong { display:block; font-size:1.8rem; margin-top:8px; }
-    .muted { color:var(--muted); }
-    .list { display:grid; gap:10px; margin-top:14px; }
-    .row { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px; background:var(--panel2); border-radius:12px; }
-    .status { font-size:.78rem; padding:4px 8px; border-radius:999px; background:#173c28; color:#a7f3d0; }
-    .status.pending { background:#3a3010; color:#fde68a; }
-    .status.failed { background:#3c1620; color:#fecdd3; }
-    form { display:grid; gap:10px; }
-    textarea, input, select { width:100%; color:var(--text); background:#09160f; border:1px solid var(--line); border-radius:10px; padding:11px; }
-    textarea { min-height:112px; resize:vertical; }
-    .primary { border:0; border-radius:10px; padding:11px 14px; background:var(--accent); color:#05200f; font-weight:800; cursor:pointer; }
-    .section { display:none; }
-    .section.active { display:block; }
-    table { width:100%; border-collapse:collapse; }
-    th,td { text-align:left; padding:11px 8px; border-bottom:1px solid var(--line); font-size:.92rem; }
-    @media (max-width:900px){ .app{grid-template-columns:1fr} aside{height:auto;position:static;border-right:0;border-bottom:1px solid var(--line)} nav{display:flex;overflow:auto;gap:6px} nav button{min-width:max-content}.metrics,.two{grid-template-columns:1fr 1fr} }
-    @media (max-width:600px){ main{padding:18px}.metrics,.two{grid-template-columns:1fr} header{align-items:flex-start;flex-direction:column} }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, rgba(18, 50, 31, .58), rgba(5, 9, 6, .92) 34%, var(--bg)), var(--bg);
+      color: var(--text);
+      letter-spacing: 0;
+    }
+
+    button, input, textarea, select { font: inherit; }
+    button { cursor: pointer; }
+    button:disabled { cursor: not-allowed; opacity: .55; }
+    a, button, input, textarea, select { outline-color: var(--accent); }
+
+    .app { min-height: 100vh; display: grid; grid-template-columns: 260px minmax(0, 1fr); }
+    .sidebar {
+      position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; gap: 22px;
+      padding: 22px 14px; border-right: 1px solid var(--line); background: rgba(5, 9, 6, .92); backdrop-filter: blur(16px);
+    }
+    .brand { padding: 0 8px; }
+    .brand strong { display: block; font-size: 1.1rem; line-height: 1.2; }
+    .brand span { display: block; margin-top: 6px; color: var(--muted); font-size: .84rem; }
+
+    .nav { display: grid; gap: 4px; }
+    .nav button {
+      width: 100%; min-height: 42px; display: grid; grid-template-columns: 28px minmax(0, 1fr); align-items: center; gap: 8px;
+      border: 1px solid transparent; border-radius: 8px; padding: 8px 10px; background: transparent; color: var(--muted); text-align: left;
+    }
+    .nav button:hover, .nav button.active { border-color: var(--line); background: var(--surface-2); color: var(--text); }
+    .nav-icon {
+      width: 24px; height: 24px; display: inline-grid; place-items: center; border-radius: 6px;
+      background: rgba(74, 222, 128, .08); color: var(--accent); font-size: .8rem; font-weight: 800;
+    }
+    .sidebar-footer { margin-top: auto; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--muted); font-size: .83rem; }
+
+    main { width: 100%; max-width: 1440px; padding: 28px; }
+    .topbar { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; margin-bottom: 22px; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { margin-bottom: 6px; font-size: clamp(1.45rem, 2vw, 2.05rem); line-height: 1.15; }
+    h2 { margin-bottom: 14px; font-size: 1.1rem; }
+    h3 { margin-bottom: 8px; font-size: .98rem; }
+    p { line-height: 1.55; }
+    .muted { color: var(--muted); }
+    .soft { color: var(--soft); }
+    .toolbar { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 10px; }
+    .pill, .btn {
+      min-height: 38px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 8px;
+      border: 1px solid var(--line); background: var(--surface); color: var(--muted); padding: 8px 12px; white-space: nowrap;
+    }
+    .btn { color: var(--text); transition: transform .16s ease, border-color .16s ease, background .16s ease; }
+    .btn:hover { transform: translateY(-1px); border-color: #2f6144; background: var(--surface-2); }
+    .btn.primary { border-color: transparent; background: var(--accent); color: #031b0c; font-weight: 800; }
+    .btn.danger { border-color: rgba(251, 113, 133, .45); color: #fecdd3; background: rgba(251, 113, 133, .08); }
+
+    .grid { display: grid; gap: 14px; }
+    .metrics { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .two { grid-template-columns: minmax(0, 1.2fr) minmax(320px, .8fr); }
+    .three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .card { border: 1px solid var(--line); border-radius: 8px; background: rgba(9, 18, 13, .92); box-shadow: var(--shadow); padding: 16px; }
+    .metric { min-height: 126px; display: flex; flex-direction: column; justify-content: space-between; }
+    .metric strong { display: block; font-size: 2rem; line-height: 1; }
+    .metric span, .eyebrow { color: var(--muted); font-size: .82rem; text-transform: uppercase; letter-spacing: 0; }
+    .section { display: none; }
+    .section.active { display: block; }
+    .section > .grid + .grid, .section > .card + .card, .section > .grid + .card { margin-top: 14px; }
+    .list { display: grid; gap: 10px; margin-top: 12px; }
+    .row {
+      display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 12px; min-height: 62px;
+      padding: 12px; border: 1px solid rgba(31, 59, 43, .72); border-radius: 8px; background: var(--surface-2);
+    }
+    .row.compact { min-height: 52px; }
+    .row-title { font-weight: 750; overflow-wrap: anywhere; }
+    .row-detail { margin-top: 4px; color: var(--muted); font-size: .88rem; overflow-wrap: anywhere; }
+    .status {
+      min-height: 28px; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px;
+      border: 1px solid rgba(74, 222, 128, .24); padding: 4px 9px; background: rgba(22, 163, 74, .13);
+      color: #bbf7d0; font-size: .78rem; font-weight: 700; white-space: nowrap;
+    }
+    .status.pending, .status.standby, .status.queued { border-color: rgba(234, 179, 8, .28); background: rgba(234, 179, 8, .12); color: #fef3c7; }
+    .status.failed, .status.offline { border-color: rgba(251, 113, 133, .32); background: rgba(251, 113, 133, .12); color: #fecdd3; }
+    .status.info { border-color: rgba(56, 189, 248, .25); background: rgba(56, 189, 248, .10); color: #bae6fd; }
+    .state { min-height: 88px; display: grid; align-content: center; gap: 6px; border: 1px dashed var(--line); border-radius: 8px; padding: 16px; color: var(--muted); background: rgba(13, 26, 19, .45); }
+    .state strong { color: var(--text); }
+    .error { color: #fecdd3; }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; }
+    table { width: 100%; min-width: 680px; border-collapse: collapse; background: var(--surface); }
+    th, td { text-align: left; padding: 12px; border-bottom: 1px solid var(--line); font-size: .92rem; vertical-align: top; }
+    th { color: var(--muted); font-size: .78rem; text-transform: uppercase; letter-spacing: 0; }
+    tr:last-child td { border-bottom: 0; }
+    form { display: grid; gap: 14px; }
+    label { display: grid; gap: 7px; color: var(--muted); font-size: .9rem; }
+    input, textarea, select { width: 100%; border: 1px solid var(--line); border-radius: 8px; background: #050d09; color: var(--text); padding: 11px 12px; }
+    textarea { min-height: 146px; resize: vertical; }
+    .form-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+    .callout { border-left: 3px solid var(--accent); padding: 12px; border-radius: 8px; background: rgba(74, 222, 128, .08); color: var(--muted); }
+    .log-stream { display: grid; gap: 8px; margin-top: 12px; font-family: "Cascadia Mono", Consolas, monospace; font-size: .86rem; }
+    .log-line { display: grid; grid-template-columns: 116px minmax(0, 1fr); gap: 10px; padding: 10px 12px; border-radius: 8px; background: #050d09; border: 1px solid rgba(31, 59, 43, .72); }
+
+    @media (max-width: 1060px) {
+      .app { grid-template-columns: 1fr; }
+      .sidebar { position: static; height: auto; border-right: 0; border-bottom: 1px solid var(--line); }
+      .nav { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 2px; }
+      .nav button { width: auto; min-width: max-content; }
+      .sidebar-footer { display: none; }
+      .metrics, .three { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .two { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 680px) {
+      main { padding: 18px; }
+      .topbar { flex-direction: column; }
+      .toolbar { justify-content: flex-start; width: 100%; }
+      .metrics, .three { grid-template-columns: 1fr; }
+      .row { grid-template-columns: 1fr; }
+      .status { width: max-content; }
+      .form-actions { align-items: stretch; }
+      .form-actions .btn { width: 100%; }
+      .log-line { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
-<div class="app">
-  <aside>
-    <div class="brand">K-OS Cloud Pro</div>
-    <div class="sub">Command center de agentes</div>
-    <nav id="nav">
-      <button class="active" data-target="overview">Visão geral</button>
-      <button data-target="agents">Agentes</button>
-      <button data-target="connectors">Conectores</button>
-      <button data-target="tasks">Tarefas</button>
-      <button data-target="approvals">Aprovações</button>
-      <button data-target="command">Novo comando</button>
-    </nav>
-  </aside>
-  <main>
-    <header>
-      <div><h1 id="title">Visão geral</h1><div class="muted">Ambiente inicial do OS-v1</div></div>
-      <div class="pill" id="apiStatus">API: verificando...</div>
-    </header>
+  <div class="app">
+    <aside class="sidebar" aria-label="Navegação principal">
+      <div class="brand"><strong>K-OS Cloud Pro</strong><span>Central operacional de agentes</span></div>
+      <nav class="nav" id="nav">
+        <button class="active" type="button" data-target="overview"><span class="nav-icon">VG</span><span>Visão geral</span></button>
+        <button type="button" data-target="agents"><span class="nav-icon">AG</span><span>Agentes</span></button>
+        <button type="button" data-target="connectors"><span class="nav-icon">CN</span><span>Conectores</span></button>
+        <button type="button" data-target="tasks"><span class="nav-icon">TR</span><span>Tarefas</span></button>
+        <button type="button" data-target="approvals"><span class="nav-icon">AP</span><span>Aprovações</span></button>
+        <button type="button" data-target="command"><span class="nav-icon">NC</span><span>Novo comando</span></button>
+        <button type="button" data-target="logs"><span class="nav-icon">LG</span><span>Logs</span></button>
+        <button type="button" data-target="costs"><span class="nav-icon">CT</span><span>Custos</span></button>
+        <button type="button" data-target="health"><span class="nav-icon">SD</span><span>Saúde do sistema</span></button>
+        <button type="button" data-target="settings"><span class="nav-icon">CF</span><span>Configurações</span></button>
+      </nav>
+      <div class="sidebar-footer">Operação MVP sem segredos no frontend. Integrações sensíveis devem ficar no backend.</div>
+    </aside>
 
-    <section id="overview" class="section active">
-      <div class="grid metrics">
-        <div class="card metric"><span class="muted">Agentes</span><strong id="mAgents">0</strong></div>
-        <div class="card metric"><span class="muted">Conectores ativos</span><strong id="mConnectors">0</strong></div>
-        <div class="card metric"><span class="muted">Tarefas na fila</span><strong id="mTasks">0</strong></div>
-        <div class="card metric"><span class="muted">Aprovações</span><strong>0</strong></div>
-      </div>
-      <div class="grid two">
-        <div class="card"><h3>Agentes principais</h3><div id="agentsPreview" class="list"></div></div>
-        <div class="card"><h3>Conectores</h3><div id="connectorsPreview" class="list"></div></div>
-      </div>
-    </section>
+    <main>
+      <header class="topbar">
+        <div><h1 id="title">Visão geral</h1><p class="muted" id="subtitle">Leitura rápida de agentes, conectores, fila e saúde da API.</p></div>
+        <div class="toolbar" aria-label="Estado operacional"><span class="pill" id="apiStatus">API: verificando</span><button class="btn" type="button" id="refreshButton" title="Atualizar dados">Atualizar</button></div>
+      </header>
 
-    <section id="agents" class="section"><div class="card"><h3>Registro de agentes</h3><div id="agentsList" class="list"></div></div></section>
-    <section id="connectors" class="section"><div class="card"><h3>Registro de conectores</h3><div id="connectorsList" class="list"></div></div></section>
-    <section id="tasks" class="section"><div class="card"><h3>Fila de tarefas</h3><table><thead><tr><th>Comando</th><th>Agente</th><th>Status</th></tr></thead><tbody id="taskRows"></tbody></table></div></section>
-    <section id="approvals" class="section"><div class="card"><h3>Central de aprovações</h3><p class="muted">Nenhuma ação crítica aguardando aprovação.</p></div></section>
-    <section id="command" class="section">
-      <div class="card">
-        <h3>Enviar ordem ao K-OS</h3>
-        <form id="commandForm">
-          <label>Projeto<input id="project" value="OS-v1" /></label>
-          <label>Comando<textarea id="commandText" placeholder="Ex.: audite o repositório e crie um plano de execução"></textarea></label>
-          <button class="primary" type="submit">Enviar ao Orquestrador</button>
-          <div id="feedback" class="muted" aria-live="polite"></div>
-        </form>
-      </div>
-    </section>
-  </main>
-</div>
-<script>
-  const API = location.hostname === 'localhost' ? 'http://localhost:8000' : '';
-  const titles = {overview:'Visão geral',agents:'Agentes',connectors:'Conectores',tasks:'Tarefas',approvals:'Aprovações',command:'Novo comando'};
-  document.querySelectorAll('#nav button').forEach(btn => btn.addEventListener('click', () => {
-    document.querySelectorAll('#nav button,.section').forEach(x => x.classList.remove('active'));
-    btn.classList.add('active'); document.getElementById(btn.dataset.target).classList.add('active'); document.getElementById('title').textContent=titles[btn.dataset.target];
-  }));
-  const row = (name, detail, status) => `<div class="row"><div><strong>${name}</strong><div class="muted">${detail||''}</div></div><span class="status ${status==='pending'?'pending':''}">${status}</span></div>`;
-  async function json(path, options){ const r=await fetch(API+path, options); if(!r.ok) throw new Error(await r.text()); return r.json(); }
-  async function refresh(){
-    try {
-      const [health,agents,connectors,tasks]=await Promise.all([json('/health'),json('/api/agents'),json('/api/connectors'),json('/api/tasks')]);
-      apiStatus.textContent='API: online'; mAgents.textContent=agents.length; mConnectors.textContent=connectors.filter(x=>x.status==='connected').length; mTasks.textContent=tasks.filter(x=>x.status==='queued').length;
-      agentsPreview.innerHTML=agents.slice(0,4).map(x=>row(`${x.id} · ${x.name}`,x.role,x.status)).join('');
-      connectorsPreview.innerHTML=connectors.slice(0,5).map(x=>row(x.name,'',x.status)).join('');
-      agentsList.innerHTML=agents.map(x=>row(`${x.id} · ${x.name}`,x.role,x.status)).join('');
-      connectorsList.innerHTML=connectors.map(x=>row(x.name,'',x.status)).join('');
-      taskRows.innerHTML=tasks.length?tasks.map(x=>`<tr><td>${x.command}</td><td>${x.assigned_agent}</td><td><span class="status">${x.status}</span></td></tr>`).join(''):'<tr><td colspan="3" class="muted">Nenhuma tarefa criada.</td></tr>';
-    } catch(e){ apiStatus.textContent='API: offline'; apiStatus.style.color='var(--bad)'; }
-  }
-  commandForm.addEventListener('submit', async e => {
-    e.preventDefault(); feedback.textContent='Enviando...';
-    try { const task=await json('/api/commands',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text:commandText.value,project:project.value})}); feedback.textContent=`Tarefa ${task.id.slice(0,8)} criada com sucesso.`; commandText.value=''; await refresh(); }
-    catch(err){ feedback.textContent='Não foi possível enviar. Verifique a API.'; }
-  });
-  refresh(); setInterval(refresh,15000);
-</script>
+      <section id="overview" class="section active" aria-labelledby="title">
+        <div class="grid metrics">
+          <article class="card metric"><span>Agentes online</span><strong id="mAgents">--</strong><p class="muted">Catálogo operacional</p></article>
+          <article class="card metric"><span>Conectores ativos</span><strong id="mConnectors">--</strong><p class="muted">Integrações conectadas</p></article>
+          <article class="card metric"><span>Tarefas na fila</span><strong id="mTasks">--</strong><p class="muted">Comandos aguardando execução</p></article>
+          <article class="card metric"><span>Aprovações abertas</span><strong id="mApprovals">0</strong><p class="muted">Ações críticas pendentes</p></article>
+        </div>
+        <div class="grid two"><article class="card"><h2>Fila recente</h2><div id="tasksPreview" class="list" aria-live="polite"></div></article><article class="card"><h2>Capacidade conectada</h2><div id="connectorsPreview" class="list" aria-live="polite"></div></article></div>
+      </section>
+
+      <section id="agents" class="section" aria-labelledby="title"><article class="card"><h2>Registro de agentes</h2><div id="agentsList" class="list" aria-live="polite"></div></article></section>
+      <section id="connectors" class="section" aria-labelledby="title"><article class="card"><h2>Registro de conectores</h2><div id="connectorsList" class="list" aria-live="polite"></div></article></section>
+      <section id="tasks" class="section" aria-labelledby="title"><article class="card"><h2>Fila de tarefas</h2><div class="table-wrap"><table><thead><tr><th scope="col">Comando</th><th scope="col">Projeto</th><th scope="col">Agente</th><th scope="col">Status</th><th scope="col">Criado em</th></tr></thead><tbody id="taskRows"></tbody></table></div></article></section>
+
+      <section id="approvals" class="section" aria-labelledby="title">
+        <div class="grid two"><article class="card"><h2>Central de aprovações</h2><div id="approvalList" class="list"></div></article><article class="card"><h2>Política de execução</h2><p class="muted">Ações críticas exigem confirmação explícita antes de qualquer chamada. O MVP exibe a política e mantém os controles bloqueados até existir um backend de aprovações.</p><button class="btn danger" type="button" id="criticalAction">Executar ação crítica</button></article></div>
+      </section>
+
+      <section id="command" class="section" aria-labelledby="title">
+        <div class="grid two">
+          <article class="card"><h2>Enviar ordem ao K-OS</h2><form id="commandForm"><label for="project">Projeto<input id="project" name="project" value="OS-v1" autocomplete="off" maxlength="120" required /></label><label for="commandText">Comando<textarea id="commandText" name="commandText" placeholder="Ex.: audite o repositório e crie um plano de execução" maxlength="4000" required></textarea></label><div class="form-actions"><span id="feedback" class="muted" aria-live="polite"></span><button class="btn primary" type="submit" id="submitCommand">Enviar ao Orquestrador</button></div></form></article>
+          <article class="card"><h2>Checklist de segurança</h2><div class="list"><div class="row compact"><div><div class="row-title">Sem segredos no navegador</div><div class="row-detail">Tokens e chaves devem permanecer no backend.</div></div><span class="status">ativo</span></div><div class="row compact"><div><div class="row-title">Confirmação antes de enviar</div><div class="row-detail">O operador confirma o comando antes do POST.</div></div><span class="status">ativo</span></div><div class="row compact"><div><div class="row-title">Fila auditável</div><div class="row-detail">O comando criado aparece em Tarefas.</div></div><span class="status">ativo</span></div></div></article>
+        </div>
+      </section>
+
+      <section id="logs" class="section" aria-labelledby="title"><article class="card"><h2>Logs operacionais</h2><p class="muted">Eventos derivados do estado visível da API. A integração com logs persistentes fica preparada para backend futuro.</p><div id="logStream" class="log-stream" aria-live="polite"></div></article></section>
+      <section id="costs" class="section" aria-labelledby="title"><div class="grid three"><article class="card metric"><span>Custo estimado</span><strong>R$ 0,00</strong><p class="muted">MVP sem medição financeira ativa.</p></article><article class="card metric"><span>Comandos criados</span><strong id="mCommands">--</strong><p class="muted">Baseado na fila local.</p></article><article class="card metric"><span>Conectores pagos</span><strong>0</strong><p class="muted">Sem cobrança registrada no frontend.</p></article></div><article class="card" style="margin-top:14px"><h2>Controle de custos</h2><p class="muted">Nenhuma chave, limite de gasto ou segredo é armazenado nesta interface. Quando houver medição real, os valores devem vir de endpoint autenticado.</p></article></section>
+      <section id="health" class="section" aria-labelledby="title"><div class="grid two"><article class="card"><h2>Saúde da API</h2><div id="healthDetails" class="list" aria-live="polite"></div></article><article class="card"><h2>Dependências</h2><div id="dependencyList" class="list"></div></article></div></section>
+      <section id="settings" class="section" aria-labelledby="title"><div class="grid two"><article class="card"><h2>Configurações locais</h2><form><label for="refreshInterval">Intervalo de atualização<select id="refreshInterval"><option value="15000">15 segundos</option><option value="30000">30 segundos</option><option value="60000">60 segundos</option></select></label><label for="density">Densidade visual<select id="density"><option>Compacta</option><option>Confortável</option></select></label></form></article><article class="card"><h2>Integração futura</h2><div class="callout">Autenticação Google, perfis e segredos devem ser configurados somente no backend. Este painel não persiste credenciais.</div></article></div></section>
+    </main>
+  </div>
+
+  <script>
+    const API = location.hostname === 'localhost' ? 'http://localhost:8000' : '';
+    const state = { health: null, agents: [], connectors: [], tasks: [], loading: true, error: null, interval: null };
+    const titles = {
+      overview: ['Visão geral', 'Leitura rápida de agentes, conectores, fila e saúde da API.'],
+      agents: ['Agentes', 'Estado dos agentes fundamentais do K-OS.'], connectors: ['Conectores', 'Integrações disponíveis e prontidão operacional.'],
+      tasks: ['Tarefas', 'Fila local criada por comandos enviados ao orquestrador.'], approvals: ['Aprovações', 'Governança de ações críticas e validação humana.'],
+      command: ['Novo comando', 'Envio controlado de ordens para o ORQ-001.'], logs: ['Logs', 'Linha do tempo operacional derivada dos dados atuais.'],
+      costs: ['Custos', 'Leitura preparada para medição financeira futura.'], health: ['Saúde do sistema', 'Healthcheck da API e dependências do MVP.'],
+      settings: ['Configurações', 'Preferências locais sem armazenamento de segredos.']
+    };
+    const $ = (id) => document.getElementById(id);
+    const escapeHtml = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
+    function statusLabel(status) { return ({ online: 'online', connected: 'conectado', standby: 'em espera', pending: 'pendente', queued: 'na fila', ok: 'ok', offline: 'offline', failed: 'falha' })[status] || status || 'indefinido'; }
+    function statusClass(status) { return String(status || '').toLowerCase().replace(/[^a-z0-9_-]/g, ''); }
+    function stateBox(title, detail, kind = '') { return `<div class="state ${kind}"><strong>${escapeHtml(title)}</strong><span>${escapeHtml(detail)}</span></div>`; }
+    function row(name, detail, status) { return `<div class="row"><div><div class="row-title">${escapeHtml(name)}</div><div class="row-detail">${escapeHtml(detail || '')}</div></div><span class="status ${statusClass(status)}">${escapeHtml(statusLabel(status))}</span></div>`; }
+    function formatDate(value) { if (!value) return 'sem data'; const date = new Date(value); return Number.isNaN(date.getTime()) ? value : date.toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' }); }
+    async function json(path, options) { const response = await fetch(API + path, options); if (!response.ok) throw new Error(await response.text()); return response.json(); }
+    function logLine(scope, text) { return `<div class="log-line"><span class="soft">[${escapeHtml(scope)}]</span><span>${escapeHtml(text)}</span></div>`; }
+    function setLoading() { ['agentsList', 'connectorsList', 'tasksPreview', 'connectorsPreview', 'healthDetails', 'dependencyList', 'logStream'].forEach((id) => { $(id).innerHTML = stateBox('Carregando', 'Sincronizando dados da API...'); }); $('taskRows').innerHTML = `<tr><td colspan="5">${stateBox('Carregando', 'Sincronizando fila de tarefas...')}</td></tr>`; }
+    function renderError(error) { const message = error?.message || 'Falha ao consultar a API.'; $('apiStatus').textContent = 'API: offline'; $('apiStatus').className = 'pill error'; ['agentsList', 'connectorsList', 'tasksPreview', 'connectorsPreview', 'healthDetails', 'dependencyList', 'logStream'].forEach((id) => { $(id).innerHTML = stateBox('Erro de conexão', message, 'error'); }); $('taskRows').innerHTML = `<tr><td colspan="5">${stateBox('Erro de conexão', message, 'error')}</td></tr>`; }
+    function render() {
+      if (state.loading) { setLoading(); return; }
+      if (state.error) { renderError(state.error); return; }
+      const onlineAgents = state.agents.filter((agent) => agent.status === 'online').length;
+      const connected = state.connectors.filter((connector) => connector.status === 'connected').length;
+      const queued = state.tasks.filter((task) => task.status === 'queued').length;
+      $('apiStatus').textContent = `API: ${statusLabel(state.health?.status)}`; $('apiStatus').className = 'pill';
+      $('mAgents').textContent = onlineAgents; $('mConnectors').textContent = connected; $('mTasks').textContent = queued; $('mApprovals').textContent = 0; $('mCommands').textContent = state.tasks.length;
+      $('agentsList').innerHTML = state.agents.length ? state.agents.map((agent) => row(`${agent.id} · ${agent.name}`, agent.role, agent.status)).join('') : stateBox('Nenhum agente encontrado', 'O endpoint /api/agents respondeu sem itens.');
+      $('connectorsList').innerHTML = state.connectors.length ? state.connectors.map((connector) => row(connector.name, `Identificador: ${connector.id}`, connector.status)).join('') : stateBox('Nenhum conector encontrado', 'O endpoint /api/connectors respondeu sem itens.');
+      $('connectorsPreview').innerHTML = state.connectors.length ? state.connectors.slice(0, 5).map((connector) => row(connector.name, `Status ${statusLabel(connector.status)}`, connector.status)).join('') : stateBox('Sem conectores', 'Nenhum conector foi retornado pela API.');
+      $('tasksPreview').innerHTML = state.tasks.length ? state.tasks.slice(0, 4).map((task) => row(task.command, `${task.project || 'OS-v1'} · ${task.assigned_agent}`, task.status)).join('') : stateBox('Fila vazia', 'Envie um comando para criar a primeira tarefa.');
+      $('taskRows').innerHTML = state.tasks.length ? state.tasks.map((task) => `<tr><td>${escapeHtml(task.command)}</td><td>${escapeHtml(task.project || 'OS-v1')}</td><td>${escapeHtml(task.assigned_agent || 'não atribuído')}</td><td><span class="status ${statusClass(task.status)}">${escapeHtml(statusLabel(task.status))}</span></td><td>${escapeHtml(formatDate(task.created_at))}</td></tr>`).join('') : '<tr><td colspan="5"><div class="state"><strong>Fila vazia</strong><span>Nenhuma tarefa criada.</span></div></td></tr>';
+      $('approvalList').innerHTML = stateBox('Nenhuma aprovação aberta', 'Ações críticas permanecem bloqueadas até confirmação explícita.');
+      $('healthDetails').innerHTML = [row('Serviço', state.health?.service || 'kos-api', state.health?.status || 'ok'), row('Versão', state.health?.version || '0.1.0', 'info'), row('Último healthcheck', formatDate(state.health?.time), 'info')].join('');
+      $('dependencyList').innerHTML = [row('Dashboard', 'Rota / servindo apps/dashboard/index.html', 'online'), row('API', 'FastAPI respondendo aos contratos do MVP', state.health?.status || 'ok'), row('Fila local', `${state.tasks.length} tarefa(s) em memória`, queued ? 'queued' : 'online')].join('');
+      $('logStream').innerHTML = [logLine('health', `API ${statusLabel(state.health?.status)} em ${formatDate(state.health?.time)}`), logLine('agents', `${state.agents.length} agente(s) carregado(s), ${onlineAgents} online`), logLine('connectors', `${connected} de ${state.connectors.length} conector(es) conectado(s)`), logLine('tasks', `${queued} tarefa(s) na fila local`)].join('');
+    }
+    async function refresh() { state.loading = true; state.error = null; render(); try { const [health, agents, connectors, tasks] = await Promise.all([json('/health'), json('/api/agents'), json('/api/connectors'), json('/api/tasks')]); state.health = health; state.agents = Array.isArray(agents) ? agents : []; state.connectors = Array.isArray(connectors) ? connectors : []; state.tasks = Array.isArray(tasks) ? tasks : []; } catch (error) { state.error = error; } finally { state.loading = false; render(); } }
+    function activate(target) { document.querySelectorAll('#nav button, .section').forEach((item) => item.classList.remove('active')); document.querySelector(`#nav button[data-target="${target}"]`)?.classList.add('active'); $(target)?.classList.add('active'); $('title').textContent = titles[target][0]; $('subtitle').textContent = titles[target][1]; }
+    document.querySelectorAll('#nav button').forEach((button) => button.addEventListener('click', () => activate(button.dataset.target)));
+    $('refreshButton').addEventListener('click', refresh);
+    $('criticalAction').addEventListener('click', () => { const confirmed = window.confirm('Esta ação crítica está bloqueada no MVP. Deseja registrar apenas a intenção de execução?'); if (confirmed) window.alert('Intenção registrada localmente. Nenhuma chamada crítica foi executada.'); });
+    $('commandForm').addEventListener('submit', async (event) => { event.preventDefault(); const text = $('commandText').value.trim(); const project = $('project').value.trim() || 'OS-v1'; if (text.length < 3) { $('feedback').textContent = 'Informe um comando com pelo menos 3 caracteres.'; return; } const confirmed = window.confirm(`Enviar este comando para o projeto ${project}?`); if (!confirmed) { $('feedback').textContent = 'Envio cancelado pelo operador.'; return; } $('submitCommand').disabled = true; $('feedback').textContent = 'Enviando comando...'; try { const task = await json('/api/commands', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ text, project }) }); $('feedback').textContent = `Tarefa ${task.id.slice(0, 8)} criada e adicionada à fila.`; $('commandText').value = ''; await refresh(); activate('tasks'); } catch (error) { $('feedback').textContent = 'Não foi possível enviar. Verifique a API.'; } finally { $('submitCommand').disabled = false; } });
+    $('refreshInterval').addEventListener('change', (event) => { window.clearInterval(state.interval); state.interval = window.setInterval(refresh, Number(event.target.value)); });
+    refresh(); state.interval = window.setInterval(refresh, Number($('refreshInterval').value));
+  </script>
 </body>
 </html>
