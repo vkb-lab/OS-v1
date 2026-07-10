@@ -3,20 +3,20 @@ name: K-OS Cloud Test Connection
 on:
   push:
     branches:
-      - principal  # Alinhado com a sua branch real
+      - main  # Branch principal real do repositorio
 
 jobs:
   test-gcp-connection:
     runs-on: ubuntu-latest
     permissions:
       contents: 'read'
-      id-token: 'write' # OBRIGATÓRIO para o Workload Identity Federation
+      id-token: 'write' # OBRIGATORIO para o Workload Identity Federation
 
     steps:
     - name: Checkout do Codigo
       uses: actions/checkout@v4
 
-    # Autenticação oficial no Google Cloud sem chaves/senhas expostas
+    # Autenticacao oficial no Google Cloud sem chaves/senhas expostas
     - name: Autenticar no Google Cloud
       uses: google-github-actions/auth@v2
       with:
@@ -26,10 +26,10 @@ jobs:
     - name: Configurar Google Cloud SDK
       uses: google-github-actions/setup-gcloud@v2
 
-    # Comando de teste: O GitHub vai perguntar ao GCP se o repositório Docker realmente existe ali
+    # Comando de teste: O GitHub vai perguntar ao GCP se o repositorio Docker realmente existe ali
     - name: Validar Acesso ao Artifact Registry
       run: |
         gcloud artifacts repositories describe kos-registry --location=us-central1
         echo "======================================================================"
-        echo " SUCESSO: O GitHub e a Infraestrutura do K-OS estão conectados! "
+        echo " SUCESSO: O GitHub e a Infraestrutura do K-OS estao conectados! "
         echo "======================================================================"
