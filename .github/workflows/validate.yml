@@ -37,7 +37,7 @@ jobs:
         run: python -m pytest -q
 
       - name: Compile Python
-        run: python -m compileall -q apps
+        run: python -m compileall -q apps core
 
       - name: Validate required files
         run: |
@@ -45,4 +45,7 @@ jobs:
           test -f apps/api/__init__.py
           test -f apps/dashboard/index.html
           test -f apps/api/main.py
+          test -f core/connectors/registry.py
+          test -f core/approvals/engine.py
+          test -f docs/EXECUTION_SEQUENCE.md
           test -f Dockerfile
