@@ -1,8 +1,14 @@
 from fastapi.testclient import TestClient
 
-from apps.api.main import app
+from apps.api.main import TASKS, app
 
 client = TestClient(app)
+
+
+def test_dashboard_route() -> None:
+    response = client.get('/')
+    assert response.status_code == 200
+    assert 'K-OS Cloud Pro' in response.text
 
 
 def test_health() -> None:
@@ -26,6 +32,17 @@ def test_create_command() -> None:
     body = response.json()
     assert body['status'] == 'queued'
     assert body['assigned_agent'] == 'ORQ-001'
+
+
+def test_created_command_appears_in_task_queue() -> None:
+    TASKS.clear()
+    command = 'Valide a fila do dashboard'
+    response = client.post('/api/commands', json={'text': command, 'project': 'OS-v1'})
+    assert response.status_code == 202
+
+    tasks = client.get('/api/tasks')
+    assert tasks.status_code == 200
+    assert any(item['id'] == response.json()['id'] and item['command'] == command for item in tasks.json())
 
 
 def test_rejects_short_command() -> None:
