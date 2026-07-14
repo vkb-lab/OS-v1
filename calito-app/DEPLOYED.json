@@ -1,6 +1,6 @@
 {
-  "status": "published",
+  "status": "published-private-gate",
   "url": "https://vkb-lab.github.io/OS-v1/",
-  "source_commit": "e073136b825f93cb570bde8e047c43eb4a72f782",
-  "published_at": "2026-07-14T22:17:04Z"
+  "source_commit": "cce8bd3a36476b97541f5a8f22a878d661deb165",
+  "published_at": "2026-07-14T23:18:00Z"
 }
