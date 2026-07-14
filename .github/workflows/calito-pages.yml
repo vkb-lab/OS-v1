@@ -1,0 +1,53 @@
+name: Publicar Calito no GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'calito-source/**'
+      - 'calito-app/**'
+      - '.github/workflows/calito-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: calito-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar código
+        uses: actions/checkout@v4
+
+      - name: Montar aplicação revisada
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/calito-site
+          cat calito-source/part-*.b64 | base64 --decode > /tmp/calito-site.zip
+          unzip -q /tmp/calito-site.zip -d /tmp/calito-site
+          test -f /tmp/calito-site/index.html
+          echo "Aplicação montada com sucesso."
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Enviar artefato estático
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: /tmp/calito-site
+
+      - name: Publicar
+        id: deployment
+        uses: actions/deploy-pages@v4
