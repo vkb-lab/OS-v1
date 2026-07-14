@@ -1,0 +1,13 @@
+{
+  "name": "Calito — Casa da Limpeza",
+  "short_name": "Calito",
+  "description": "Memória viva da Casa da Limpeza.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f8f9ff",
+  "theme_color": "#f37335",
+  "icons": [
+    { "src": "assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
