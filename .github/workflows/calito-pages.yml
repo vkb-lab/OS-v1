@@ -84,8 +84,8 @@ jobs:
 
           const adminHtml = injectRole(original, 'admin');
           const joaoHtml = injectRole(original, 'joao');
-          fs.writeFileSync(`${publicDir}/payload-admin.json`, JSON.stringify(encrypt(process.env.CALITO_ADMIN_PASSWORD, adminHtml)));
-          fs.writeFileSync(`${publicDir}/payload-joao.json`, JSON.stringify(encrypt(process.env.CALITO_JOAO_PASSWORD, joaoHtml)));
+          fs.writeFileSync(publicDir + '/payload-admin.json', JSON.stringify(encrypt(process.env.CALITO_ADMIN_PASSWORD, adminHtml)));
+          fs.writeFileSync(publicDir + '/payload-joao.json', JSON.stringify(encrypt(process.env.CALITO_JOAO_PASSWORD, joaoHtml)));
 
           const loader = `<!doctype html>
           <html lang="pt-BR">
@@ -127,7 +127,7 @@ jobs:
               let failures = Number(sessionStorage.getItem('calitoFailures') || 0);
 
               async function unlock(profile, password) {
-                const response = await fetch(`payload-${profile}.json`, { cache: 'no-store' });
+                const response = await fetch('payload-' + profile + '.json', { cache: 'no-store' });
                 if (!response.ok) throw new Error('Conteúdo protegido indisponível.');
                 const payload = await response.json();
                 const material = await crypto.subtle.importKey('raw', new TextEncoder().encode(password), 'PBKDF2', false, ['deriveKey']);
@@ -161,8 +161,8 @@ jobs:
             </script>
           </body>
           </html>`;
-          fs.writeFileSync(`${publicDir}/index.html`, loader);
-          fs.writeFileSync(`${publicDir}/.nojekyll`, '');
+          fs.writeFileSync(publicDir + '/index.html', loader);
+          fs.writeFileSync(publicDir + '/.nojekyll', '');
           NODE
           test -f /tmp/calito-public/index.html
           test -f /tmp/calito-public/payload-admin.json
