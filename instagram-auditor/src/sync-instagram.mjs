@@ -62,6 +62,16 @@ function monthKey(timestamp) {
   return `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, '0')}`;
 }
 
+function groupBy(items, keyFn) {
+  const result = new Map();
+  for (const item of items) {
+    const key = keyFn(item);
+    if (!result.has(key)) result.set(key, []);
+    result.get(key).push(item);
+  }
+  return result;
+}
+
 const fields = [
   'id','caption','media_type','media_product_type','media_url','thumbnail_url',
   'permalink','timestamp','username','like_count','comments_count','children{id,media_type,media_url,thumbnail_url}'
@@ -88,7 +98,7 @@ for (const item of media) {
   });
 }
 
-const grouped = Map.groupBy(normalized, item => item.periodo);
+const grouped = groupBy(normalized, item => item.periodo);
 await fs.mkdir(outputRoot, { recursive: true });
 const index = [];
 for (const [periodo, posts] of [...grouped.entries()].sort(([a],[b]) => a.localeCompare(b))) {
@@ -97,12 +107,13 @@ for (const [periodo, posts] of [...grouped.entries()].sort(([a],[b]) => a.locale
   await fs.mkdir(dir, { recursive: true });
   posts.sort((a,b) => a.timestamp.localeCompare(b.timestamp));
   await fs.writeFile(path.join(dir, `${month}.json`), JSON.stringify({ periodo, total_publicacoes: posts.length, publicacoes: posts }, null, 2));
+  const formats = groupBy(posts, p => p.media_product_type || p.media_type || 'OUTRO');
   index.push({
     periodo,
     total_publicacoes: posts.length,
     curtidas: posts.reduce((n,p) => n + Number(p.like_count || 0), 0),
     comentarios: posts.reduce((n,p) => n + Number(p.comments_count || 0), 0),
-    formatos: Object.fromEntries(Object.entries(Object.groupBy(posts, p => p.media_product_type || p.media_type || 'OUTRO')).map(([k,v]) => [k, v.length]))
+    formatos: Object.fromEntries([...formats.entries()].map(([k,v]) => [k, v.length]))
   });
 }
 
