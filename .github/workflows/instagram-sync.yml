@@ -1,0 +1,63 @@
+name: Sincronizar Instagram da Casa da Limpeza
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 9 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: calito-instagram-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+      META_IG_USER_ID: ${{ secrets.META_IG_USER_ID }}
+      META_GRAPH_VERSION: ${{ vars.META_GRAPH_VERSION }}
+      META_MEDIA_INSIGHT_METRICS: ${{ vars.META_MEDIA_INSIGHT_METRICS }}
+      META_ACCOUNT_INSIGHT_METRICS: ${{ vars.META_ACCOUNT_INSIGHT_METRICS }}
+    steps:
+      - name: Baixar código
+        uses: actions/checkout@v4
+
+      - name: Verificar configuração
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "${META_ACCESS_TOKEN:-}" || { echo 'ERRO: cadastre META_ACCESS_TOKEN.'; exit 1; }
+          test -n "${META_IG_USER_ID:-}" || { echo 'ERRO: cadastre META_IG_USER_ID.'; exit 1; }
+          test -n "${META_GRAPH_VERSION:-}" || { echo 'ERRO: cadastre a variável META_GRAPH_VERSION.'; exit 1; }
+
+      - name: Configurar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Coletar publicações e insights
+        run: node instagram-auditor/src/sync-instagram.mjs
+
+      - name: Validar arquivos gerados
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s calito-data/instagram/index.json
+          node -e "JSON.parse(require('fs').readFileSync('calito-data/instagram/index.json','utf8')); console.log('Índice válido.')"
+
+      - name: Salvar atualização no repositório
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add calito-data/instagram
+          if git diff --cached --quiet; then
+            echo 'Nenhuma alteração encontrada.'
+            exit 0
+          fi
+          git commit -m 'data(instagram): atualizar auditoria da Casa da Limpeza [skip ci]'
+          git push
