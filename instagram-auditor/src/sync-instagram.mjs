@@ -16,6 +16,15 @@ const mediaMetrics = (process.env.META_MEDIA_INSIGHT_METRICS || '')
   .split(',').map(v => v.trim()).filter(Boolean);
 const baseUrl = `https://graph.facebook.com/${version}`;
 const outputRoot = path.resolve('calito-data/instagram');
+const configPath = path.resolve('instagram-auditor/config/casa-da-limpeza.json');
+const config = JSON.parse(await fs.readFile(configPath, 'utf8'));
+
+function assertAllowedAsset() {
+  const allowed = new Set((config.allowed_assets || []).map(String));
+  if (!allowed.has(String(igUserId))) {
+    throw new Error(`META_IG_USER_ID recusado: ${igUserId}. O ativo não pertence à configuração exclusiva da Casa da Limpeza.`);
+  }
+}
 
 async function graph(endpoint, params = {}) {
   const url = new URL(`${baseUrl}/${endpoint}`);
@@ -46,6 +55,21 @@ async function paged(endpoint, params) {
   return items;
 }
 
+async function validateRemoteAccount() {
+  const account = await graph(igUserId, { fields: 'id,username,name' });
+  const username = String(account.username || '').toLowerCase();
+  const expected = String(config.instagram_username || '').toLowerCase();
+  if (String(account.id) !== String(config.instagram_user_id) || username !== expected) {
+    throw new Error(`Conta recusada. Esperado @${expected} (${config.instagram_user_id}); recebido @${username || 'desconhecido'} (${account.id || 'sem id'}).`);
+  }
+  for (const blocked of config.blocked_names || []) {
+    if (username.includes(String(blocked).toLowerCase().replace(/\s+/g, ''))) {
+      throw new Error(`Ativo bloqueado detectado: ${blocked}`);
+    }
+  }
+  console.log(`Conta validada: @${username} (${account.id}).`);
+}
+
 async function getInsights(mediaId) {
   if (!mediaMetrics.length) return {};
   try {
@@ -71,6 +95,9 @@ function groupBy(items, keyFn) {
   }
   return result;
 }
+
+assertAllowedAsset();
+await validateRemoteAccount();
 
 const fields = [
   'id','caption','media_type','media_product_type','media_url','thumbnail_url',
@@ -119,6 +146,9 @@ for (const [periodo, posts] of [...grouped.entries()].sort(([a],[b]) => a.locale
 
 await fs.writeFile(path.join(outputRoot, 'index.json'), JSON.stringify({
   conta_id: igUserId,
+  username: config.instagram_username,
+  portfolio: config.portfolio_name,
+  business_id: config.meta_business_id,
   atualizado_em: new Date().toISOString(),
   total_publicacoes: normalized.length,
   meses: index
