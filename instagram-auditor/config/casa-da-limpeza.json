@@ -1,0 +1,25 @@
+{
+  "business_name": "Casa da Limpeza",
+  "portfolio_name": "Luciana-Rogger Kuzer",
+  "meta_business_id": "1810552962324974",
+  "instagram_username": "accasadalimpeza",
+  "instagram_user_id": "17841406124418994",
+  "selected_asset_id_from_business_suite": "100572492700970",
+  "mode": "read_only_audit",
+  "allowed_assets": [
+    "accasadalimpeza",
+    "17841406124418994",
+    "100572492700970"
+  ],
+  "blocked_names": [
+    "Parada Atlântida",
+    "paradaatlantida",
+    "Hupmix",
+    "Viking"
+  ],
+  "notes": [
+    "IDs são identificadores de ativos, não segredos.",
+    "O token da Meta deve permanecer somente nos GitHub Actions Secrets.",
+    "Antes da primeira coleta, validar via API que o username retornado é accasadalimpeza."
+  ]
+}
