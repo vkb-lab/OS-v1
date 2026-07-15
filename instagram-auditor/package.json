@@ -1,0 +1,12 @@
+{
+  "name": "calito-instagram-auditor",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sync": "node src/sync-instagram.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
