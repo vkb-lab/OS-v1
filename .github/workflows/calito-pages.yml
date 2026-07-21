@@ -42,16 +42,24 @@ jobs:
           test -f calito-skills/inteligencia-da-loja/skill.js
           test -f calito-skills/conhecimento-operacional/skill.js
           test -f calito-skills/memoria-aprendizado/skill.js
+          test -f calito-skills/alinhamento-transicao/skill.js
           test -f calito-data/conhecimento/manual-operacional.json
+          test -f calito-data/transicao/questionario-joao.json
           rm -rf /tmp/calito-public && mkdir -p /tmp/calito-public
           node <<'NODE'
           const fs=require('fs'),crypto=require('crypto');
           let app=fs.readFileSync('calito-app/index.html','utf8');
-          const skills=['calito-skills/memoria-aprendizado/skill.js','calito-skills/inteligencia-da-loja/skill.js','calito-skills/conhecimento-operacional/skill.js'].map(p=>fs.readFileSync(p,'utf8'));
+          const skills=[
+            'calito-skills/memoria-aprendizado/skill.js',
+            'calito-skills/inteligencia-da-loja/skill.js',
+            'calito-skills/conhecimento-operacional/skill.js',
+            'calito-skills/alinhamento-transicao/skill.js'
+          ].map(p=>fs.readFileSync(p,'utf8'));
           const memory=JSON.parse(fs.readFileSync('CALITO_BASE_CONSOLIDADA_COMPLETA.json','utf8'));
           if(fs.existsSync('calito-data/instagram/campaigns.json'))memory.instagram_campaigns=JSON.parse(fs.readFileSync('calito-data/instagram/campaigns.json','utf8'));
           if(fs.existsSync('calito-data/instagram/correlations.json'))memory.instagram_correlations=JSON.parse(fs.readFileSync('calito-data/instagram/correlations.json','utf8'));
           memory.conhecimento_operacional=JSON.parse(fs.readFileSync('calito-data/conhecimento/manual-operacional.json','utf8'));
+          memory.questionario_transicao=JSON.parse(fs.readFileSync('calito-data/transicao/questionario-joao.json','utf8'));
           const memoryScript='<script>window.CALITO_OPERATIONAL_MEMORY='+JSON.stringify(memory).replace(/<\//g,'<\\/')+';window.CALITO_ROLE="joao";sessionStorage.setItem("calitoRole","joao");<\/script>';
           const skillBundle=skills.map(skill=>'<script>'+skill.replace(/<\//g,'<\\/')+'<\/script>').join('');
           app=app.includes('</body>')?app.replace('</body>',skillBundle+'</body>'):app+skillBundle;
