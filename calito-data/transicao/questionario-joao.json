@@ -1,0 +1,31 @@
+{
+  "versao": 1,
+  "titulo": "Alinhamento da transição — Casa da Limpeza",
+  "objetivo": "Registrar, nas palavras do comprador, o entendimento e as expectativas sobre a negociação antes da redação final do contrato.",
+  "privacidade": "As respostas são do comprador. O formulário não exibe previamente condições privadas registradas pelo vendedor e não presume respostas.",
+  "campos": [
+    {"id":"nome_completo","tipo":"text","pergunta":"Qual seu nome completo?","obrigatorio":true},
+    {"id":"cpf_cnpj","tipo":"text","pergunta":"Qual CPF ou CNPJ será utilizado na operação?","obrigatorio":true},
+    {"id":"contato","tipo":"text","pergunta":"Qual telefone e e-mail devem constar como contato?","obrigatorio":true},
+    {"id":"objeto_entendimento","tipo":"textarea","pergunta":"Com suas palavras, descreva o que você entende que está adquirindo na negociação da Casa da Limpeza.","obrigatorio":true},
+    {"id":"valor_total","tipo":"text","pergunta":"Qual é o valor total da negociação conforme seu entendimento?","obrigatorio":true},
+    {"id":"pagamentos_realizados","tipo":"textarea","pergunta":"Descreva os pagamentos que você entende já terem sido realizados: valores, datas aproximadas e destinatários.","obrigatorio":true},
+    {"id":"saldo_pagamento","tipo":"textarea","pergunta":"Existe saldo a pagar? Se sim, qual valor e como você entende que será pago (datas, parcelas ou condição)?","obrigatorio":true},
+    {"id":"posse","tipo":"text","pergunta":"Em qual data você considera que assumiu ou assumirá a posse/operação da loja?","obrigatorio":true},
+    {"id":"estoque","tipo":"textarea","pergunta":"Como você entende que o estoque existente na loja entra na negociação? Há alguma condição, conferência ou ajuste que espera fazer?","obrigatorio":true},
+    {"id":"estrutura","tipo":"textarea","pergunta":"Quais móveis, equipamentos, câmeras, caixa, automações ou demais itens físicos você entende que fazem parte da negociação?","obrigatorio":true},
+    {"id":"ativos_digitais","tipo":"textarea","pergunta":"Quais ativos digitais, canais, cadastros, redes sociais, contatos, sistemas ou históricos você espera receber ou continuar utilizando?","obrigatorio":true},
+    {"id":"contas_receber","tipo":"textarea","pergunta":"Como você entende que devem ser tratados valores ou contas a receber originados antes da sua entrada na operação?","obrigatorio":true},
+    {"id":"obrigacoes_anteriores","tipo":"textarea","pergunta":"Como você entende a responsabilidade por títulos, dívidas, tributos, cobranças ou obrigações originadas antes da sua entrada?","obrigatorio":true},
+    {"id":"aluguel","tipo":"textarea","pergunta":"Como você entende que ficará a relação com o imóvel e o locador após a transição?","obrigatorio":true},
+    {"id":"utilidades","tipo":"textarea","pergunta":"Como você entende que ficarão água, energia, internet e demais contas operacionais após a transição?","obrigatorio":true},
+    {"id":"luciana_suporte","tipo":"textarea","pergunta":"Que tipo de suporte da Luciana você espera durante a transição (remoto, presencial ou ambos)? Por quanto tempo imagina precisar desse apoio?","obrigatorio":true},
+    {"id":"luciana_presencial","tipo":"textarea","pergunta":"Quando houver necessidade de apoio presencial da Luciana, como você entende que devem ser combinados deslocamento, despesas e agenda?","obrigatorio":true},
+    {"id":"luciana_contratacao","tipo":"textarea","pergunta":"Existe interesse em propor contratação da Luciana como funcionária ou outra forma de trabalho? Se sim, descreva como imagina essa relação. Se não, informe que não há interesse neste momento.","obrigatorio":true},
+    {"id":"nao_concorrencia","tipo":"textarea","pergunta":"Qual é seu entendimento sobre eventual compromisso de não concorrência após a transferência (prazo, território e atividade abrangida)?","obrigatorio":true},
+    {"id":"marca_continuidade","tipo":"textarea","pergunta":"Como você espera utilizar e preservar o nome, a cultura, o atendimento e o conhecimento construído pela Casa da Limpeza?","obrigatorio":false},
+    {"id":"pendencias","tipo":"textarea","pergunta":"Existe alguma condição, promessa, bem, obrigação ou expectativa que você considera combinada e que não apareceu nas perguntas acima?","obrigatorio":true},
+    {"id":"duvidas","tipo":"textarea","pergunta":"Quais pontos você quer esclarecer antes da elaboração e assinatura do contrato definitivo?","obrigatorio":false}
+  ],
+  "declaracao": "Estas respostas registram meu entendimento atual da negociação e serão utilizadas para conferir alinhamento entre as partes antes da elaboração do contrato definitivo. O preenchimento deste questionário não substitui o contrato e não altera, por si só, condições já acordadas entre as partes."
+}
