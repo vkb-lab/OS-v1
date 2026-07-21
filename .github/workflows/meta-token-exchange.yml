@@ -1,0 +1,103 @@
+name: Trocar código OAuth Meta da Casa da Limpeza
+
+on:
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: read
+
+env:
+  META_GRAPH_VERSION: ${{ vars.META_GRAPH_VERSION }}
+  META_APP_ID: ${{ secrets.META_APP_ID }}
+  META_APP_SECRET: ${{ secrets.META_APP_SECRET }}
+  META_OAUTH_CODE: ${{ secrets.META_OAUTH_CODE }}
+  META_IG_USER_ID: ${{ secrets.META_IG_USER_ID }}
+  META_INSTAGRAM_USERNAME: ${{ vars.META_INSTAGRAM_USERNAME }}
+  META_REDIRECT_URI: https://vkb-lab.github.io/OS-v1/meta-oauth-callback.html
+
+jobs:
+  exchange:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validar entradas seguras
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "${META_GRAPH_VERSION:-}" || { echo 'ERRO: META_GRAPH_VERSION ausente.'; exit 1; }
+          test -n "${META_APP_ID:-}" || { echo 'ERRO: META_APP_ID ausente.'; exit 1; }
+          test -n "${META_APP_SECRET:-}" || { echo 'ERRO: META_APP_SECRET ausente.'; exit 1; }
+          test -n "${META_OAUTH_CODE:-}" || { echo 'ERRO: META_OAUTH_CODE ausente.'; exit 1; }
+          test -n "${META_IG_USER_ID:-}" || { echo 'ERRO: META_IG_USER_ID ausente.'; exit 1; }
+          test "${META_INSTAGRAM_USERNAME:-}" = 'accasadalimpeza' || { echo 'ERRO: username esperado não configurado.'; exit 1; }
+
+      - name: Trocar código por token e validar Instagram
+        id: exchange
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          set +x
+
+          exchange_response="$(curl -fsS --get "https://graph.facebook.com/${META_GRAPH_VERSION}/oauth/access_token" \
+            --data-urlencode "client_id=${META_APP_ID}" \
+            --data-urlencode "redirect_uri=${META_REDIRECT_URI}" \
+            --data-urlencode "client_secret=${META_APP_SECRET}" \
+            --data-urlencode "code=${META_OAUTH_CODE}") 2>&1)" || {
+              echo 'ERRO: a Meta recusou a troca do código OAuth.'
+              echo "$exchange_response" | sed -E 's/[A-Za-z0-9_-]{24,}/***MASKED***/g'
+              exit 1
+            }
+
+          access_token="$(node -e "const r=JSON.parse(process.argv[1]); if(!r.access_token) process.exit(1); process.stdout.write(r.access_token)" "$exchange_response")"
+          echo "::add-mask::${access_token}"
+          token_type="$(node -e "const r=JSON.parse(process.argv[1]); process.stdout.write(String(r.token_type||'unknown'))" "$exchange_response")"
+          expires_in="$(node -e "const r=JSON.parse(process.argv[1]); process.stdout.write(String(r.expires_in||''))" "$exchange_response")"
+
+          long_response="$(curl -fsS --get "https://graph.facebook.com/${META_GRAPH_VERSION}/oauth/access_token" \
+            --data-urlencode 'grant_type=fb_exchange_token' \
+            --data-urlencode "client_id=${META_APP_ID}" \
+            --data-urlencode "client_secret=${META_APP_SECRET}" \
+            --data-urlencode "fb_exchange_token=${access_token}") 2>/dev/null)" || true
+          if [ -n "${long_response:-}" ]; then
+            long_token="$(node -e "try{const r=JSON.parse(process.argv[1]); if(r.access_token) process.stdout.write(r.access_token)}catch{}" "$long_response")"
+            if [ -n "${long_token:-}" ]; then
+              access_token="$long_token"
+              echo "::add-mask::${access_token}"
+              token_type="$(node -e "const r=JSON.parse(process.argv[1]); process.stdout.write(String(r.token_type||'unknown'))" "$long_response")"
+              expires_in="$(node -e "const r=JSON.parse(process.argv[1]); process.stdout.write(String(r.expires_in||''))" "$long_response")"
+            fi
+          fi
+
+          profile_response="$(curl -fsS --get "https://graph.facebook.com/${META_GRAPH_VERSION}/${META_IG_USER_ID}" \
+            --data-urlencode 'fields=id,username,name' \
+            --data-urlencode "access_token=${access_token}") 2>&1)" || {
+              echo 'ERRO: token gerado não acessa o Instagram esperado.'
+              echo "$profile_response" | sed -E 's/[A-Za-z0-9_-]{24,}/***MASKED***/g'
+              exit 1
+            }
+
+          got_id="$(node -e "const r=JSON.parse(process.argv[1]); process.stdout.write(String(r.id||''))" "$profile_response")"
+          got_username="$(node -e "const r=JSON.parse(process.argv[1]); process.stdout.write(String(r.username||''))" "$profile_response")"
+          test "$got_id" = "$META_IG_USER_ID" || { echo 'ERRO: ID do Instagram não corresponde ao autorizado.'; exit 1; }
+          test "$got_username" = 'accasadalimpeza' || { echo 'ERRO: username do Instagram não corresponde ao autorizado.'; exit 1; }
+
+          media_response="$(curl -fsS --get "https://graph.facebook.com/${META_GRAPH_VERSION}/${META_IG_USER_ID}/media" \
+            --data-urlencode 'fields=id,timestamp,caption,media_type,media_product_type,permalink,like_count,comments_count' \
+            --data-urlencode 'limit=1' \
+            --data-urlencode "access_token=${access_token}") 2>&1)" || {
+              echo 'ERRO: token validou perfil, mas não lista mídias.'
+              echo "$media_response" | sed -E 's/[A-Za-z0-9_-]{24,}/***MASKED***/g'
+              exit 1
+            }
+
+          media_count="$(node -e "const r=JSON.parse(process.argv[1]); process.stdout.write(String((r.data||[]).length))" "$media_response")"
+          printf '%s' "$access_token" | gh secret set META_ACCESS_TOKEN --repo "$GITHUB_REPOSITORY" --body-file -
+          gh secret delete META_OAUTH_CODE --repo "$GITHUB_REPOSITORY" --yes || true
+
+          echo "Token validado e salvo em META_ACCESS_TOKEN."
+          echo "Instagram validado: ${got_username} (${got_id})"
+          echo "Tipo do token: ${token_type}"
+          if [ -n "$expires_in" ]; then echo "Expira em segundos: ${expires_in}"; fi
+          echo "Publicações consultadas no teste: ${media_count}"
