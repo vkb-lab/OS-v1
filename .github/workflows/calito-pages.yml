@@ -6,6 +6,7 @@ on:
     paths:
       - 'calito-app/**'
       - 'calito-data/**'
+      - 'calito-skills/**'
       - 'CALITO_BASE_CONSOLIDADA_COMPLETA.json'
       - '.github/workflows/calito-pages.yml'
   workflow_dispatch:
@@ -43,6 +44,7 @@ jobs:
 
           test -f calito-app/index.html
           test -f CALITO_BASE_CONSOLIDADA_COMPLETA.json
+          test -f calito-skills/inteligencia-da-loja/skill.js
 
           rm -rf /tmp/calito-public
           mkdir -p /tmp/calito-public
@@ -51,13 +53,15 @@ jobs:
           const fs = require('fs');
           const crypto = require('crypto');
 
-          const app = fs.readFileSync('calito-app/index.html', 'utf8');
+          let app = fs.readFileSync('calito-app/index.html', 'utf8');
+          const skill = fs.readFileSync('calito-skills/inteligencia-da-loja/skill.js', 'utf8');
           const memoryText = fs.readFileSync('CALITO_BASE_CONSOLIDADA_COMPLETA.json', 'utf8');
           const memory = JSON.parse(memoryText);
           if (fs.existsSync('calito-data/instagram/campaigns.json')) memory.instagram_campaigns = JSON.parse(fs.readFileSync('calito-data/instagram/campaigns.json', 'utf8'));
           if (fs.existsSync('calito-data/instagram/correlations.json')) memory.instagram_correlations = JSON.parse(fs.readFileSync('calito-data/instagram/correlations.json', 'utf8'));
 
           const memoryScript = '<script>window.CALITO_OPERATIONAL_MEMORY=' + JSON.stringify(memory).replace(/<\//g, '<\\/') + ';window.CALITO_ROLE="joao";sessionStorage.setItem("calitoRole","joao");<\/script>';
+          app = app.includes('</body>') ? app.replace('</body>', '<script>' + skill.replace(/<\//g, '<\\/') + '<\/script></body>') : app + '<script>' + skill.replace(/<\//g, '<\\/') + '<\/script>';
           const protectedApp = app.includes('</head>')
             ? app.replace('</head>', memoryScript + '</head>')
             : memoryScript + app;
