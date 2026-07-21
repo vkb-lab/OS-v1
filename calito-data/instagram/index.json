@@ -1,0 +1,888 @@
+{
+  "fluxo": "Instagram Login",
+  "endpoint_base": "https://graph.instagram.com",
+  "conta_id": "17841406124418994",
+  "instagram_login_id": "37183029858008193",
+  "username": "accasadalimpeza",
+  "portfolio": "Luciana-Rogger Kuzer",
+  "business_id": "1810552962324974",
+  "atualizado_em": "2026-07-21T19:54:00.142Z",
+  "total_publicacoes": 1119,
+  "meses": [
+    {
+      "periodo": "2017-09",
+      "total_publicacoes": 5,
+      "curtidas": 55,
+      "comentarios": 3,
+      "formatos": {
+        "FEED": 5
+      }
+    },
+    {
+      "periodo": "2017-10",
+      "total_publicacoes": 2,
+      "curtidas": 25,
+      "comentarios": 1,
+      "formatos": {
+        "FEED": 2
+      }
+    },
+    {
+      "periodo": "2017-12",
+      "total_publicacoes": 2,
+      "curtidas": 25,
+      "comentarios": 1,
+      "formatos": {
+        "FEED": 2
+      }
+    },
+    {
+      "periodo": "2018-01",
+      "total_publicacoes": 1,
+      "curtidas": 19,
+      "comentarios": 2,
+      "formatos": {
+        "FEED": 1
+      }
+    },
+    {
+      "periodo": "2018-03",
+      "total_publicacoes": 1,
+      "curtidas": 28,
+      "comentarios": 0,
+      "formatos": {
+        "FEED": 1
+      }
+    },
+    {
+      "periodo": "2018-05",
+      "total_publicacoes": 1,
+      "curtidas": 14,
+      "comentarios": 0,
+      "formatos": {
+        "FEED": 1
+      }
+    },
+    {
+      "periodo": "2018-06",
+      "total_publicacoes": 4,
+      "curtidas": 59,
+      "comentarios": 0,
+      "formatos": {
+        "FEED": 4
+      }
+    },
+    {
+      "periodo": "2018-07",
+      "total_publicacoes": 2,
+      "curtidas": 36,
+      "comentarios": 0,
+      "formatos": {
+        "FEED": 2
+      }
+    },
+    {
+      "periodo": "2018-11",
+      "total_publicacoes": 4,
+      "curtidas": 47,
+      "comentarios": 0,
+      "formatos": {
+        "FEED": 4
+      }
+    },
+    {
+      "periodo": "2019-01",
+      "total_publicacoes": 1,
+      "curtidas": 16,
+      "comentarios": 1,
+      "formatos": {
+        "FEED": 1
+      }
+    },
+    {
+      "periodo": "2019-02",
+      "total_publicacoes": 1,
+      "curtidas": 29,
+      "comentarios": 5,
+      "formatos": {
+        "FEED": 1
+      }
+    },
+    {
+      "periodo": "2019-03",
+      "total_publicacoes": 1,
+      "curtidas": 23,
+      "comentarios": 0,
+      "formatos": {
+        "FEED": 1
+      }
+    },
+    {
+      "periodo": "2019-05",
+      "total_publicacoes": 5,
+      "curtidas": 85,
+      "comentarios": 3,
+      "formatos": {
+        "FEED": 5
+      }
+    },
+    {
+      "periodo": "2019-06",
+      "total_publicacoes": 1,
+      "curtidas": 16,
+      "comentarios": 0,
+      "formatos": {
+        "FEED": 1
+      }
+    },
+    {
+      "periodo": "2019-07",
+      "total_publicacoes": 3,
+      "curtidas": 24,
+      "comentarios": 1,
+      "formatos": {
+        "FEED": 3
+      }
+    },
+    {
+      "periodo": "2019-08",
+      "total_publicacoes": 3,
+      "curtidas": 47,
+      "comentarios": 1,
+      "formatos": {
+        "FEED": 3
+      }
+    },
+    {
+      "periodo": "2019-09",
+      "total_publicacoes": 8,
+      "curtidas": 93,
+      "comentarios": 2,
+      "formatos": {
+        "FEED": 8
+      }
+    },
+    {
+      "periodo": "2019-10",
+      "total_publicacoes": 8,
+      "curtidas": 60,
+      "comentarios": 3,
+      "formatos": {
+        "FEED": 8
+      }
+    },
+    {
+      "periodo": "2019-11",
+      "total_publicacoes": 9,
+      "curtidas": 98,
+      "comentarios": 2,
+      "formatos": {
+        "FEED": 9
+      }
+    },
+    {
+      "periodo": "2019-12",
+      "total_publicacoes": 20,
+      "curtidas": 178,
+      "comentarios": 10,
+      "formatos": {
+        "FEED": 20
+      }
+    },
+    {
+      "periodo": "2020-01",
+      "total_publicacoes": 13,
+      "curtidas": 138,
+      "comentarios": 1,
+      "formatos": {
+        "FEED": 13
+      }
+    },
+    {
+      "periodo": "2020-02",
+      "total_publicacoes": 17,
+      "curtidas": 113,
+      "comentarios": 2,
+      "formatos": {
+        "FEED": 17
+      }
+    },
+    {
+      "periodo": "2020-03",
+      "total_publicacoes": 22,
+      "curtidas": 179,
+      "comentarios": 5,
+      "formatos": {
+        "FEED": 22
+      }
+    },
+    {
+      "periodo": "2020-04",
+      "total_publicacoes": 11,
+      "curtidas": 114,
+      "comentarios": 4,
+      "formatos": {
+        "FEED": 11
+      }
+    },
+    {
+      "periodo": "2020-05",
+      "total_publicacoes": 8,
+      "curtidas": 90,
+      "comentarios": 4,
+      "formatos": {
+        "FEED": 8
+      }
+    },
+    {
+      "periodo": "2020-06",
+      "total_publicacoes": 2,
+      "curtidas": 17,
+      "comentarios": 0,
+      "formatos": {
+        "FEED": 2
+      }
+    },
+    {
+      "periodo": "2020-07",
+      "total_publicacoes": 5,
+      "curtidas": 55,
+      "comentarios": 0,
+      "formatos": {
+        "FEED": 5
+      }
+    },
+    {
+      "periodo": "2020-08",
+      "total_publicacoes": 2,
+      "curtidas": 39,
+      "comentarios": 1,
+      "formatos": {
+        "FEED": 2
+      }
+    },
+    {
+      "periodo": "2020-10",
+      "total_publicacoes": 7,
+      "curtidas": 96,
+      "comentarios": 4,
+      "formatos": {
+        "FEED": 7
+      }
+    },
+    {
+      "periodo": "2020-11",
+      "total_publicacoes": 22,
+      "curtidas": 184,
+      "comentarios": 2,
+      "formatos": {
+        "FEED": 22
+      }
+    },
+    {
+      "periodo": "2020-12",
+      "total_publicacoes": 29,
+      "curtidas": 216,
+      "comentarios": 2,
+      "formatos": {
+        "FEED": 29
+      }
+    },
+    {
+      "periodo": "2021-01",
+      "total_publicacoes": 10,
+      "curtidas": 135,
+      "comentarios": 6,
+      "formatos": {
+        "FEED": 10
+      }
+    },
+    {
+      "periodo": "2021-02",
+      "total_publicacoes": 33,
+      "curtidas": 664,
+      "comentarios": 21,
+      "formatos": {
+        "FEED": 27,
+        "REELS": 6
+      }
+    },
+    {
+      "periodo": "2021-03",
+      "total_publicacoes": 36,
+      "curtidas": 645,
+      "comentarios": 14,
+      "formatos": {
+        "FEED": 33,
+        "REELS": 3
+      }
+    },
+    {
+      "periodo": "2021-04",
+      "total_publicacoes": 32,
+      "curtidas": 549,
+      "comentarios": 26,
+      "formatos": {
+        "FEED": 30,
+        "REELS": 2
+      }
+    },
+    {
+      "periodo": "2021-05",
+      "total_publicacoes": 2,
+      "curtidas": 41,
+      "comentarios": 5,
+      "formatos": {
+        "FEED": 2
+      }
+    },
+    {
+      "periodo": "2021-06",
+      "total_publicacoes": 5,
+      "curtidas": 87,
+      "comentarios": 4,
+      "formatos": {
+        "FEED": 4,
+        "REELS": 1
+      }
+    },
+    {
+      "periodo": "2021-07",
+      "total_publicacoes": 19,
+      "curtidas": 208,
+      "comentarios": 8,
+      "formatos": {
+        "FEED": 13,
+        "REELS": 6
+      }
+    },
+    {
+      "periodo": "2021-08",
+      "total_publicacoes": 12,
+      "curtidas": 135,
+      "comentarios": 3,
+      "formatos": {
+        "REELS": 3,
+        "FEED": 9
+      }
+    },
+    {
+      "periodo": "2021-09",
+      "total_publicacoes": 21,
+      "curtidas": 198,
+      "comentarios": 15,
+      "formatos": {
+        "FEED": 18,
+        "REELS": 3
+      }
+    },
+    {
+      "periodo": "2021-10",
+      "total_publicacoes": 21,
+      "curtidas": 180,
+      "comentarios": 8,
+      "formatos": {
+        "FEED": 19,
+        "REELS": 2
+      }
+    },
+    {
+      "periodo": "2021-11",
+      "total_publicacoes": 19,
+      "curtidas": 232,
+      "comentarios": 10,
+      "formatos": {
+        "FEED": 13,
+        "REELS": 6
+      }
+    },
+    {
+      "periodo": "2021-12",
+      "total_publicacoes": 36,
+      "curtidas": 241,
+      "comentarios": 9,
+      "formatos": {
+        "FEED": 21,
+        "REELS": 15
+      }
+    },
+    {
+      "periodo": "2022-01",
+      "total_publicacoes": 38,
+      "curtidas": 404,
+      "comentarios": 28,
+      "formatos": {
+        "REELS": 6,
+        "FEED": 32
+      }
+    },
+    {
+      "periodo": "2022-02",
+      "total_publicacoes": 11,
+      "curtidas": 92,
+      "comentarios": 9,
+      "formatos": {
+        "FEED": 2,
+        "REELS": 9
+      }
+    },
+    {
+      "periodo": "2022-03",
+      "total_publicacoes": 16,
+      "curtidas": 119,
+      "comentarios": 1,
+      "formatos": {
+        "REELS": 11,
+        "FEED": 5
+      }
+    },
+    {
+      "periodo": "2022-04",
+      "total_publicacoes": 13,
+      "curtidas": 133,
+      "comentarios": 0,
+      "formatos": {
+        "REELS": 13
+      }
+    },
+    {
+      "periodo": "2022-05",
+      "total_publicacoes": 32,
+      "curtidas": 207,
+      "comentarios": 3,
+      "formatos": {
+        "REELS": 30,
+        "FEED": 2
+      }
+    },
+    {
+      "periodo": "2022-06",
+      "total_publicacoes": 4,
+      "curtidas": 32,
+      "comentarios": 0,
+      "formatos": {
+        "REELS": 4
+      }
+    },
+    {
+      "periodo": "2022-07",
+      "total_publicacoes": 6,
+      "curtidas": 74,
+      "comentarios": 0,
+      "formatos": {
+        "REELS": 6
+      }
+    },
+    {
+      "periodo": "2022-08",
+      "total_publicacoes": 4,
+      "curtidas": 45,
+      "comentarios": 1,
+      "formatos": {
+        "REELS": 4
+      }
+    },
+    {
+      "periodo": "2022-09",
+      "total_publicacoes": 8,
+      "curtidas": 72,
+      "comentarios": 2,
+      "formatos": {
+        "REELS": 8
+      }
+    },
+    {
+      "periodo": "2022-10",
+      "total_publicacoes": 32,
+      "curtidas": 220,
+      "comentarios": 12,
+      "formatos": {
+        "FEED": 5,
+        "REELS": 27
+      }
+    },
+    {
+      "periodo": "2022-11",
+      "total_publicacoes": 26,
+      "curtidas": 251,
+      "comentarios": 7,
+      "formatos": {
+        "REELS": 24,
+        "FEED": 2
+      }
+    },
+    {
+      "periodo": "2022-12",
+      "total_publicacoes": 26,
+      "curtidas": 203,
+      "comentarios": 7,
+      "formatos": {
+        "REELS": 23,
+        "FEED": 3
+      }
+    },
+    {
+      "periodo": "2023-01",
+      "total_publicacoes": 31,
+      "curtidas": 379,
+      "comentarios": 10,
+      "formatos": {
+        "REELS": 18,
+        "FEED": 13
+      }
+    },
+    {
+      "periodo": "2023-02",
+      "total_publicacoes": 21,
+      "curtidas": 204,
+      "comentarios": 4,
+      "formatos": {
+        "REELS": 19,
+        "FEED": 2
+      }
+    },
+    {
+      "periodo": "2023-03",
+      "total_publicacoes": 24,
+      "curtidas": 273,
+      "comentarios": 10,
+      "formatos": {
+        "FEED": 14,
+        "REELS": 10
+      }
+    },
+    {
+      "periodo": "2023-04",
+      "total_publicacoes": 22,
+      "curtidas": 248,
+      "comentarios": 13,
+      "formatos": {
+        "REELS": 20,
+        "FEED": 2
+      }
+    },
+    {
+      "periodo": "2023-05",
+      "total_publicacoes": 31,
+      "curtidas": 331,
+      "comentarios": 17,
+      "formatos": {
+        "REELS": 24,
+        "FEED": 7
+      }
+    },
+    {
+      "periodo": "2023-06",
+      "total_publicacoes": 17,
+      "curtidas": 356,
+      "comentarios": 44,
+      "formatos": {
+        "REELS": 9,
+        "FEED": 8
+      }
+    },
+    {
+      "periodo": "2023-07",
+      "total_publicacoes": 7,
+      "curtidas": 207,
+      "comentarios": 26,
+      "formatos": {
+        "REELS": 3,
+        "FEED": 4
+      }
+    },
+    {
+      "periodo": "2023-08",
+      "total_publicacoes": 16,
+      "curtidas": 244,
+      "comentarios": 10,
+      "formatos": {
+        "REELS": 11,
+        "FEED": 5
+      }
+    },
+    {
+      "periodo": "2023-09",
+      "total_publicacoes": 8,
+      "curtidas": 187,
+      "comentarios": 14,
+      "formatos": {
+        "FEED": 2,
+        "REELS": 6
+      }
+    },
+    {
+      "periodo": "2023-10",
+      "total_publicacoes": 31,
+      "curtidas": 201,
+      "comentarios": 15,
+      "formatos": {
+        "REELS": 24,
+        "FEED": 7
+      }
+    },
+    {
+      "periodo": "2023-11",
+      "total_publicacoes": 41,
+      "curtidas": 490,
+      "comentarios": 31,
+      "formatos": {
+        "REELS": 39,
+        "FEED": 2
+      }
+    },
+    {
+      "periodo": "2023-12",
+      "total_publicacoes": 7,
+      "curtidas": 84,
+      "comentarios": 1,
+      "formatos": {
+        "REELS": 6,
+        "FEED": 1
+      }
+    },
+    {
+      "periodo": "2024-01",
+      "total_publicacoes": 14,
+      "curtidas": 105,
+      "comentarios": 5,
+      "formatos": {
+        "REELS": 4,
+        "FEED": 10
+      }
+    },
+    {
+      "periodo": "2024-02",
+      "total_publicacoes": 10,
+      "curtidas": 87,
+      "comentarios": 1,
+      "formatos": {
+        "FEED": 5,
+        "REELS": 5
+      }
+    },
+    {
+      "periodo": "2024-03",
+      "total_publicacoes": 4,
+      "curtidas": 40,
+      "comentarios": 3,
+      "formatos": {
+        "REELS": 4
+      }
+    },
+    {
+      "periodo": "2024-04",
+      "total_publicacoes": 6,
+      "curtidas": 49,
+      "comentarios": 1,
+      "formatos": {
+        "REELS": 6
+      }
+    },
+    {
+      "periodo": "2024-05",
+      "total_publicacoes": 8,
+      "curtidas": 89,
+      "comentarios": 8,
+      "formatos": {
+        "REELS": 3,
+        "FEED": 5
+      }
+    },
+    {
+      "periodo": "2024-06",
+      "total_publicacoes": 9,
+      "curtidas": 129,
+      "comentarios": 10,
+      "formatos": {
+        "REELS": 8,
+        "FEED": 1
+      }
+    },
+    {
+      "periodo": "2024-07",
+      "total_publicacoes": 16,
+      "curtidas": 388,
+      "comentarios": 33,
+      "formatos": {
+        "REELS": 15,
+        "FEED": 1
+      }
+    },
+    {
+      "periodo": "2024-08",
+      "total_publicacoes": 14,
+      "curtidas": 232,
+      "comentarios": 18,
+      "formatos": {
+        "REELS": 13,
+        "FEED": 1
+      }
+    },
+    {
+      "periodo": "2024-09",
+      "total_publicacoes": 10,
+      "curtidas": 252,
+      "comentarios": 53,
+      "formatos": {
+        "REELS": 10
+      }
+    },
+    {
+      "periodo": "2024-10",
+      "total_publicacoes": 3,
+      "curtidas": 57,
+      "comentarios": 12,
+      "formatos": {
+        "REELS": 3
+      }
+    },
+    {
+      "periodo": "2024-11",
+      "total_publicacoes": 5,
+      "curtidas": 36,
+      "comentarios": 8,
+      "formatos": {
+        "REELS": 4,
+        "FEED": 1
+      }
+    },
+    {
+      "periodo": "2024-12",
+      "total_publicacoes": 7,
+      "curtidas": 136,
+      "comentarios": 10,
+      "formatos": {
+        "REELS": 7
+      }
+    },
+    {
+      "periodo": "2025-02",
+      "total_publicacoes": 4,
+      "curtidas": 20,
+      "comentarios": 1,
+      "formatos": {
+        "REELS": 4
+      }
+    },
+    {
+      "periodo": "2025-03",
+      "total_publicacoes": 1,
+      "curtidas": 2,
+      "comentarios": 0,
+      "formatos": {
+        "REELS": 1
+      }
+    },
+    {
+      "periodo": "2025-04",
+      "total_publicacoes": 3,
+      "curtidas": 20,
+      "comentarios": 0,
+      "formatos": {
+        "REELS": 3
+      }
+    },
+    {
+      "periodo": "2025-05",
+      "total_publicacoes": 2,
+      "curtidas": 55,
+      "comentarios": 3,
+      "formatos": {
+        "REELS": 2
+      }
+    },
+    {
+      "periodo": "2025-08",
+      "total_publicacoes": 5,
+      "curtidas": 31,
+      "comentarios": 0,
+      "formatos": {
+        "FEED": 2,
+        "REELS": 3
+      }
+    },
+    {
+      "periodo": "2025-09",
+      "total_publicacoes": 2,
+      "curtidas": 7,
+      "comentarios": 1,
+      "formatos": {
+        "REELS": 2
+      }
+    },
+    {
+      "periodo": "2025-10",
+      "total_publicacoes": 5,
+      "curtidas": 95,
+      "comentarios": 1,
+      "formatos": {
+        "REELS": 5
+      }
+    },
+    {
+      "periodo": "2025-11",
+      "total_publicacoes": 2,
+      "curtidas": 24,
+      "comentarios": 0,
+      "formatos": {
+        "REELS": 2
+      }
+    },
+    {
+      "periodo": "2025-12",
+      "total_publicacoes": 9,
+      "curtidas": 67,
+      "comentarios": 9,
+      "formatos": {
+        "REELS": 8,
+        "FEED": 1
+      }
+    },
+    {
+      "periodo": "2026-01",
+      "total_publicacoes": 6,
+      "curtidas": 51,
+      "comentarios": 1,
+      "formatos": {
+        "REELS": 6
+      }
+    },
+    {
+      "periodo": "2026-02",
+      "total_publicacoes": 11,
+      "curtidas": 101,
+      "comentarios": 0,
+      "formatos": {
+        "REELS": 11
+      }
+    },
+    {
+      "periodo": "2026-03",
+      "total_publicacoes": 23,
+      "curtidas": 257,
+      "comentarios": 9,
+      "formatos": {
+        "REELS": 23
+      }
+    },
+    {
+      "periodo": "2026-04",
+      "total_publicacoes": 1,
+      "curtidas": 13,
+      "comentarios": 1,
+      "formatos": {
+        "REELS": 1
+      }
+    },
+    {
+      "periodo": "2026-05",
+      "total_publicacoes": 1,
+      "curtidas": 54,
+      "comentarios": 12,
+      "formatos": {
+        "REELS": 1
+      }
+    }
+  ]
+}

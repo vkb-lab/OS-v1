@@ -1,0 +1,50 @@
+{
+  "periodo": "2018-07",
+  "total_publicacoes": 2,
+  "publicacoes": [
+    {
+      "id": "17931400879182266",
+      "timestamp": "2018-07-10T14:15:27+0000",
+      "periodo": "2018-07",
+      "media_type": "IMAGE",
+      "media_product_type": "FEED",
+      "caption": "Estoque renovado porque tudo mundo quer o queridinho da faxina #oxypower #faxinando #limpezaprofissional #limpatudo",
+      "permalink": "https://www.instagram.com/p/BlDdvlGlktZ/",
+      "media_url": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/629364671_18397845514182266_4332443634037568337_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=110&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=lTpEs7tugJkQ7kNvwHLXl3E&_nc_oc=Adr0jPkmYPpv-A9gsaOMeAI3xEkL1mMUzO9z0-UKky6L1RM1HhnOzKpSQX_am8bVheE&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=ANo9K5cEAAAA&_nc_gid=znMzBhbdrO18GlMqERGQIA&_nc_tpa=Q5bMBQGDRQX8D1yVqmR1xvYY-s-T2u05zDDMJTmyPugOqwe-dOq_iqFVsbv1N2bvLtr94MHz692jGNflXg&oh=00_AQCsHC0Jy8PVKlxHJ5XsiLkUoLfCEvZHdLsmtOPUWFNOYQ&oe=6A65989F",
+      "thumbnail_url": null,
+      "like_count": 25,
+      "comments_count": 0,
+      "children": [],
+      "insights": {
+        "reach": 2,
+        "views": 0,
+        "saved": 0,
+        "shares": 0,
+        "total_interactions": 25
+      },
+      "coletado_em": "2026-07-21T19:53:56.476Z"
+    },
+    {
+      "id": "17941316989091182",
+      "timestamp": "2018-07-20T20:30:18+0000",
+      "periodo": "2018-07",
+      "media_type": "IMAGE",
+      "media_product_type": "FEED",
+      "caption": "Lixeiras com garantia e proteção UV",
+      "permalink": "https://www.instagram.com/p/Bld4l0VgbYp/",
+      "media_url": "https://scontent-iad3-2.cdninstagram.com/v/t51.82787-15/631754717_18376652278091182_2199827653595267859_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=dmEPLxsPN4AQ7kNvwFU-iKH&_nc_oc=AdoeY2yc8dgr7_e9mJADx1Ne-SRJVTXTSIqxZJN-krcrpzvvTC5KUDZsxXpeMD-yCpo&_nc_zt=23&_nc_ht=scontent-iad3-2.cdninstagram.com&edm=ANo9K5cEAAAA&_nc_gid=znMzBhbdrO18GlMqERGQIA&_nc_tpa=Q5bMBQHjdmBmQ6X8EW5Rwk-g0L3U_Y0EBzWgqtY5HOdvyObUmMnqg14DcYUiax8lXsFvG1tik2hmN-JsqA&oh=00_AQBZjpvWjmu5H4WAXlOVAD-YvltnmjUjqEzxmg8TJtmgAg&oe=6A65BB79",
+      "thumbnail_url": null,
+      "like_count": 11,
+      "comments_count": 0,
+      "children": [],
+      "insights": {
+        "reach": 1,
+        "views": 0,
+        "saved": 2,
+        "shares": 0,
+        "total_interactions": 13
+      },
+      "coletado_em": "2026-07-21T19:53:56.208Z"
+    }
+  ]
+}
