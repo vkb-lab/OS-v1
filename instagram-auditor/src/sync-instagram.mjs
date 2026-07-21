@@ -14,7 +14,7 @@ const igUserId = process.env.META_IG_USER_ID;
 const version = process.env.META_GRAPH_VERSION;
 const mediaMetrics = (process.env.META_MEDIA_INSIGHT_METRICS || '')
   .split(',').map(v => v.trim()).filter(Boolean);
-const baseUrl = `https://graph.facebook.com/${version}`;
+const baseUrl = `https://graph.instagram.com/${version}`;
 const outputRoot = path.resolve('calito-data/instagram');
 const configPath = path.resolve('instagram-auditor/config/casa-da-limpeza.json');
 const config = JSON.parse(await fs.readFile(configPath, 'utf8'));
@@ -26,8 +26,14 @@ function assertAllowedAsset() {
   }
 }
 
+function safeMetaError(body, status) {
+  const message = body?.error?.message || `${status || ''}`.trim() || 'Erro da Meta API';
+  return message.replace(/[A-Za-z0-9_-]{24,}/g, '***');
+}
+
 async function graph(endpoint, params = {}) {
-  const url = new URL(`${baseUrl}/${endpoint}`);
+  const cleanEndpoint = String(endpoint).replace(/^\/+/, '');
+  const url = new URL(`${baseUrl}/${cleanEndpoint}`);
   for (const [key, value] of Object.entries(params)) {
     if (value !== undefined && value !== null && value !== '') url.searchParams.set(key, String(value));
   }
@@ -35,9 +41,15 @@ async function graph(endpoint, params = {}) {
   const response = await fetch(url, { headers: { accept: 'application/json' } });
   const body = await response.json().catch(() => ({}));
   if (!response.ok || body.error) {
-    const message = body?.error?.message || `${response.status} ${response.statusText}`;
-    throw new Error(`Meta API: ${message}`);
+    throw new Error(`Meta API: ${safeMetaError(body, `${response.status} ${response.statusText}`)}`);
   }
+  return body;
+}
+
+async function fetchNext(next) {
+  const response = await fetch(next, { headers: { accept: 'application/json' } });
+  const body = await response.json().catch(() => ({}));
+  if (!response.ok || body.error) throw new Error(`Meta API paginação: ${safeMetaError(body, `${response.status} ${response.statusText}`)}`);
   return body;
 }
 
@@ -48,26 +60,30 @@ async function paged(endpoint, params) {
     items.push(...(data.data || []));
     const next = data?.paging?.next;
     if (!next) break;
-    const response = await fetch(next, { headers: { accept: 'application/json' } });
-    data = await response.json();
-    if (!response.ok || data.error) throw new Error(data?.error?.message || 'Falha na paginação da Meta API.');
+    data = await fetchNext(next);
   }
   return items;
 }
 
-async function validateRemoteAccount() {
-  const account = await graph(igUserId, { fields: 'id,username,name' });
-  const username = String(account.username || '').toLowerCase();
-  const expected = String(config.instagram_username || '').toLowerCase();
-  if (String(account.id) !== String(config.instagram_user_id) || username !== expected) {
-    throw new Error(`Conta recusada. Esperado @${expected} (${config.instagram_user_id}); recebido @${username || 'desconhecido'} (${account.id || 'sem id'}).`);
-  }
+function assertBlockedNames(username) {
   for (const blocked of config.blocked_names || []) {
     if (username.includes(String(blocked).toLowerCase().replace(/\s+/g, ''))) {
       throw new Error(`Ativo bloqueado detectado: ${blocked}`);
     }
   }
-  console.log(`Conta validada: @${username} (${account.id}).`);
+}
+
+async function validateRemoteAccount() {
+  const account = await graph('me', { fields: 'id,user_id,username,account_type,media_count' });
+  const username = String(account.username || '').toLowerCase();
+  const expected = String(config.instagram_username || '').toLowerCase();
+  const returnedIds = [account.user_id, account.id].filter(Boolean).map(String);
+  if (!returnedIds.includes(String(config.instagram_user_id)) || username !== expected) {
+    throw new Error(`Conta recusada. Esperado @${expected} (${config.instagram_user_id}); recebido @${username || 'desconhecido'} (${returnedIds.join('/') || 'sem id'}).`);
+  }
+  assertBlockedNames(username);
+  console.log(`Conta validada via Instagram Login: @${username} (${config.instagram_user_id}).`);
+  return account;
 }
 
 async function getInsights(mediaId) {
@@ -96,18 +112,48 @@ function groupBy(items, keyFn) {
   return result;
 }
 
+async function readExistingMonthly() {
+  const byId = new Map();
+  try {
+    const years = await fs.readdir(outputRoot, { withFileTypes: true });
+    for (const year of years.filter(d => d.isDirectory())) {
+      const dir = path.join(outputRoot, year.name);
+      const files = await fs.readdir(dir, { withFileTypes: true });
+      for (const file of files.filter(d => d.isFile() && d.name.endsWith('.json'))) {
+        const data = JSON.parse(await fs.readFile(path.join(dir, file.name), 'utf8'));
+        for (const post of data.publicacoes || []) byId.set(String(post.id), post);
+      }
+    }
+  } catch (error) {
+    if (error.code !== 'ENOENT') throw error;
+  }
+  return byId;
+}
+
 assertAllowedAsset();
-await validateRemoteAccount();
+const account = await validateRemoteAccount();
 
 const fields = [
   'id','caption','media_type','media_product_type','media_url','thumbnail_url',
   'permalink','timestamp','username','like_count','comments_count','children{id,media_type,media_url,thumbnail_url}'
 ].join(',');
 
-const media = await paged(`${igUserId}/media`, { fields, limit: 100 });
-const normalized = [];
+let media;
+try {
+  media = await paged('me/media', { fields, limit: 100 });
+} catch (error) {
+  console.warn(`Campos completos indisponíveis, tentando coleta básica: ${error.message}`);
+  media = await paged('me/media', {
+    fields: 'id,caption,media_type,media_product_type,permalink,timestamp,username,like_count,comments_count',
+    limit: 100
+  });
+}
+
+const existing = await readExistingMonthly();
+const normalizedById = new Map(existing);
 for (const item of media) {
-  normalized.push({
+  normalizedById.set(String(item.id), {
+    ...(existing.get(String(item.id)) || {}),
     id: item.id,
     timestamp: item.timestamp,
     periodo: monthKey(item.timestamp),
@@ -124,6 +170,10 @@ for (const item of media) {
     coletado_em: new Date().toISOString()
   });
 }
+
+const normalized = [...normalizedById.values()]
+  .filter(item => item.id && item.timestamp)
+  .sort((a, b) => String(a.timestamp).localeCompare(String(b.timestamp)));
 
 const grouped = groupBy(normalized, item => item.periodo);
 await fs.mkdir(outputRoot, { recursive: true });
@@ -145,7 +195,10 @@ for (const [periodo, posts] of [...grouped.entries()].sort(([a],[b]) => a.locale
 }
 
 await fs.writeFile(path.join(outputRoot, 'index.json'), JSON.stringify({
+  fluxo: 'Instagram Login',
+  endpoint_base: 'https://graph.instagram.com',
   conta_id: igUserId,
+  instagram_login_id: account.id || null,
   username: config.instagram_username,
   portfolio: config.portfolio_name,
   business_id: config.meta_business_id,
