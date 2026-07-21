@@ -2,13 +2,14 @@ services:
   - type: web
     name: calito-form-backend
     runtime: node
+    plan: free
     rootDir: calito-form-backend
     buildCommand: npm install
     startCommand: npm start
     healthCheckPath: /health
     autoDeploy: true
     envVars:
-      - key: GITHUB_REPO
+      - key: GITHUB_REPOSITORY
         value: vkb-lab/OS-v1
       - key: GITHUB_BRANCH
         value: main
