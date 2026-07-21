@@ -1,0 +1,21 @@
+{
+  "acesso": "PRIVADO_VENDEDOR_NAO_EXIBIR_AO_JOAO",
+  "finalidade": "Referência interna para posterior conferência das respostas do questionário e preparação da minuta. Não deve ser injetado no payload público/João nem usado para sugerir respostas.",
+  "negociacao": {
+    "modelo": "venda porta fechada da operação Casa da Limpeza",
+    "valor_total_referencia": 200000,
+    "estoque_referencia": {"minimo_estimado":90000,"maximo_estimado":150000,"observacao":"pode variar; negociação focada em porta fechada, sem inventário detalhado"},
+    "estrutura_referencia": {"valor_estimado":80000,"inclui":["prateleiras","caixa","câmeras","automação","estrutura/equipamentos da operação"]},
+    "entrada_informada": {"total":100000,"pix":[{"destinatario":"Luciana","valor":15000},{"destinatario":"Rogger","valor":15000},{"destinatario":"Adriano, indicado por Rogger","valor":70000}]},
+    "saldo": {"valor_estimado":100000,"forma_pagamento":"a confirmar/alinhação necessária para contrato"},
+    "posse": "2026-07-14",
+    "inventario": "não será feito inventário detalhado; foco em venda porta fechada",
+    "contas_receber": "acertadas com Luciana",
+    "aluguel": "novo responsável/comprador será apresentado ao locador; tratativa prevista para a semana da formalização",
+    "utilidades": "água, luz e demais contas operacionais em processo de transferência",
+    "passivos_anteriores": "comprador não assume responsabilidade por títulos/obrigações anteriores à transferência",
+    "nao_concorrencia": {"prazo_anos":10,"territorio":"Antônio Carlos/SC","detalhamento_atividade":"a delimitar juridicamente na minuta para evitar amplitude indevida"},
+    "suporte_luciana": {"remoto":"disponível quando necessário, conforme alinhamento entre as partes","presencial":"mediante acordo prévio e cobertura das despesas de deslocamento","contratacao":"poderá ser negociada diretamente com Luciana como funcionária ou outra modalidade","duracao":"a definir entre João e Luciana conforme necessidade","remuneracao":"a definir"}
+  },
+  "nota_juridica": "Esta referência é memória negocial, não contrato. A minuta final deve ser revisada juridicamente, especialmente quanto a não concorrência, passivos, cessão/uso de marca e ativos digitais, locação, tratamento do saldo e natureza do suporte/contratação da Luciana."
+}
