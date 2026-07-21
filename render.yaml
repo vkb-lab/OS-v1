@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: calito-form-backend
+    runtime: node
+    rootDir: calito-form-backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: GITHUB_REPO
+        value: vkb-lab/OS-v1
+      - key: GITHUB_BRANCH
+        value: main
+      - key: ALLOWED_ORIGIN
+        value: https://vkb-lab.github.io
+      - key: GITHUB_TOKEN
+        sync: false
+      - key: CALITO_FORM_SUBMIT_KEY
+        sync: false
