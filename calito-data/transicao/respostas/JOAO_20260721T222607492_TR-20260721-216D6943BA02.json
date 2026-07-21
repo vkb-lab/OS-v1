@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "tipo": "questionario_alinhamento_transicao",
+    "versao": 1,
+    "recebido_em": "2026-07-21T22:26:07.492Z",
+    "protocolo": "TR-20260721-216D6943BA02",
+    "origem": "Calito Casa da Limpeza",
+    "idempotency_key_hash": "8475e03efc4cf023"
+  },
+  "respostas": {
+    "nome_completo": "TESTE AUTOMATICO CALITO",
+    "cpf_cnpj": "000.000.000-00",
+    "contato": "(00) 00000-0000 teste@calito.local",
+    "objeto_entendimento": "TESTE AUTOMATICO: entendimento ficticio usado apenas para validar envio automatico ao GitHub.",
+    "valor_total": "TESTE AUTOMATICO: valor ficticio, nao representa negociacao real.",
+    "pagamentos_realizados": "TESTE AUTOMATICO: sem pagamentos reais; campo preenchido apenas para validacao.",
+    "saldo_pagamento": "TESTE AUTOMATICO: sem saldo real; apenas validacao tecnica.",
+    "posse": "2026-07-21, data ficticia de teste automatico.",
+    "estoque": "TESTE AUTOMATICO: resposta ficticia para validar campo obrigatorio.",
+    "estrutura": "TESTE AUTOMATICO: itens ficticios, sem efeito contratual.",
+    "ativos_digitais": "TESTE AUTOMATICO: resposta ficticia para validar formulario.",
+    "contas_receber": "TESTE AUTOMATICO: sem valores reais; validacao apenas.",
+    "obrigacoes_anteriores": "TESTE AUTOMATICO: resposta ficticia sem validade.",
+    "aluguel": "TESTE AUTOMATICO: resposta ficticia para validar envio.",
+    "utilidades": "TESTE AUTOMATICO: resposta ficticia para validar envio.",
+    "luciana_suporte": "TESTE AUTOMATICO: suporte ficticio para validacao.",
+    "luciana_presencial": "TESTE AUTOMATICO: resposta ficticia.",
+    "luciana_contratacao": "TESTE AUTOMATICO: nao ha interesse real; apenas teste.",
+    "nao_concorrencia": "TESTE AUTOMATICO: campo preenchido sem refletir condicao real.",
+    "marca_continuidade": "TESTE AUTOMATICO: resposta opcional ficticia.",
+    "pendencias": "TESTE AUTOMATICO: nenhuma condicao real.",
+    "duvidas": "TESTE AUTOMATICO: nenhum ponto real."
+  }
+}
