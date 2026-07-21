@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "tipo": "questionario_alinhamento_transicao",
+    "versao": 1,
+    "recebido_em": "2026-07-21T21:57:58.124Z",
+    "protocolo": "TR-20260721-8DA330CBF2A9",
+    "origem": "Calito Casa da Limpeza",
+    "idempotency_key_hash": "bf1370b50a4cb9c8"
+  },
+  "respostas": {
+    "objeto_entendimento": "Teste automatizado temporario. Deve ser removido apos validacao.",
+    "cpf_cnpj": "00000000000",
+    "observacoes": "Registro ficticio criado para validar backend.",
+    "nome_completo": "TESTE AUTOMATICO CALITO"
+  }
+}
