@@ -92,30 +92,38 @@ jobs:
             fi
           fi
 
-          profile_response="$(curl -fsS --get "https://graph.facebook.com/${META_GRAPH_VERSION}/${META_IG_USER_ID}" \
+          profile_body="$(mktemp)"
+          profile_http="$(curl -sS -w '%{http_code}' -o "$profile_body" --get "https://graph.facebook.com/${META_GRAPH_VERSION}/${META_IG_USER_ID}" \
             --data-urlencode 'fields=id,username,name' \
-            --data-urlencode "access_token=${access_token}") 2>&1)" || {
-              echo 'ERRO: token gerado não acessa o Instagram esperado.'
-              echo "$profile_response" | sed -E 's/[A-Za-z0-9_-]{24,}/***MASKED***/g'
-              exit 1
-            }
+            --data-urlencode "access_token=${access_token}")"
+          profile_response="$(cat "$profile_body")"
+          rm -f "$profile_body"
+          if [ "$profile_http" -lt 200 ] || [ "$profile_http" -ge 300 ]; then
+            echo 'ERRO: token gerado não acessa o Instagram esperado.'
+            echo "$profile_response" | sed -E 's/[A-Za-z0-9_-]{24,}/***MASKED***/g'
+            exit 1
+          fi
 
           got_id="$(node -e "const r=JSON.parse(process.argv[1]); process.stdout.write(String(r.id||''))" "$profile_response")"
           got_username="$(node -e "const r=JSON.parse(process.argv[1]); process.stdout.write(String(r.username||''))" "$profile_response")"
           test "$got_id" = "$META_IG_USER_ID" || { echo 'ERRO: ID do Instagram não corresponde ao autorizado.'; exit 1; }
           test "$got_username" = 'accasadalimpeza' || { echo 'ERRO: username do Instagram não corresponde ao autorizado.'; exit 1; }
 
-          media_response="$(curl -fsS --get "https://graph.facebook.com/${META_GRAPH_VERSION}/${META_IG_USER_ID}/media" \
+          media_body="$(mktemp)"
+          media_http="$(curl -sS -w '%{http_code}' -o "$media_body" --get "https://graph.facebook.com/${META_GRAPH_VERSION}/${META_IG_USER_ID}/media" \
             --data-urlencode 'fields=id,timestamp,caption,media_type,media_product_type,permalink,like_count,comments_count' \
             --data-urlencode 'limit=1' \
-            --data-urlencode "access_token=${access_token}") 2>&1)" || {
-              echo 'ERRO: token validou perfil, mas não lista mídias.'
-              echo "$media_response" | sed -E 's/[A-Za-z0-9_-]{24,}/***MASKED***/g'
-              exit 1
-            }
+            --data-urlencode "access_token=${access_token}")"
+          media_response="$(cat "$media_body")"
+          rm -f "$media_body"
+          if [ "$media_http" -lt 200 ] || [ "$media_http" -ge 300 ]; then
+            echo 'ERRO: token validou perfil, mas não lista mídias.'
+            echo "$media_response" | sed -E 's/[A-Za-z0-9_-]{24,}/***MASKED***/g'
+            exit 1
+          fi
 
           media_count="$(node -e "const r=JSON.parse(process.argv[1]); process.stdout.write(String((r.data||[]).length))" "$media_response")"
-          printf '%s' "$access_token" | gh secret set META_ACCESS_TOKEN --repo "$GITHUB_REPOSITORY" --body-file -
+          printf '%s' "$access_token" | gh secret set META_ACCESS_TOKEN --repo "$GITHUB_REPOSITORY"
           gh secret delete META_OAUTH_CODE --repo "$GITHUB_REPOSITORY" --yes || true
 
           echo "Token validado e salvo em META_ACCESS_TOKEN."
