@@ -35,7 +35,7 @@ jobs:
         id: exchange
         shell: bash
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.GH_ADMIN_TOKEN || github.token }}
         run: |
           set -euo pipefail
           set +x
@@ -206,6 +206,7 @@ jobs:
             printf '%s' "$validation_id" | gh secret set META_IG_LOGIN_USER_ID --repo "$GITHUB_REPOSITORY"
           fi
           gh api -X DELETE "repos/${GITHUB_REPOSITORY}/actions/secrets/META_OAUTH_CODE" >/dev/null 2>&1 || true
+          gh api -X DELETE "repos/${GITHUB_REPOSITORY}/actions/secrets/GH_ADMIN_TOKEN" >/dev/null 2>&1 || true
 
           echo "Token validado e salvo em META_ACCESS_TOKEN."
           echo "Instagram validado: ${got_username} (${got_id})"
