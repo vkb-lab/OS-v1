@@ -90,8 +90,11 @@ jobs:
           fs.writeFileSync('/tmp/calito-public/.nojekyll', '');
           NODE
 
+          cp calito-app/meta-oauth-callback.html /tmp/calito-public/meta-oauth-callback.html
+
           test -f /tmp/calito-public/index.html
           test -f /tmp/calito-public/payload-joao.json
+          test -f /tmp/calito-public/meta-oauth-callback.html
 
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
