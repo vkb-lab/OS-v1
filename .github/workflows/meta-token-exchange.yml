@@ -92,6 +92,33 @@ jobs:
             fi
           fi
 
+          debug_body="$(mktemp)"
+          debug_http="$(curl -sS -w '%{http_code}' -o "$debug_body" --get "https://graph.facebook.com/${META_GRAPH_VERSION}/debug_token" \
+            --data-urlencode "input_token=${access_token}" \
+            --data-urlencode "access_token=${META_APP_ID}|${META_APP_SECRET}")"
+          debug_response="$(cat "$debug_body")"
+          rm -f "$debug_body"
+          if [ "$debug_http" -lt 200 ] || [ "$debug_http" -ge 300 ]; then
+            echo 'ERRO: debug_token recusou o token recém-gerado.'
+            echo "$debug_response" | sed -E 's/[A-Za-z0-9_-]{24,}/***MASKED***/g'
+            exit 1
+          fi
+          debug_is_valid="$(node -e "const r=JSON.parse(process.argv[1]).data||{}; process.stdout.write(String(r.is_valid||false))" "$debug_response")"
+          debug_app_id="$(node -e "const r=JSON.parse(process.argv[1]).data||{}; process.stdout.write(String(r.app_id||''))" "$debug_response")"
+          debug_type="$(node -e "const r=JSON.parse(process.argv[1]).data||{}; process.stdout.write(String(r.type||''))" "$debug_response")"
+          debug_user_id="$(node -e "const r=JSON.parse(process.argv[1]).data||{}; process.stdout.write(String(r.user_id||r.profile_id||''))" "$debug_response")"
+          debug_expires_at="$(node -e "const r=JSON.parse(process.argv[1]).data||{}; process.stdout.write(String(r.expires_at||''))" "$debug_response")"
+          debug_scopes="$(node -e "const r=JSON.parse(process.argv[1]).data||{}; process.stdout.write(JSON.stringify(r.scopes||[]))" "$debug_response")"
+          debug_granular="$(node -e "const r=JSON.parse(process.argv[1]).data||{}; process.stdout.write(JSON.stringify(r.granular_scopes||[]))" "$debug_response")"
+          echo "debug_token.is_valid=${debug_is_valid}"
+          echo "debug_token.app_id=${debug_app_id}"
+          echo "debug_token.type=${debug_type:-ausente}"
+          echo "debug_token.user_id=${debug_user_id:-ausente}"
+          echo "debug_token.expires_at=${debug_expires_at:-ausente}"
+          echo "debug_token.scopes=${debug_scopes}"
+          echo "debug_token.granular_scopes=${debug_granular}"
+          test "$debug_is_valid" = 'true' || { echo 'ERRO: token recém-gerado não é válido segundo debug_token.'; exit 1; }
+          test "$debug_app_id" = '1994358401214694' || { echo 'ERRO: app_id do token recém-gerado não corresponde ao app esperado.'; exit 1; }
           token_user_id="$(node -e "const r=JSON.parse(process.argv[1]); process.stdout.write(String(r.user_id||''))" "$exchange_response")"
           validation_response=""
           validation_mode=""
