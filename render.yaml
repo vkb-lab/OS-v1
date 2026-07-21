@@ -16,3 +16,5 @@ services:
         value: https://vkb-lab.github.io
       - key: GITHUB_TOKEN
         sync: false
+      - key: CALITO_FORM_SUBMIT_KEY
+        sync: false
