@@ -34,7 +34,6 @@ jobs:
         shell: bash
         env:
           CALITO_JOAO_PASSWORD: ${{ secrets.CALITO_JOAO_PASSWORD }}
-          CALITO_FORM_SUBMIT_KEY: ${{ secrets.CALITO_FORM_SUBMIT_KEY }}
           CALITO_FORM_ENDPOINT: ${{ vars.CALITO_FORM_ENDPOINT }}
         run: |
           set -euo pipefail
@@ -63,7 +62,7 @@ jobs:
           memory.conhecimento_operacional=JSON.parse(fs.readFileSync('calito-data/conhecimento/manual-operacional.json','utf8'));
           memory.questionario_transicao=JSON.parse(fs.readFileSync('calito-data/transicao/questionario-joao.json','utf8'));
           const memoryScript='<script>window.CALITO_OPERATIONAL_MEMORY='+JSON.stringify(memory).replace(/<\//g,'<\\/')+';window.CALITO_ROLE="joao";sessionStorage.setItem("calitoRole","joao");<\/script>';
-          const formConfig='<script>window.CALITO_FORM_ENDPOINT='+JSON.stringify(process.env.CALITO_FORM_ENDPOINT||'')+';window.CALITO_FORM_SUBMIT_KEY='+JSON.stringify(process.env.CALITO_FORM_SUBMIT_KEY||'')+';<\/script>';
+          const formConfig='<script>window.CALITO_FORM_ENDPOINT='+JSON.stringify(process.env.CALITO_FORM_ENDPOINT||'')+';<\/script>';
           const skillBundle=skills.map(skill=>'<script>'+skill.replace(/<\//g,'<\\/')+'<\/script>').join('');
           app=app.includes('</body>')?app.replace('</body>',skillBundle+'</body>'):app+skillBundle;
           const injected=memoryScript+formConfig;
