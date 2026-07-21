@@ -14,7 +14,18 @@
     "aluguel": "novo responsável/comprador será apresentado ao locador; tratativa prevista para a semana da formalização",
     "utilidades": "água, luz e demais contas operacionais em processo de transferência",
     "passivos_anteriores": "comprador não assume responsabilidade por títulos/obrigações anteriores à transferência",
-    "nao_concorrencia": {"prazo_anos":10,"territorio":"Antônio Carlos/SC","detalhamento_atividade":"a delimitar juridicamente na minuta para evitar amplitude indevida"},
+    "nao_concorrencia": {
+      "prazo_anos": 10,
+      "territorio": "Município de Antônio Carlos/SC",
+      "pessoas_abrangidas": ["Rogger", "Luciana"],
+      "condutas_restringidas": [
+        "abrir ou explorar comércio concorrente no município",
+        "vender diretamente, na rua, produtos que integrem o mix/lista de produtos da Casa da Limpeza",
+        "oferecer ou vender porta a porta no município produtos que integrem o mix/lista de produtos da Casa da Limpeza",
+        "oferecer, fornecer, intermediar ou comercializar por qualquer meio, em nome próprio ou vinculado às pessoas de Rogger ou Luciana, produtos que integrem o mix/lista de produtos da Casa da Limpeza a clientes do município"
+      ],
+      "observacao_juridica": "A redação contratual deverá delimitar com precisão território, prazo, pessoas, clientes alcançados e produtos/atividades efetivamente abrangidos, preservando proporcionalidade e executabilidade da cláusula."
+    },
     "suporte_luciana": {"remoto":"disponível quando necessário, conforme alinhamento entre as partes","presencial":"mediante acordo prévio e cobertura das despesas de deslocamento","contratacao":"poderá ser negociada diretamente com Luciana como funcionária ou outra modalidade","duracao":"a definir entre João e Luciana conforme necessidade","remuneracao":"a definir"}
   },
   "nota_juridica": "Esta referência é memória negocial, não contrato. A minuta final deve ser revisada juridicamente, especialmente quanto a não concorrência, passivos, cessão/uso de marca e ativos digitais, locação, tratamento do saldo e natureza do suporte/contratação da Luciana."
