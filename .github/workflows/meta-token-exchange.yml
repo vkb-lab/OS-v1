@@ -92,25 +92,70 @@ jobs:
             fi
           fi
 
-          profile_body="$(mktemp)"
-          profile_http="$(curl -sS -w '%{http_code}' -o "$profile_body" --get "https://graph.facebook.com/${META_GRAPH_VERSION}/${META_IG_USER_ID}" \
-            --data-urlencode 'fields=id,username,name' \
-            --data-urlencode "access_token=${access_token}")"
-          profile_response="$(cat "$profile_body")"
-          rm -f "$profile_body"
-          if [ "$profile_http" -lt 200 ] || [ "$profile_http" -ge 300 ]; then
-            echo 'ERRO: token gerado não acessa o Instagram esperado.'
-            echo "$profile_response" | sed -E 's/[A-Za-z0-9_-]{24,}/***MASKED***/g'
+          token_user_id="$(node -e "const r=JSON.parse(process.argv[1]); process.stdout.write(String(r.user_id||''))" "$exchange_response")"
+          validation_response=""
+          validation_mode=""
+          validation_id=""
+          validation_username=""
+
+          try_profile() {
+            local mode="$1"
+            local url="$2"
+            local fields="$3"
+            local body http response id username
+            body="$(mktemp)"
+            http="$(curl -sS -w '%{http_code}' -o "$body" --get "$url" \
+              --data-urlencode "fields=${fields}" \
+              --data-urlencode "access_token=${access_token}")"
+            response="$(cat "$body")"
+            rm -f "$body"
+            if [ "$http" -ge 200 ] && [ "$http" -lt 300 ]; then
+              id="$(node -e "const r=JSON.parse(process.argv[1]); process.stdout.write(String(r.user_id||r.id||''))" "$response")"
+              username="$(node -e "const r=JSON.parse(process.argv[1]); process.stdout.write(String(r.username||''))" "$response")"
+              if [ "$username" = 'accasadalimpeza' ]; then
+                validation_response="$response"
+                validation_mode="$mode"
+                validation_id="$id"
+                validation_username="$username"
+                return 0
+              fi
+            fi
+            return 1
+          }
+
+          try_profile 'facebook_graph_expected_id' "https://graph.facebook.com/${META_GRAPH_VERSION}/${META_IG_USER_ID}" 'id,username,name' || true
+          if [ -z "$validation_mode" ] && [ -n "$token_user_id" ]; then
+            try_profile 'instagram_graph_token_user_id' "https://graph.instagram.com/${META_GRAPH_VERSION}/${token_user_id}" 'id,user_id,username,account_type,media_count' || true
+          fi
+          if [ -z "$validation_mode" ]; then
+            try_profile 'instagram_graph_me' "https://graph.instagram.com/${META_GRAPH_VERSION}/me" 'id,user_id,username,account_type,media_count' || true
+          fi
+
+          if [ -z "$validation_mode" ]; then
+            echo 'ERRO: token gerado não validou o Instagram esperado em graph.facebook.com nem graph.instagram.com.'
+            echo "ID retornado na troca OAuth: ${token_user_id:-ausente}"
             exit 1
           fi
 
-          got_id="$(node -e "const r=JSON.parse(process.argv[1]); process.stdout.write(String(r.id||''))" "$profile_response")"
-          got_username="$(node -e "const r=JSON.parse(process.argv[1]); process.stdout.write(String(r.username||''))" "$profile_response")"
-          test "$got_id" = "$META_IG_USER_ID" || { echo 'ERRO: ID do Instagram não corresponde ao autorizado.'; exit 1; }
-          test "$got_username" = 'accasadalimpeza' || { echo 'ERRO: username do Instagram não corresponde ao autorizado.'; exit 1; }
+          if [ "$validation_id" != "$META_IG_USER_ID" ]; then
+            echo 'ERRO: username validado, mas o ID retornado pelo fluxo não corresponde ao Instagram Professional ID fixado.'
+            echo "Modo de validação: ${validation_mode}"
+            echo "ID esperado: ${META_IG_USER_ID}"
+            echo "ID retornado: ${validation_id}"
+            exit 1
+          fi
+          got_id="$validation_id"
+          got_username="$validation_username"
 
+          media_response=""
+          media_count="0"
+          if [ "$validation_mode" = 'facebook_graph_expected_id' ]; then
+            media_url="https://graph.facebook.com/${META_GRAPH_VERSION}/${META_IG_USER_ID}/media"
+          else
+            media_url="https://graph.instagram.com/${META_GRAPH_VERSION}/${META_IG_USER_ID}/media"
+          fi
           media_body="$(mktemp)"
-          media_http="$(curl -sS -w '%{http_code}' -o "$media_body" --get "https://graph.facebook.com/${META_GRAPH_VERSION}/${META_IG_USER_ID}/media" \
+          media_http="$(curl -sS -w '%{http_code}' -o "$media_body" --get "$media_url" \
             --data-urlencode 'fields=id,timestamp,caption,media_type,media_product_type,permalink,like_count,comments_count' \
             --data-urlencode 'limit=1' \
             --data-urlencode "access_token=${access_token}")"
@@ -118,16 +163,17 @@ jobs:
           rm -f "$media_body"
           if [ "$media_http" -lt 200 ] || [ "$media_http" -ge 300 ]; then
             echo 'ERRO: token validou perfil, mas não lista mídias.'
+            echo "Modo de validação: ${validation_mode}"
             echo "$media_response" | sed -E 's/[A-Za-z0-9_-]{24,}/***MASKED***/g'
             exit 1
           fi
-
           media_count="$(node -e "const r=JSON.parse(process.argv[1]); process.stdout.write(String((r.data||[]).length))" "$media_response")"
           printf '%s' "$access_token" | gh secret set META_ACCESS_TOKEN --repo "$GITHUB_REPOSITORY"
           gh secret delete META_OAUTH_CODE --repo "$GITHUB_REPOSITORY" --yes || true
 
           echo "Token validado e salvo em META_ACCESS_TOKEN."
           echo "Instagram validado: ${got_username} (${got_id})"
+          echo "Modo de validação: ${validation_mode}"
           echo "Tipo do token: ${token_type}"
           if [ -n "$expires_in" ]; then echo "Expira em segundos: ${expires_in}"; fi
           echo "Publicações consultadas no teste: ${media_count}"
