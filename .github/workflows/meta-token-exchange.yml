@@ -40,16 +40,19 @@ jobs:
           set -euo pipefail
           set +x
 
-          exchange_response="$(curl -fsS --get "https://graph.facebook.com/${META_GRAPH_VERSION}/oauth/access_token" \
+          exchange_body="$(mktemp)"
+          exchange_http="$(curl -sS -w '%{http_code}' -o "$exchange_body" --get "https://graph.facebook.com/${META_GRAPH_VERSION}/oauth/access_token" \
             --data-urlencode "client_id=${META_APP_ID}" \
             --data-urlencode "redirect_uri=${META_REDIRECT_URI}" \
             --data-urlencode "client_secret=${META_APP_SECRET}" \
-            --data-urlencode "code=${META_OAUTH_CODE}") 2>&1)" || {
-              echo 'ERRO: a Meta recusou a troca do código OAuth.'
-              echo "$exchange_response" | sed -E 's/[A-Za-z0-9_-]{24,}/***MASKED***/g'
-              exit 1
-            }
-
+            --data-urlencode "code=${META_OAUTH_CODE}")"
+          exchange_response="$(cat "$exchange_body")"
+          rm -f "$exchange_body"
+          if [ "$exchange_http" -lt 200 ] || [ "$exchange_http" -ge 300 ]; then
+            echo 'ERRO: a Meta recusou a troca do código OAuth.'
+            echo "$exchange_response" | sed -E 's/[A-Za-z0-9_-]{24,}/***MASKED***/g'
+            exit 1
+          fi
           access_token="$(node -e "const r=JSON.parse(process.argv[1]); if(!r.access_token) process.exit(1); process.stdout.write(r.access_token)" "$exchange_response")"
           echo "::add-mask::${access_token}"
           token_type="$(node -e "const r=JSON.parse(process.argv[1]); process.stdout.write(String(r.token_type||'unknown'))" "$exchange_response")"
