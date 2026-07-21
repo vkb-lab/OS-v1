@@ -1,0 +1,179 @@
+name: Diagnosticar token Meta da Casa da Limpeza
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  META_GRAPH_VERSION: ${{ vars.META_GRAPH_VERSION }}
+  META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+  META_APP_ID: ${{ secrets.META_APP_ID }}
+  META_APP_SECRET: ${{ secrets.META_APP_SECRET }}
+  META_IG_USER_ID: ${{ secrets.META_IG_USER_ID }}
+  META_INSTAGRAM_USERNAME: ${{ vars.META_INSTAGRAM_USERNAME }}
+  EXPECTED_APP_ID: '1994358401214694'
+  EXPECTED_IG_PROFESSIONAL_ID: '17841406124418994'
+  EXPECTED_USERNAME: accasadalimpeza
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Diagnosticar token sem expor segredo
+        shell: bash
+        run: |
+          set -euo pipefail
+          set +x
+          test -n "${META_ACCESS_TOKEN:-}" || { echo 'ERRO: META_ACCESS_TOKEN ausente.'; exit 1; }
+          test -n "${META_APP_ID:-}" || { echo 'ERRO: META_APP_ID ausente.'; exit 1; }
+          test -n "${META_APP_SECRET:-}" || { echo 'ERRO: META_APP_SECRET ausente.'; exit 1; }
+          echo "::add-mask::${META_ACCESS_TOKEN}"
+          echo "::add-mask::${META_APP_SECRET}"
+
+          node <<'NODE'
+          const expected = {
+            appId: process.env.EXPECTED_APP_ID,
+            professionalId: process.env.EXPECTED_IG_PROFESSIONAL_ID,
+            username: process.env.EXPECTED_USERNAME,
+            graphVersion: process.env.META_GRAPH_VERSION || 'v25.0',
+          };
+          const token = process.env.META_ACCESS_TOKEN;
+          const appId = process.env.META_APP_ID;
+          const appSecret = process.env.META_APP_SECRET;
+          const appAccessToken = `${appId}|${appSecret}`;
+
+          const mask = (value) => {
+            if (value == null || value === '') return '';
+            const s = String(value);
+            if (s === expected.appId || s === expected.professionalId || s === expected.username) return s;
+            if (s.length <= 8) return '***';
+            return `${s.slice(0, 4)}...${s.slice(-4)}`;
+          };
+          const summarizeError = (body) => {
+            try {
+              const parsed = JSON.parse(body);
+              const e = parsed.error || parsed;
+              return {
+                message: e.message,
+                type: e.type,
+                code: e.code,
+                subcode: e.error_subcode,
+                fbtrace_id: mask(e.fbtrace_id),
+              };
+            } catch {
+              return { message: String(body).slice(0, 220) };
+            }
+          };
+          async function call(label, base, path, params = {}) {
+            const url = new URL(`${base}${path}`);
+            for (const [k, v] of Object.entries(params)) url.searchParams.set(k, v);
+            const res = await fetch(url);
+            const text = await res.text();
+            let json = null;
+            try { json = JSON.parse(text); } catch {}
+            return { label, ok: res.ok, status: res.status, json, error: res.ok ? null : summarizeError(text) };
+          }
+          const safeJson = (obj) => JSON.stringify(obj, (key, value) => {
+            if (/token|secret|code/i.test(key)) return value ? '***' : value;
+            if (key === 'id' || key.endsWith('_id') || key === 'user_id' || key === 'target_ids') {
+              if (Array.isArray(value)) return value.map(mask);
+              return mask(value);
+            }
+            return value;
+          }, 2);
+
+          console.log('Diagnóstico seguro do token Meta');
+          console.log(`Graph version: ${expected.graphVersion}`);
+          console.log(`App esperado: ${expected.appId}`);
+          console.log(`Username esperado: ${expected.username}`);
+          console.log(`IG Professional ID esperado: ${expected.professionalId}`);
+
+          const debug = await call('debug_token', 'https://graph.facebook.com', `/${expected.graphVersion}/debug_token`, {
+            input_token: token,
+            access_token: appAccessToken,
+          });
+          console.log('\n[debug_token]');
+          if (!debug.ok) {
+            console.log(safeJson({ ok: false, status: debug.status, error: debug.error }));
+          } else {
+            const data = debug.json?.data || {};
+            const scopes = data.scopes || [];
+            const granular = data.granular_scopes || [];
+            console.log(safeJson({
+              ok: true,
+              app_id: data.app_id,
+              type: data.type,
+              application: data.application,
+              user_id: data.user_id,
+              profile_id: data.profile_id,
+              is_valid: data.is_valid,
+              expires_at: data.expires_at,
+              data_access_expires_at: data.data_access_expires_at,
+              scopes,
+              granular_scopes: granular,
+            }));
+            if (String(data.app_id || '') !== expected.appId) {
+              console.log('ABORTAR: app_id do token não corresponde ao app esperado.');
+              process.exit(20);
+            }
+          }
+
+          const results = [];
+          results.push(await call('instagram_graph_me', 'https://graph.instagram.com', `/${expected.graphVersion}/me`, {
+            fields: 'id,user_id,username,account_type,media_count',
+            access_token: token,
+          }));
+          results.push(await call('instagram_graph_me_media', 'https://graph.instagram.com', `/${expected.graphVersion}/me/media`, {
+            fields: 'id,timestamp,caption,media_type,media_product_type,permalink',
+            limit: '1',
+            access_token: token,
+          }));
+          results.push(await call('facebook_graph_me', 'https://graph.facebook.com', `/${expected.graphVersion}/me`, {
+            fields: 'id,name',
+            access_token: token,
+          }));
+          results.push(await call('facebook_graph_me_accounts', 'https://graph.facebook.com', `/${expected.graphVersion}/me/accounts`, {
+            fields: 'id,name,instagram_business_account{id,username,name}',
+            access_token: token,
+          }));
+          results.push(await call('facebook_graph_expected_ig', 'https://graph.facebook.com', `/${expected.graphVersion}/${expected.professionalId}`, {
+            fields: 'id,username,name',
+            access_token: token,
+          }));
+          results.push(await call('facebook_graph_expected_ig_media', 'https://graph.facebook.com', `/${expected.graphVersion}/${expected.professionalId}/media`, {
+            fields: 'id,timestamp,caption,media_type,media_product_type,permalink',
+            limit: '1',
+            access_token: token,
+          }));
+
+          console.log('\n[Testes de endpoint]');
+          for (const r of results) {
+            const payload = { label: r.label, ok: r.ok, status: r.status };
+            if (r.ok) {
+              const j = r.json || {};
+              payload.response = j.data ? { data_count: Array.isArray(j.data) ? j.data.length : undefined, sample: Array.isArray(j.data) ? j.data.slice(0, 1) : j.data } : j;
+            } else {
+              payload.error = r.error;
+            }
+            console.log(safeJson(payload));
+          }
+
+          const igMe = results.find(r => r.label === 'instagram_graph_me' && r.ok)?.json;
+          const fbIg = results.find(r => r.label === 'facebook_graph_expected_ig' && r.ok)?.json;
+          const accounts = results.find(r => r.label === 'facebook_graph_me_accounts' && r.ok)?.json?.data || [];
+          const linked = accounts.flatMap(p => p.instagram_business_account ? [{ page: p.name, page_id: p.id, ig: p.instagram_business_account }] : []);
+
+          console.log('\n[Conclusão automática]');
+          if (igMe?.username === expected.username) {
+            console.log(safeJson({ flow: 'Instagram Login', base_url: 'https://graph.instagram.com', id_to_use: igMe.user_id || igMe.id, username: igMe.username, note: 'O ID pode diferir do Instagram Professional Account ID.' }));
+          } else if (fbIg?.username === expected.username) {
+            console.log(safeJson({ flow: 'Instagram Graph/Facebook', base_url: 'https://graph.facebook.com', id_to_use: fbIg.id, username: fbIg.username }));
+          } else if (linked.some(x => x.ig?.username === expected.username || x.ig?.id === expected.professionalId)) {
+            console.log(safeJson({ flow: 'Instagram Graph/Facebook', base_url: 'https://graph.facebook.com', page_link_found: linked }));
+          } else {
+            console.log(safeJson({ flow: 'indefinido', reason: 'Token atual não valida o username esperado em Instagram Login nem via Facebook Graph/Business.' }));
+            process.exit(30);
+          }
+          NODE
