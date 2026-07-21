@@ -1,0 +1,29 @@
+{
+  "id": "inteligencia-da-loja",
+  "nome": "Inteligência da Loja",
+  "versao": "1.0.0",
+  "status": "ativo",
+  "publico": "João — operação",
+  "produto_futuro": "modulo_assinatura",
+  "fontes": [
+    "CALITO_BASE_CONSOLIDADA_COMPLETA.json",
+    "calito-data/instagram/campaigns.json",
+    "calito-data/instagram/correlations.json"
+  ],
+  "capacidades": [
+    "prioridade_historica_de_compra",
+    "sazonalidade_por_mes",
+    "produtos_ancora",
+    "alto_giro_e_margem",
+    "tendencia_por_produto",
+    "categorias_em_crescimento",
+    "alerta_de_cautela",
+    "associacao_marketing_vendas"
+  ],
+  "limites": [
+    "nao_calcula_quantidade_de_reposicao_sem_estoque_atual",
+    "nao_afirma_encalhe_sem_posicao_de_estoque",
+    "nao_afirma_causalidade_de_marketing",
+    "margem_bruta_nao_e_lucro_liquido"
+  ]
+}
