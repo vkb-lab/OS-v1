@@ -54,6 +54,8 @@ jobs:
           const app = fs.readFileSync('calito-app/index.html', 'utf8');
           const memoryText = fs.readFileSync('CALITO_BASE_CONSOLIDADA_COMPLETA.json', 'utf8');
           const memory = JSON.parse(memoryText);
+          if (fs.existsSync('calito-data/instagram/campaigns.json')) memory.instagram_campaigns = JSON.parse(fs.readFileSync('calito-data/instagram/campaigns.json', 'utf8'));
+          if (fs.existsSync('calito-data/instagram/correlations.json')) memory.instagram_correlations = JSON.parse(fs.readFileSync('calito-data/instagram/correlations.json', 'utf8'));
 
           const memoryScript = '<script>window.CALITO_OPERATIONAL_MEMORY=' + JSON.stringify(memory).replace(/<\//g, '<\\/') + ';window.CALITO_ROLE="joao";sessionStorage.setItem("calitoRole","joao");<\/script>';
           const protectedApp = app.includes('</head>')

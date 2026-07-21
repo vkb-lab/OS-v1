@@ -41,12 +41,17 @@ jobs:
       - name: Coletar publicações e insights
         run: node instagram-auditor/src/sync-instagram.mjs
 
+      - name: Classificar campanhas e correlacionar vendas
+        run: |
+          node instagram-auditor/src/classify-campaigns.mjs
+          node instagram-auditor/src/correlate-sales-marketing.mjs
+
       - name: Validar arquivos gerados
         shell: bash
         run: |
           set -euo pipefail
           test -s calito-data/instagram/index.json
-          node -e "JSON.parse(require('fs').readFileSync('calito-data/instagram/index.json','utf8')); console.log('Índice válido.')"
+          node -e "for (const f of ['index.json','campaigns.json','correlations.json']) JSON.parse(require('fs').readFileSync('calito-data/instagram/'+f,'utf8')); console.log('Arquivos de Instagram válidos.')"
 
       - name: Salvar atualização no repositório
         shell: bash

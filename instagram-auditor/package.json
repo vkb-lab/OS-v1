@@ -4,7 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "sync": "node src/sync-instagram.mjs"
+    "sync": "node src/sync-instagram.mjs",
+    "classify": "node src/classify-campaigns.mjs",
+    "correlate": "node src/correlate-sales-marketing.mjs"
   },
   "engines": {
     "node": ">=20"
