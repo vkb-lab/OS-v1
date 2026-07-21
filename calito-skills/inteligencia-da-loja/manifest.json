@@ -1,29 +1,66 @@
 {
   "id": "inteligencia-da-loja",
   "nome": "Inteligência da Loja",
-  "versao": "1.0.0",
+  "versao": "2.0.0",
   "status": "ativo",
   "publico": "João — operação",
   "produto_futuro": "modulo_assinatura",
+  "modo": "gestor_conversacional",
   "fontes": [
     "CALITO_BASE_CONSOLIDADA_COMPLETA.json",
     "calito-data/instagram/campaigns.json",
-    "calito-data/instagram/correlations.json"
+    "calito-data/instagram/correlations.json",
+    "dados_atuais_informados_no_dialogo"
   ],
   "capacidades": [
     "prioridade_historica_de_compra",
+    "reposicao_assistida",
+    "entrevista_progressiva_de_dados_atuais",
+    "estimativa_de_cobertura",
+    "risco_de_ruptura",
+    "estoque_em_transito",
+    "lead_time_de_fornecedor",
+    "pedido_minimo_e_caixa_fechada",
+    "limite_de_estoque",
     "sazonalidade_por_mes",
     "produtos_ancora",
     "alto_giro_e_margem",
     "tendencia_por_produto",
     "categorias_em_crescimento",
     "alerta_de_cautela",
-    "associacao_marketing_vendas"
+    "associacao_marketing_vendas",
+    "memoria_da_decisao_durante_a_sessao"
+  ],
+  "situacoes_mapeadas": [
+    "quanto_comprar",
+    "quanto_repor",
+    "estoque_baixo",
+    "risco_de_ruptura",
+    "mercadoria_em_transito",
+    "fornecedor_com_prazo_longo",
+    "pedido_minimo",
+    "caixa_fechada",
+    "excesso_de_estoque",
+    "baixo_giro",
+    "produto_sazonal",
+    "produto_ancora",
+    "margem_relevante",
+    "categoria_em_crescimento",
+    "categoria_em_queda",
+    "campanha_com_associacao_temporal",
+    "decisao_com_dados_incompletos"
+  ],
+  "campos_minimos_para_reposicao": [
+    "estoque_atual",
+    "mercadoria_em_transito",
+    "prazo_fornecedor_dias",
+    "pedido_minimo"
   ],
   "limites": [
-    "nao_calcula_quantidade_de_reposicao_sem_estoque_atual",
+    "nao_faz_pedido_automatico",
     "nao_afirma_encalhe_sem_posicao_de_estoque",
     "nao_afirma_causalidade_de_marketing",
-    "margem_bruta_nao_e_lucro_liquido"
+    "margem_bruta_nao_e_lucro_liquido",
+    "dados_informados_no_dialogo_sao_contexto_operacional_e_devem_ser_confirmados_quando_criticos"
   ]
 }
