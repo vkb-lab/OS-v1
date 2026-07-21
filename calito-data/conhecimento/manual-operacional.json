@@ -1,0 +1,135 @@
+{
+  "versao": "1.0.0",
+  "nome": "Base de Conhecimento Operacional — Casa da Limpeza",
+  "fontes": [
+    "Memória Oficial Completa do Calito",
+    "Manual do Vendedor — base documental comercial",
+    "Cultura Produto + Solução"
+  ],
+  "metodo_atendimento": {
+    "nome": "Produto + Solução",
+    "principio": "Não vender antes de compreender a necessidade.",
+    "passos": [
+      "Receber o cliente com proximidade e disposição.",
+      "Perguntar qual problema ele precisa resolver.",
+      "Identificar ambiente, superfície, material, tamanho da área ou volume da piscina.",
+      "Perguntar o que já foi aplicado ou tentado.",
+      "Identificar crianças, animais, plantas, alimentos ou materiais sensíveis próximos.",
+      "Consultar informação atual do produto.",
+      "Indicar a solução principal e apenas os complementos necessários.",
+      "Explicar uso em linguagem simples, sem substituir o rótulo.",
+      "Confirmar se o cliente entendeu.",
+      "Registrar casos relevantes para acompanhamento e recompra."
+    ],
+    "perguntas_padrao": [
+      "Qual é o problema que você quer resolver?",
+      "Onde será aplicado?",
+      "Qual é o tamanho aproximado da área ou o volume da piscina?",
+      "O que você já usou?",
+      "Há crianças, animais, plantas ou materiais sensíveis no local?",
+      "É uso residencial, profissional ou empresarial?",
+      "Você precisa resolver agora ou criar uma rotina de manutenção?"
+    ],
+    "fechamento": [
+      "Resumir a solução.",
+      "Reforçar cuidados.",
+      "Confirmar preço e estoque atuais.",
+      "Oferecer orientação pós-venda.",
+      "Registrar oportunidade de recompra."
+    ]
+  },
+  "manual_vendedor": {
+    "objetivo": "Padronizar atendimento, abordagem, fechamento e pós-venda sem perder a proximidade da Casa da Limpeza.",
+    "abordagem": [
+      "Cumprimentar sem pressionar.",
+      "Descobrir a necessidade antes de falar de preço ou marca.",
+      "Traduzir problema em solução e não em lista de produtos.",
+      "Evitar empurrar complementos sem necessidade real.",
+      "Usar histórico e conhecimento da loja como apoio, mas confirmar informação atual quando necessário."
+    ],
+    "diagnostico": [
+      "Entender problema, ambiente e urgência.",
+      "Perguntar o que já foi tentado.",
+      "Identificar riscos e materiais sensíveis.",
+      "Confirmar medidas necessárias para cálculo ou aplicação.",
+      "Consultar rótulo, ficha do produto ou informação atual quando houver dúvida."
+    ],
+    "fechamento": [
+      "Apresentar solução principal.",
+      "Explicar aplicação em linguagem simples.",
+      "Confirmar se o cliente entendeu.",
+      "Informar cuidados essenciais.",
+      "Confirmar preço e disponibilidade atuais.",
+      "Oferecer retorno para acompanhamento quando o caso exigir."
+    ],
+    "pos_venda": [
+      "Perguntar se o problema foi resolvido em casos relevantes.",
+      "Registrar recompra provável.",
+      "Registrar ocorrências que possam melhorar o atendimento futuro.",
+      "Não repetir orientação que falhou sem reavaliar o diagnóstico."
+    ]
+  },
+  "piscinas": {
+    "regra_central": "Não indicar tratamento completo sem dados mínimos. Nunca misturar produtos ou inventar dosagem.",
+    "dados_minimos": [
+      "volume da piscina",
+      "cor e aparência da água",
+      "odor",
+      "pH",
+      "cloro livre",
+      "alcalinidade",
+      "tempo desde a última aplicação",
+      "produtos já usados",
+      "condição do filtro e circulação"
+    ],
+    "roteiro_atendimento": [
+      "Confirmar o volume aproximado da piscina.",
+      "Perguntar se a água está verde, turva, leitosa, com algas nas paredes ou apenas sem brilho.",
+      "Perguntar quando foi a última aplicação e quais produtos foram utilizados.",
+      "Solicitar ou orientar a medição de pH, cloro livre e alcalinidade antes de recomendar tratamento completo.",
+      "Verificar se a filtração e circulação estão funcionando normalmente.",
+      "Separar correção de equilíbrio da água, desinfecção e clarificação conforme necessidade e rótulo dos produtos.",
+      "Orientar aplicação separada de produtos, respeitando instruções e intervalos do fabricante.",
+      "Confirmar escovação, filtração e aspiração quando o quadro exigir remoção física de sujeira ou algas.",
+      "Reavaliar a água antes de repetir produto ou aumentar tratamento."
+    ],
+    "piscina_verde": {
+      "perguntas": [
+        "Qual o volume da piscina?",
+        "A água está verde clara, verde escura ou com paredes escorregadias?",
+        "Qual o pH medido?",
+        "Qual o cloro livre medido?",
+        "Qual a alcalinidade?",
+        "O filtro está funcionando e por quantas horas?",
+        "O que já foi colocado e em que ordem?"
+      ],
+      "logica": [
+        "Primeiro diagnosticar e medir.",
+        "Corrigir parâmetros necessários conforme rótulos e orientação técnica do produto.",
+        "Tratar a causa biológica somente com a água em condição adequada para o produto escolhido.",
+        "Escovar superfícies e manter circulação/filtração conforme necessidade.",
+        "Clarificar ou decantar somente quando fizer sentido para o quadro apresentado.",
+        "Aspirar resíduos quando houver material sedimentado.",
+        "Reavaliar antes de nova aplicação."
+      ]
+    },
+    "seguranca": [
+      "Nunca misturar produtos concentrados entre si.",
+      "Nunca orientar mistura de cloro com ácidos ou outros produtos incompatíveis.",
+      "Aplicar produtos separadamente conforme rótulo e instrução do fabricante.",
+      "Não inventar dosagem sem volume da piscina e identificação exata do produto.",
+      "Em caso de dúvida sobre composição ou compatibilidade, consultar rótulo, FISPQ/SDS ou fabricante.",
+      "Manter crianças e animais afastados durante tratamento conforme orientação do produto."
+    ]
+  },
+  "conhecimento_consultavel": [
+    "como atender um cliente",
+    "manual do vendedor",
+    "como diagnosticar piscina verde",
+    "quais perguntas fazer para piscina",
+    "como fechar uma venda consultiva",
+    "como fazer pós-venda",
+    "o que perguntar antes de indicar produto",
+    "segurança no uso de químicos"
+  ]
+}
