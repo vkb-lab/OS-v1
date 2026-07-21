@@ -40,12 +40,31 @@ jobs:
           set -euo pipefail
           set +x
 
+          normalized_code="$(node <<'NODE'
+          const raw = String(process.env.META_OAUTH_CODE || '').trim().replace(/^['"]|['"]$/g, '');
+          let code = raw;
+          try {
+            if (/^https?:\/\//i.test(raw)) {
+              const url = new URL(raw);
+              code = url.searchParams.get('code') || raw;
+            } else if (raw.includes('code=')) {
+              code = new URLSearchParams(raw.replace(/^.*?\?/, '')).get('code') || raw;
+            }
+          } catch {}
+          try {
+            const decoded = decodeURIComponent(code);
+            if (decoded && decoded !== code) code = decoded;
+          } catch {}
+          process.stdout.write(code.trim());
+          NODE
+          )"
+          test -n "$normalized_code" || { echo 'ERRO: código OAuth vazio após normalização.'; exit 1; }
           exchange_body="$(mktemp)"
           exchange_http="$(curl -sS -w '%{http_code}' -o "$exchange_body" --get "https://graph.facebook.com/${META_GRAPH_VERSION}/oauth/access_token" \
             --data-urlencode "client_id=${META_APP_ID}" \
             --data-urlencode "redirect_uri=${META_REDIRECT_URI}" \
             --data-urlencode "client_secret=${META_APP_SECRET}" \
-            --data-urlencode "code=${META_OAUTH_CODE}")"
+            --data-urlencode "code=${normalized_code}")"
           exchange_response="$(cat "$exchange_body")"
           rm -f "$exchange_body"
           if [ "$exchange_http" -lt 200 ] || [ "$exchange_http" -ge 300 ]; then
