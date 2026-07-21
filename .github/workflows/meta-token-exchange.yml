@@ -164,12 +164,18 @@ jobs:
             exit 1
           fi
 
-          if [ "$validation_id" != "$META_IG_USER_ID" ]; then
+          if [ "$validation_mode" = 'facebook_graph_expected_id' ] && [ "$validation_id" != "$META_IG_USER_ID" ]; then
             echo 'ERRO: username validado, mas o ID retornado pelo fluxo não corresponde ao Instagram Professional ID fixado.'
             echo "Modo de validação: ${validation_mode}"
             echo "ID esperado: ${META_IG_USER_ID}"
             echo "ID retornado: ${validation_id}"
             exit 1
+          fi
+          if [ "$validation_mode" != 'facebook_graph_expected_id' ] && [ "$validation_id" != "$META_IG_USER_ID" ]; then
+            echo 'Instagram Login validado com ID próprio do fluxo.'
+            echo "Modo de validação: ${validation_mode}"
+            echo "Instagram Professional ID fixado: ${META_IG_USER_ID}"
+            echo "Instagram Login ID retornado: ${validation_id}"
           fi
           got_id="$validation_id"
           got_username="$validation_username"
@@ -179,7 +185,7 @@ jobs:
           if [ "$validation_mode" = 'facebook_graph_expected_id' ]; then
             media_url="https://graph.facebook.com/${META_GRAPH_VERSION}/${META_IG_USER_ID}/media"
           else
-            media_url="https://graph.instagram.com/${META_GRAPH_VERSION}/${META_IG_USER_ID}/media"
+            media_url="https://graph.instagram.com/${META_GRAPH_VERSION}/me/media"
           fi
           media_body="$(mktemp)"
           media_http="$(curl -sS -w '%{http_code}' -o "$media_body" --get "$media_url" \
@@ -196,7 +202,10 @@ jobs:
           fi
           media_count="$(node -e "const r=JSON.parse(process.argv[1]); process.stdout.write(String((r.data||[]).length))" "$media_response")"
           printf '%s' "$access_token" | gh secret set META_ACCESS_TOKEN --repo "$GITHUB_REPOSITORY"
-          gh secret delete META_OAUTH_CODE --repo "$GITHUB_REPOSITORY" --yes || true
+          if [ "$validation_mode" != 'facebook_graph_expected_id' ] && [ "$validation_id" != "$META_IG_USER_ID" ]; then
+            printf '%s' "$validation_id" | gh secret set META_IG_LOGIN_USER_ID --repo "$GITHUB_REPOSITORY"
+          fi
+          gh api -X DELETE "repos/${GITHUB_REPOSITORY}/actions/secrets/META_OAUTH_CODE" >/dev/null 2>&1 || true
 
           echo "Token validado e salvo em META_ACCESS_TOKEN."
           echo "Instagram validado: ${got_username} (${got_id})"
