@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "tipo": "questionario_alinhamento_transicao",
+    "versao": 1,
+    "recebido_em": "2026-07-23T13:53:58.103Z",
+    "protocolo": "TR-20260723-2EA9605BFCF4",
+    "origem": "Calito Casa da Limpeza",
+    "idempotency_key_hash": "d6416736f7531151"
+  },
+  "respostas": {
+    "nome_completo": "João Osvaldo Fortunato",
+    "cpf_cnpj": "11466306971",
+    "contato": "48999918943",
+    "objeto_entendimento": "Estou adquirindo uma loja bem localizada na praça de Antônio Carlos.",
+    "valor_total": "200.000,00",
+    "pagamentos_realizados": "15 mil reais para casa da limpeza Ltda (dados do banco com Luciana ) chave Pix 48984518638. 15 mil reais para Rogger Ramilly Cardoso kuzer Banco inter 077 Ag 0001 Conta 250803283 Chave Pix telefone 48999344673. 70 mil reais para Adriano duin de Souza Banco do Brasil Ag.3185-2 Conta 29806-9 Pix CPF 80517455668. esses pagamentos feitos via pixa pelo Dionísio Koch realizados na data 14/07/2026. Calular Motorola Rogger valor. 2.299,99. 1.000,00 reais em dinheiro. Data 22/07/2026. Pago Boleto data 22/07/2026 : Rogger : Beneficiário TEKSAN de 1662,42. e outras coisas pequenas.",
+    "saldo_pagamento": "Sim Parcelas de 10 mil reais. + Benefício de cartão de crédito de até 5 mil reais.",
+    "posse": "14/07/2024",
+    "estoque": "Apenas Preencher itens essenciais que vendem bem como MOP, Limpa Bolor etc.",
+    "estrutura": "Tudo.",
+    "ativos_digitais": "Todos.",
+    "contas_receber": "De responsabilidade do Ex proprietário.",
+    "obrigacoes_anteriores": "De responsabilidade do Ex proprietário.",
+    "aluguel": "5 a 6 anos garantidos de aluguel.",
+    "utilidades": "Tudo deve ser passao para o novo dono.",
+    "luciana_suporte": "1 mês ela prometeu na negociação que viria ajudar para ensinar a vender (demonstrar, explicar) os produtos. A parte de auxilio com pedidos pode ser via remota se ela achar melhor.",
+    "luciana_presencial": "As despesas dela ficam por nossa responsabilidade. Combustível e alimentação.",
+    "luciana_contratacao": "No momento não há interesse mas podemos conversar sobre.",
+    "nao_concorrencia": "Prazo indefinido vou me consolidar aqui na minha cidade, pretendo alcançar cidades como São Pedro de Alcantara, Biguaçu, o Bairro de Três Riachos, Guiomar com os nosso produtos da Casa da Limpeza.",
+    "marca_continuidade": "Pretendo continuar com a tradição.",
+    "pendencias": "Não.",
+    "duvidas": "Ajudar a organizar a loja."
+  }
+}
