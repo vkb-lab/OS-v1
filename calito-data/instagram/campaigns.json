@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-07-31T11:40:56.710Z",
+  "gerado_em": "2026-08-01T10:56:58.422Z",
   "fonte": "publicações reais sincronizadas da API oficial do Instagram",
   "total_publicacoes": 1119,
   "categorias_minimas": [
@@ -4129,13 +4129,13 @@
       "produtos_mencionados": [],
       "palavras_chave": [],
       "metricas": {
-        "curtidas": 24,
+        "curtidas": 25,
         "comentarios": 0,
         "alcance": 2,
         "visualizacoes": 0,
         "salvos": 0,
         "compartilhamentos": 0,
-        "interacoes": 24
+        "interacoes": 25
       },
       "confianca_classificacao": 0.35
     },
@@ -30567,7 +30567,7 @@
         "curtidas": 25,
         "comentarios": 0,
         "alcance": 716,
-        "visualizacoes": 1599,
+        "visualizacoes": 1600,
         "salvos": 0,
         "compartilhamentos": 2,
         "interacoes": 28
@@ -31847,8 +31847,8 @@
       "metricas": {
         "curtidas": 22,
         "comentarios": 1,
-        "alcance": 285,
-        "visualizacoes": 1617,
+        "alcance": 286,
+        "visualizacoes": 1619,
         "salvos": 1,
         "compartilhamentos": 0,
         "interacoes": 24
@@ -34669,13 +34669,13 @@
         "atendimento"
       ],
       "metricas": {
-        "curtidas": 7,
+        "curtidas": 8,
         "comentarios": 0,
-        "alcance": 305,
-        "visualizacoes": 503,
+        "alcance": 306,
+        "visualizacoes": 504,
         "salvos": 0,
-        "compartilhamentos": 0,
-        "interacoes": 7
+        "compartilhamentos": 1,
+        "interacoes": 9
       },
       "confianca_classificacao": 0.79
     },
@@ -35001,7 +35001,7 @@
       "metricas": {
         "curtidas": 7,
         "comentarios": 0,
-        "alcance": 362,
+        "alcance": 363,
         "visualizacoes": 500,
         "salvos": 1,
         "compartilhamentos": 1,
@@ -35027,8 +35027,8 @@
       "metricas": {
         "curtidas": 17,
         "comentarios": 0,
-        "alcance": 389,
-        "visualizacoes": 498,
+        "alcance": 390,
+        "visualizacoes": 499,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 17
@@ -35051,8 +35051,8 @@
       "metricas": {
         "curtidas": 8,
         "comentarios": 0,
-        "alcance": 155,
-        "visualizacoes": 218,
+        "alcance": 156,
+        "visualizacoes": 219,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 8
@@ -35360,7 +35360,7 @@
       "metricas": {
         "curtidas": 10,
         "comentarios": 0,
-        "alcance": 403,
+        "alcance": 404,
         "visualizacoes": 543,
         "salvos": 0,
         "compartilhamentos": 0,
@@ -35469,7 +35469,7 @@
       "metricas": {
         "curtidas": 10,
         "comentarios": 0,
-        "alcance": 484,
+        "alcance": 485,
         "visualizacoes": 624,
         "salvos": 0,
         "compartilhamentos": 0,
@@ -35608,7 +35608,7 @@
         "curtidas": 13,
         "comentarios": 1,
         "alcance": 441,
-        "visualizacoes": 525,
+        "visualizacoes": 526,
         "salvos": 0,
         "compartilhamentos": 1,
         "interacoes": 15
@@ -35636,7 +35636,7 @@
       "metricas": {
         "curtidas": 13,
         "comentarios": 1,
-        "alcance": 611,
+        "alcance": 612,
         "visualizacoes": 722,
         "salvos": 0,
         "compartilhamentos": 0,
@@ -35675,7 +35675,7 @@
         "curtidas": 54,
         "comentarios": 12,
         "alcance": 1575,
-        "visualizacoes": 2403,
+        "visualizacoes": 2404,
         "salvos": 1,
         "compartilhamentos": 20,
         "interacoes": 89
