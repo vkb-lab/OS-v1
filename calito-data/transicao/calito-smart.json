@@ -1,0 +1,80 @@
+{
+  "versao": 1,
+  "titulo": "Calito Smart — Transição Casa da Limpeza",
+  "novos_proprietarios": ["Ariane", "João"],
+  "partes_vendedoras": ["Rogger", "Luciana"],
+  "valor_total": 200000,
+  "posse": "2026-07-14",
+  "pagamentos": {
+    "entrada_confirmada": 100000,
+    "entrada_detalhada": [
+      {"destinatario":"Luciana / Casa da Limpeza","valor":15000,"status":"pago"},
+      {"destinatario":"Rogger","valor":15000,"status":"pago"},
+      {"destinatario":"Adriano, indicado por Rogger","valor":70000,"status":"pago"}
+    ],
+    "diversos_reconhecidos": {"valor_referencia":10000,"descricao":"Créditos e abatimentos diversos mencionados pelas partes, incluindo aparelho, dinheiro, boleto e outros itens a documentar em anexo."},
+    "cronograma": [
+      {"competencia":"2026-08","valor":15000,"forma":"pagamento"},
+      {"competencia":"2026-09","valor":10000,"forma":"pagamento"},
+      {"competencia":"2026-10","valor":10000,"forma":"pagamento"},
+      {"competencia":"2026-11","valor":10000,"forma":"pagamento"},
+      {"competencia":"2026-12","valor":30000,"forma":"mercadorias"},
+      {"competencia":"2026-08 a 2026-12","valor_maximo_mensal":5000,"forma":"cartão de crédito disponibilizado para uso até completar o saldo remanescente"}
+    ],
+    "previsao_quitacao":"2026-12-31",
+    "regra_quitacao":"Considera-se concluído o pagamento com a entrega das mercadorias de dezembro e a integralização do saldo remanescente pelo cronograma e pelo uso do cartão, conforme conferência entre as partes."
+  },
+  "objeto": {
+    "modelo":"venda porta fechada da operação Casa da Limpeza",
+    "estoque":{"faixa_estimada_min":90000,"faixa_estimada_max":150000,"inventario_detalhado":false},
+    "estrutura":{"valor_estimado":80000,"inclui":["prateleiras","caixa","câmeras","automação","equipamentos e demais itens físicos da operação"]},
+    "ativos_digitais":"incluídos conforme transferência operacional",
+    "passivos_anteriores":"não transferidos aos novos proprietários"
+  },
+  "locacao": {
+    "garantia_confirmada_anos":6,
+    "inicio_referencia":"2026-07-14",
+    "apos_periodo":"renovação e condições futuras ficam a critério dos novos proprietários e do locador"
+  },
+  "suporte_luciana": {
+    "periodo_inicial":{"inicio":"2026-07-14","fim":"2026-08-14","duracao_dias":30},
+    "presencial":"apoio inicial para organização, atendimento, demonstração, explicação de produtos e treinamento de vendas",
+    "despesas_presenciais":"combustível e alimentação por conta da operação dos novos proprietários",
+    "remoto":"disponível para dúvidas e auxílio operacional conforme necessidade",
+    "apos_2026_08_14":"Ariane e João e Luciana poderão combinar livremente eventual continuidade como gerente, vendedora, consultora, treinadora ou outra modalidade, inclusive remuneração e carga de trabalho"
+  },
+  "calito": {
+    "suporte_incluido_ate":"2026-12-31",
+    "escopo":"apoio às decisões, consulta de vendas, produtos, margem, marketing, operação, conhecimento e transição",
+    "apos_periodo":"personalização, manutenção ou assinatura dependem de novo acordo entre as partes"
+  },
+  "nao_concorrencia": {
+    "prazo":"vitalício / por prazo indeterminado",
+    "territorio":"Município de Antônio Carlos/SC",
+    "pessoas_abrangidas":["Rogger","Luciana"],
+    "condutas_restringidas":[
+      "abrir ou explorar comércio concorrente",
+      "vender produtos do mix da Casa da Limpeza na rua",
+      "oferecer ou vender porta a porta",
+      "fornecer, intermediar ou comercializar por qualquer meio produtos do mix a clientes do município"
+    ],
+    "fora_do_territorio":"demais municípios permanecem em comércio aberto e não são abrangidos por este acordo"
+  },
+  "checklist": [
+    {"id":"contrato","titulo":"Contrato definitivo","status":"pendente"},
+    {"id":"entrada","titulo":"Entrada de R$ 100.000 confirmada","status":"concluido"},
+    {"id":"diversos","titulo":"Créditos diversos de R$ 10.000 documentados","status":"pendente"},
+    {"id":"agosto","titulo":"Parcela de agosto — R$ 15.000","status":"pendente"},
+    {"id":"setembro","titulo":"Parcela de setembro — R$ 10.000","status":"pendente"},
+    {"id":"outubro","titulo":"Parcela de outubro — R$ 10.000","status":"pendente"},
+    {"id":"novembro","titulo":"Parcela de novembro — R$ 10.000","status":"pendente"},
+    {"id":"dezembro_mercadoria","titulo":"Mercadorias de dezembro — R$ 30.000","status":"pendente"},
+    {"id":"cartao","titulo":"Uso do cartão para saldo remanescente","status":"pendente"},
+    {"id":"locacao","titulo":"Locação confirmada por 6 anos","status":"concluido"},
+    {"id":"utilidades","titulo":"Água, luz, internet e demais contas transferidas","status":"em_andamento"},
+    {"id":"ativos_digitais","titulo":"Ativos digitais e sistemas transferidos","status":"em_andamento"},
+    {"id":"suporte_luciana","titulo":"Apoio inicial da Luciana até 14/08/2026","status":"em_andamento"},
+    {"id":"calito_ate_dezembro","titulo":"Calito Smart ativo até dezembro de 2026","status":"concluido"},
+    {"id":"quitacao","titulo":"Quitação integral da negociação","status":"pendente"}
+  ]
+}
