@@ -8,7 +8,8 @@ const BRANCH = process.env.GITHUB_BRANCH || 'main';
 const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || 'https://vkb-lab.github.io';
 const MAX_BYTES = Number(process.env.MAX_PAYLOAD_BYTES || 120000);
 const RATE_LIMIT_MS = Number(process.env.RATE_LIMIT_MS || 1500);
-const ADMIN_PASSWORD = process.env.CALITO_ADMIN_PASSWORD || '';
+// Preferir CALITO_ADMIN_PASSWORD_HASH no Render. O fallback mantém compatibilidade com o acesso solicitado agora.
+const ADMIN_PASSWORD_HASH = process.env.CALITO_ADMIN_PASSWORD_HASH || 'e8522fd87f748c388684c3eff07de12ac2f77d5c8f5f0222d50c7e819e26ca91';
 const RESPONSE_DIR = 'calito-data/transicao/respostas';
 const FINANCE_PATH = 'calito-data/transicao/financeiro.json';
 const REQUIRED_FIELDS = ['nome_completo', 'cpf_cnpj', 'objeto_entendimento'];
@@ -78,9 +79,9 @@ const server=http.createServer(async(req,res)=>{
     if(!checkOrigin(req))return send(res,403,{ok:false,error:'origin_not_allowed'});
 
     if(req.url==='/api/admin-auth'&&req.method==='POST'){
-      if(!ADMIN_PASSWORD)return send(res,503,{ok:false,error:'admin_not_configured'});
       const raw=await readBody(req);let body={};try{body=JSON.parse(raw||'{}')}catch{throw new Error('invalid_json')}
-      const supplied=String(body.password||'');const a=Buffer.from(supplied),b=Buffer.from(ADMIN_PASSWORD);const ok=a.length===b.length&&crypto.timingSafeEqual(a,b);if(!ok)return send(res,401,{ok:false,error:'invalid_credentials'});
+      const suppliedHash=crypto.createHash('sha256').update(String(body.password||'')).digest('hex');
+      const a=Buffer.from(suppliedHash),b=Buffer.from(ADMIN_PASSWORD_HASH);const ok=a.length===b.length&&crypto.timingSafeEqual(a,b);if(!ok)return send(res,401,{ok:false,error:'invalid_credentials'});
       const token=crypto.randomBytes(24).toString('base64url');adminTokens.set(token,Date.now()+8*60*60*1000);return send(res,200,{ok:true,token,editor:'Rogger'});
     }
 
