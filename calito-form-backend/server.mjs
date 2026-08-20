@@ -8,8 +8,7 @@ const BRANCH = process.env.GITHUB_BRANCH || 'main';
 const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || 'https://vkb-lab.github.io';
 const MAX_BYTES = Number(process.env.MAX_PAYLOAD_BYTES || 120000);
 const RATE_LIMIT_MS = Number(process.env.RATE_LIMIT_MS || 1500);
-// Preferir CALITO_ADMIN_PASSWORD_HASH no Render. O fallback mantém compatibilidade com o acesso solicitado agora.
-const ADMIN_PASSWORD_HASH = process.env.CALITO_ADMIN_PASSWORD_HASH || 'e8522fd87f748c388684c3eff07de12ac2f77d5c8f5f0222d50c7e819e26ca91';
+const ADMIN_PASSWORD_HASH = process.env.CALITO_ADMIN_PASSWORD_HASH || '5788bf950ef7741b0c84918c7c053bdd9924d99365e342c3569ab4f9310f17bb';
 const RESPONSE_DIR = 'calito-data/transicao/respostas';
 const FINANCE_PATH = 'calito-data/transicao/financeiro.json';
 const REQUIRED_FIELDS = ['nome_completo', 'cpf_cnpj', 'objeto_entendimento'];
