@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Calito Admin — Rogger</title>
+  <style>
+    :root{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#15213a;background:#fff8ec}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 85% 15%,#dff8fa 0,transparent 28%),linear-gradient(135deg,#fff8e8,#fff);padding:20px}
+    .wrap{width:min(980px,100%);margin:0 auto}.card{background:#fff;border:1px solid #f2d7c8;border-radius:24px;padding:24px;box-shadow:0 24px 70px rgba(35,43,68,.12)}
+    .head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}.brand{display:flex;gap:14px;align-items:center}.mark{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#fdc830,#f37335);color:#fff;font-weight:900;font-size:22px}
+    h1,h2,h3{margin:0;color:#15213a}.sub{color:#667085;line-height:1.5;margin-top:6px}.pill{font-size:12px;font-weight:800;background:#16213a;color:#fff;border-radius:999px;padding:8px 12px}
+    .login{width:min(440px,100%);margin:12vh auto 0}.login label,.form label{display:block;font-size:12px;color:#64748b;margin:12px 0 5px}.login input,.form input{width:100%;min-height:48px;border:1px solid #d8dce5;border-radius:12px;padding:0 12px;font:inherit;background:#fff}.btn{border:0;border-radius:12px;min-height:48px;padding:0 18px;font:inherit;font-weight:850;cursor:pointer}.primary{width:100%;margin-top:16px;background:linear-gradient(135deg,#fdc830,#f37335);color:#fff}.secondary{background:#eef2f7;color:#15213a}.status{min-height:22px;margin-top:12px;color:#a43d22;font-size:14px}
+    .hidden{display:none!important}.grid{display:grid;grid-template-columns:repeat(4,minmax(130px,1fr));gap:10px;margin:18px 0}.kpi{background:#fffaf0;border:1px solid #e5e7eb;border-radius:14px;padding:14px}.kpi small{display:block;color:#6b7280}.kpi b{display:block;font-size:21px;margin-top:4px}.progress{height:12px;background:#edf2f7;border-radius:999px;overflow:hidden}.progress span{display:block;height:100%;background:linear-gradient(135deg,#fdc830,#f37335)}
+    .section{margin-top:24px}.form{display:grid;grid-template-columns:160px 150px 1fr auto;gap:10px;align-items:end;padding:16px;border:1px solid #e5e7eb;border-radius:16px;background:#f8fafc}.form .btn{background:linear-gradient(135deg,#fdc830,#f37335);color:#fff}
+    .history{display:grid;gap:8px;margin-top:12px}.entry{display:grid;grid-template-columns:100px 130px 1fr 150px;gap:10px;padding:12px;border:1px solid #e6e8ee;border-radius:13px;align-items:center;background:#fff}.amount{font-weight:900}.author{font-size:12px;color:#64748b}.note{background:#fff7ed;border-left:4px solid #f37335;padding:12px 14px;border-radius:10px;line-height:1.5;margin-top:14px}.top-actions{display:flex;gap:8px;flex-wrap:wrap}
+    @media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}.form{grid-template-columns:1fr}.entry{grid-template-columns:1fr 1fr}.entry .desc,.entry .author{grid-column:1/-1}.head{flex-direction:column}.top-actions{width:100%}.top-actions .btn{flex:1}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section id="loginView" class="login card">
+      <div class="brand"><div class="mark">C</div><div><h1>Calito Admin</h1><div class="sub">Acesso administrativo de Rogger.</div></div></div>
+      <form id="loginForm">
+        <label for="password">Senha administrativa</label>
+        <input id="password" type="password" autocomplete="current-password" minlength="10" required>
+        <button class="btn primary" type="submit">Entrar como administrador</button>
+        <div class="status" id="loginStatus"></div>
+      </form>
+      <div class="note">Este acesso é separado do login dos novos proprietários. As alterações financeiras ficam registradas como <b>Rogger</b>.</div>
+    </section>
+
+    <section id="appView" class="card hidden">
+      <div class="head">
+        <div class="brand"><div class="mark">C</div><div><h1>Calito Smart</h1><div class="sub">Administração da transição · Casa da Limpeza</div></div></div>
+        <div class="top-actions"><span class="pill">Rogger · administrador</span><button id="logout" class="btn secondary" type="button">Sair</button></div>
+      </div>
+      <div id="dashboard"></div>
+    </section>
+  </div>
+<script>
+const API='__CALITO_FORM_API__';
+let token='';
+const money=v=>Number(v||0).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const dateBR=s=>{if(!s)return '-';const [y,m,d]=String(s).slice(0,10).split('-');return `${d}/${m}/${y}`};
+async function api(path,opts={}){const headers={'content-type':'application/json',...(opts.headers||{})};if(token)headers.authorization='Bearer '+token;const r=await fetch(API+path,{cache:'no-store',...opts,headers});const j=await r.json().catch(()=>({}));if(!r.ok){const e=new Error(j.error||'request_failed');e.code=j.error;e.status=r.status;throw e}return j}
+async function login(password){const j=await api('/api/admin-auth',{method:'POST',body:JSON.stringify({password})});token=j.token;sessionStorage.setItem('calitoAdminToken',token);return j}
+function showApp(){document.getElementById('loginView').classList.add('hidden');document.getElementById('appView').classList.remove('hidden');load()}
+function showLogin(){token='';sessionStorage.removeItem('calitoAdminToken');document.getElementById('appView').classList.add('hidden');document.getElementById('loginView').classList.remove('hidden')}
+async function load(){const dash=document.getElementById('dashboard');dash.innerHTML='<div class="note">Carregando histórico financeiro…</div>';try{const l=await api('/api/transicao-financeiro');render(l)}catch(e){dash.innerHTML='<div class="note">Não foi possível carregar o histórico agora.</div>'}}
+function render(l){const pct=l.valor_total?Math.min(100,l.pago/l.valor_total*100):0;const entries=[...(l.lancamentos||[])].sort((a,b)=>String(b.data).localeCompare(String(a.data))||String(b.registrado_em||'').localeCompare(String(a.registrado_em||'')));document.getElementById('dashboard').innerHTML=`
+<div class="grid"><div class="kpi"><small>Valor total</small><b>${money(l.valor_total)}</b></div><div class="kpi"><small>Total registrado</small><b>${money(l.pago)}</b></div><div class="kpi"><small>Saldo restante</small><b>${money(l.saldo)}</b></div><div class="kpi"><small>Quitação</small><b>${pct.toLocaleString('pt-BR',{maximumFractionDigits:1})}%</b></div></div>
+<div class="progress"><span style="width:${pct}%"></span></div>
+<div class="section"><h3>Novo lançamento</h3><form id="entryForm" class="form"><div><label>Data</label><input name="data" type="date" value="${new Date().toISOString().slice(0,10)}" required></div><div><label>Valor (R$)</label><input name="valor" type="number" min="0.01" step="0.01" required></div><div><label>Descrição</label><input name="descricao" maxlength="500" placeholder="PIX, boleto, mercadoria, cartão…" required></div><button class="btn" type="submit">Registrar</button></form><div class="status" id="entryStatus"></div></div>
+<div class="section"><h3>Histórico</h3><div class="history">${entries.length?entries.map(e=>`<div class="entry"><div>${dateBR(e.data)}</div><div class="amount">${money(e.valor)}</div><div class="desc">${esc(e.descricao)}</div><div class="author">Editado por <b>${esc(e.autor||'Não identificado')}</b></div></div>`).join(''):'<div class="note">Nenhum lançamento registrado.</div>'}</div></div>`;
+document.getElementById('entryForm').addEventListener('submit',submitEntry)}
+async function submitEntry(ev){ev.preventDefault();const st=document.getElementById('entryStatus'),fd=new FormData(ev.currentTarget);st.textContent='Registrando…';try{await api('/api/transicao-financeiro',{method:'POST',body:JSON.stringify({data:fd.get('data'),valor:Number(fd.get('valor')),descricao:String(fd.get('descricao')||'').trim(),autor:'Rogger',tipo:'pagamento'})});st.textContent='Registrado com sucesso.';await load()}catch(e){if(e.code==='admin_auth_required'||e.status===401){showLogin();document.getElementById('loginStatus').textContent='Sua sessão expirou. Entre novamente.';return}st.textContent='Não foi possível registrar agora.'}}
+document.getElementById('loginForm').addEventListener('submit',async e=>{e.preventDefault();const s=document.getElementById('loginStatus'),b=e.submitter;b.disabled=true;s.textContent='Validando…';try{await login(document.getElementById('password').value);document.getElementById('password').value='';s.textContent='';showApp()}catch{s.textContent='Acesso não autorizado.';b.disabled=false;document.getElementById('password').select()}});
+document.getElementById('logout').onclick=showLogin;
+const saved=sessionStorage.getItem('calitoAdminToken');if(saved){token=saved;api('/api/transicao-financeiro').then(showApp).catch(showLogin)}
+</script>
+</body>
+</html>
