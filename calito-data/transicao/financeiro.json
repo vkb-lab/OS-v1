@@ -1,10 +1,40 @@
 {
   "versao": 1,
   "valor_total": 200000,
-  "atualizado_em": "2026-08-20T00:00:00Z",
+  "atualizado_em": "2026-08-20T22:11:48.245Z",
   "lancamentos": [
-    {"id":"entrada-luciana","data":"2026-07-14","valor":15000,"descricao":"Entrada via PIX para Luciana / Casa da Limpeza","tipo":"pagamento","autor":"registro inicial"},
-    {"id":"entrada-rogger","data":"2026-07-14","valor":15000,"descricao":"Entrada via PIX para Rogger","tipo":"pagamento","autor":"registro inicial"},
-    {"id":"entrada-adriano","data":"2026-07-14","valor":70000,"descricao":"Entrada via PIX para Adriano, indicado por Rogger","tipo":"pagamento","autor":"registro inicial"}
+    {
+      "id": "entrada-luciana",
+      "data": "2026-07-14",
+      "valor": 15000,
+      "descricao": "Entrada via PIX para Luciana / Casa da Limpeza",
+      "tipo": "pagamento",
+      "autor": "registro inicial"
+    },
+    {
+      "id": "entrada-rogger",
+      "data": "2026-07-14",
+      "valor": 15000,
+      "descricao": "Entrada via PIX para Rogger",
+      "tipo": "pagamento",
+      "autor": "registro inicial"
+    },
+    {
+      "id": "entrada-adriano",
+      "data": "2026-07-14",
+      "valor": 70000,
+      "descricao": "Entrada via PIX para Adriano, indicado por Rogger",
+      "tipo": "pagamento",
+      "autor": "registro inicial"
+    },
+    {
+      "id": "local-00c8c62b-47c3-4332-870a-661c0d4981e7",
+      "data": "2026-08-05",
+      "valor": 6700,
+      "descricao": "Dinheiro espécie",
+      "tipo": "pagamento",
+      "autor": "Rogger",
+      "registrado_em": "2026-08-20T22:11:48.245Z"
+    }
   ]
 }
