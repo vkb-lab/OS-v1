@@ -1,4 +1,4 @@
-name: Publicar Calito para João no GitHub Pages
+name: Publicar Calito protegido no GitHub Pages
 
 on:
   push:
@@ -30,14 +30,16 @@ jobs:
       - name: Baixar código
         uses: actions/checkout@v4
 
-      - name: Montar aplicação exclusiva dos novos proprietários
+      - name: Montar aplicações protegidas
         shell: bash
         env:
           CALITO_JOAO_PASSWORD: ${{ secrets.CALITO_JOAO_PASSWORD }}
+          CALITO_ADMIN_PASSWORD: ${{ secrets.CALITO_ADMIN_PASSWORD }}
           CALITO_FORM_ENDPOINT: ${{ vars.CALITO_FORM_ENDPOINT }}
         run: |
           set -euo pipefail
-          if [ -z "${CALITO_JOAO_PASSWORD:-}" ]; then echo "ERRO: cadastre o segredo CALITO_JOAO_PASSWORD."; exit 1; fi
+          if [ -z "${CALITO_JOAO_PASSWORD:-}" ]; then echo "ERRO: cadastre CALITO_JOAO_PASSWORD."; exit 1; fi
+          if [ -z "${CALITO_ADMIN_PASSWORD:-}" ]; then echo "ERRO: cadastre CALITO_ADMIN_PASSWORD."; exit 1; fi
           test -f calito-app/index.html
           test -f CALITO_BASE_CONSOLIDADA_COMPLETA.json
           test -f calito-skills/inteligencia-da-loja/skill.js
@@ -51,7 +53,7 @@ jobs:
           rm -rf /tmp/calito-public && mkdir -p /tmp/calito-public
           node <<'NODE'
           const fs=require('fs'),crypto=require('crypto');
-          let app=fs.readFileSync('calito-app/index.html','utf8');
+          let baseApp=fs.readFileSync('calito-app/index.html','utf8');
           const skills=[
             'calito-skills/memoria-aprendizado/skill.js',
             'calito-skills/inteligencia-da-loja/skill.js',
@@ -60,34 +62,54 @@ jobs:
             'calito-skills/calito-smart-transition/skill.js'
           ].map(p=>fs.readFileSync(p,'utf8'));
           const memory=JSON.parse(fs.readFileSync('CALITO_BASE_CONSOLIDADA_COMPLETA.json','utf8'));
-          if(fs.existsSync('calito-data/instagram/campaigns.json'))memory.instagram_campaigns=JSON.parse(fs.readFileSync('calito-data/instagram/campaigns.json','utf8'));
-          if(fs.existsSync('calito-data/instagram/correlations.json'))memory.instagram_correlations=JSON.parse(fs.readFileSync('calito-data/instagram/correlations.json','utf8'));
+          if(fs.existsSync('calito-data/instagram/campaigns.json')) memory.instagram_campaigns=JSON.parse(fs.readFileSync('calito-data/instagram/campaigns.json','utf8'));
+          if(fs.existsSync('calito-data/instagram/correlations.json')) memory.instagram_correlations=JSON.parse(fs.readFileSync('calito-data/instagram/correlations.json','utf8'));
           memory.conhecimento_operacional=JSON.parse(fs.readFileSync('calito-data/conhecimento/manual-operacional.json','utf8'));
           memory.questionario_transicao=JSON.parse(fs.readFileSync('calito-data/transicao/questionario-joao.json','utf8'));
           memory.calito_smart=JSON.parse(fs.readFileSync('calito-data/transicao/calito-smart.json','utf8'));
-          const memoryScript='<script>window.CALITO_OPERATIONAL_MEMORY='+JSON.stringify(memory).replace(/<\//g,'<\\/')+';window.CALITO_ROLE="novos_proprietarios";sessionStorage.setItem("calitoRole","novos_proprietarios");<\/script>';
           const formConfig='<script>window.CALITO_FORM_ENDPOINT='+JSON.stringify(process.env.CALITO_FORM_ENDPOINT||'')+';<\/script>';
           const skillBundle=skills.map(skill=>'<script>'+skill.replace(/<\//g,'<\\/')+'<\/script>').join('');
-          app=app.replace('João · operação','Ariane e João · operação');
-          app=app.replace('Olá, João.','Olá, Ariane e João.');
-          app=app.includes('</body>')?app.replace('</body>',skillBundle+'</body>'):app+skillBundle;
-          const injected=memoryScript+formConfig;
-          const protectedApp=app.includes('</head>')?app.replace('</head>',injected+'</head>'):injected+app;
-          function encrypt(password,html){const salt=crypto.randomBytes(16),iv=crypto.randomBytes(12),key=crypto.pbkdf2Sync(password,salt,250000,32,'sha256'),cipher=crypto.createCipheriv('aes-256-gcm',key,iv),encrypted=Buffer.concat([cipher.update(html,'utf8'),cipher.final()]),tag=cipher.getAuthTag();return{version:1,kdf:'PBKDF2-SHA256',iterations:250000,cipher:'AES-256-GCM',salt:salt.toString('base64'),iv:iv.toString('base64'),data:Buffer.concat([encrypted,tag]).toString('base64')}}
-          fs.writeFileSync('/tmp/calito-public/payload-joao.json',JSON.stringify(encrypt(process.env.CALITO_JOAO_PASSWORD,protectedApp)));
-          const loader=`<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow,noarchive"><title>Acesso restrito — Calito</title><style>:root{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#15213a;background:#fff8ec}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 85% 15%,#dff8fa 0,transparent 28%),linear-gradient(135deg,#fff8e8,#fff)}main{width:min(440px,100%);background:#fff;border:1px solid #f2d7c8;border-radius:28px;padding:30px;box-shadow:0 24px 70px rgba(35,43,68,.14)}.mark{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#fdc830,#f37335);color:#fff;font-weight:900;font-size:24px}h1{margin:18px 0 8px;font-size:30px}.sub{color:#5e6677;line-height:1.5;margin:0 0 24px}label{display:block;font-weight:750;margin:16px 0 7px}input,button{width:100%;min-height:50px;border-radius:14px;font:inherit}input{border:1px solid #d8dce5;padding:0 14px;background:#fff}button{margin-top:20px;border:0;background:linear-gradient(135deg,#fdc830,#f37335);font-weight:850;color:#fff;cursor:pointer}.status{min-height:22px;margin-top:14px;font-size:14px;color:#a43d22}.safe{margin-top:22px;padding-top:18px;border-top:1px solid #eee;color:#777;font-size:12px;line-height:1.45}</style></head><body><main><div class="mark">C</div><h1>Calito</h1><p class="sub">Memória operacional da Casa da Limpeza. Acesso exclusivo dos novos proprietários.</p><form id="login"><label for="password">Senha de acesso</label><input id="password" type="password" autocomplete="current-password" required minlength="10"><button id="submit">Entrar no Calito</button><div class="status" id="status"></div></form><div class="safe">A aplicação é publicada criptografada. A senha permanece nos segredos do GitHub.</div></main><script>const $=id=>document.getElementById(id),b64=v=>Uint8Array.from(atob(v),c=>c.charCodeAt(0));let failures=Number(sessionStorage.getItem('calitoFailures')||0);async function unlock(password){const response=await fetch('payload-joao.json',{cache:'no-store'});if(!response.ok)throw new Error();const p=await response.json();const material=await crypto.subtle.importKey('raw',new TextEncoder().encode(password),'PBKDF2',false,['deriveKey']);const key=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(p.salt),iterations:p.iterations,hash:'SHA-256'},material,{name:'AES-GCM',length:256},false,['decrypt']);const clear=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(p.iv)},key,b64(p.data));return new TextDecoder().decode(clear)}$('login').addEventListener('submit',async e=>{e.preventDefault();const button=$('submit'),status=$('status');button.disabled=true;status.textContent='Validando acesso…';try{if(failures>0)await new Promise(r=>setTimeout(r,Math.min(8000,failures*1200)));const html=await unlock($('password').value);sessionStorage.removeItem('calitoFailures');if('caches'in window)for(const key of await caches.keys())await caches.delete(key);if('serviceWorker'in navigator)for(const reg of await navigator.serviceWorker.getRegistrations())await reg.unregister();document.open();document.write(html);document.close()}catch{failures++;sessionStorage.setItem('calitoFailures',String(failures));status.textContent='Acesso não autorizado.';button.disabled=false;$('password').select()}});<\/script></body></html>`;
-          fs.writeFileSync('/tmp/calito-public/index.html',loader);fs.writeFileSync('/tmp/calito-public/.nojekyll','');
+          function appFor(role){
+            let app=baseApp;
+            if(role==='admin'){
+              app=app.replace('João · operação','Rogger · administrador').replace('Ariane e João · operação','Rogger · administrador');
+              app=app.replace('Olá, João.','Olá, Rogger.').replace('Olá, Ariane e João.','Olá, Rogger.');
+            }else{
+              app=app.replace('João · operação','Ariane e João · operação');
+              app=app.replace('Olá, João.','Olá, Ariane e João.');
+            }
+            app=app.includes('</body>')?app.replace('</body>',skillBundle+'</body>'):app+skillBundle;
+            const roleValue=role==='admin'?'rogger_admin':'novos_proprietarios';
+            const memoryScript='<script>window.CALITO_OPERATIONAL_MEMORY='+JSON.stringify(memory).replace(/<\//g,'<\\/')+';window.CALITO_ROLE='+JSON.stringify(roleValue)+';sessionStorage.setItem("calitoRole",'+JSON.stringify(roleValue)+');<\/script>';
+            const injected=memoryScript+formConfig;
+            return app.includes('</head>')?app.replace('</head>',injected+'</head>'):injected+app;
+          }
+          function encrypt(password,html){
+            const salt=crypto.randomBytes(16),iv=crypto.randomBytes(12),key=crypto.pbkdf2Sync(password,salt,250000,32,'sha256'),cipher=crypto.createCipheriv('aes-256-gcm',key,iv),encrypted=Buffer.concat([cipher.update(html,'utf8'),cipher.final()]),tag=cipher.getAuthTag();
+            return {version:1,kdf:'PBKDF2-SHA256',iterations:250000,cipher:'AES-256-GCM',salt:salt.toString('base64'),iv:iv.toString('base64'),data:Buffer.concat([encrypted,tag]).toString('base64')};
+          }
+          fs.writeFileSync('/tmp/calito-public/payload-proprietarios.json',JSON.stringify(encrypt(process.env.CALITO_JOAO_PASSWORD,appFor('owners'))));
+          fs.writeFileSync('/tmp/calito-public/payload-admin.json',JSON.stringify(encrypt(process.env.CALITO_ADMIN_PASSWORD,appFor('admin'))));
+          const loader=`<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow,noarchive"><title>Acesso restrito — Calito</title><style>:root{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#15213a;background:#fff8ec}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 85% 15%,#dff8fa 0,transparent 28%),linear-gradient(135deg,#fff8e8,#fff)}main{width:min(440px,100%);background:#fff;border:1px solid #f2d7c8;border-radius:28px;padding:30px;box-shadow:0 24px 70px rgba(35,43,68,.14)}.mark{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#fdc830,#f37335);color:#fff;font-weight:900;font-size:24px}h1{margin:18px 0 8px;font-size:30px}.sub{color:#5e6677;line-height:1.5;margin:0 0 24px}label{display:block;font-weight:750;margin:16px 0 7px}input,button{width:100%;min-height:50px;border-radius:14px;font:inherit}input{border:1px solid #d8dce5;padding:0 14px;background:#fff}button{margin-top:20px;border:0;background:linear-gradient(135deg,#fdc830,#f37335);font-weight:850;color:#fff;cursor:pointer}.status{min-height:22px;margin-top:14px;font-size:14px;color:#a43d22}.safe{margin-top:22px;padding-top:18px;border-top:1px solid #eee;color:#777;font-size:12px;line-height:1.45}</style></head><body><main><div class="mark">C</div><h1>Calito</h1><p class="sub">Memória operacional da Casa da Limpeza. Acesso restrito aos proprietários e administrador autorizado.</p><form id="login"><label for="password">Senha de acesso</label><input id="password" type="password" autocomplete="current-password" required minlength="6"><button id="submit">Entrar no Calito</button><div class="status" id="status"></div></form><div class="safe">A aplicação é publicada criptografada. As senhas permanecem nos segredos do GitHub.</div></main><script>const $=id=>document.getElementById(id),b64=v=>Uint8Array.from(atob(v),c=>c.charCodeAt(0));let failures=Number(sessionStorage.getItem('calitoFailures')||0);async function decryptPayload(file,password){const response=await fetch(file,{cache:'no-store'});if(!response.ok)throw new Error();const p=await response.json();const material=await crypto.subtle.importKey('raw',new TextEncoder().encode(password),'PBKDF2',false,['deriveKey']);const key=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(p.salt),iterations:p.iterations,hash:'SHA-256'},material,{name:'AES-GCM',length:256},false,['decrypt']);const clear=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(p.iv)},key,b64(p.data));return new TextDecoder().decode(clear)}async function unlock(password){for(const file of ['payload-admin.json','payload-proprietarios.json']){try{return await decryptPayload(file,password)}catch{}}throw new Error()}$('login').addEventListener('submit',async e=>{e.preventDefault();const button=$('submit'),status=$('status');button.disabled=true;status.textContent='Validando acesso…';try{if(failures>0)await new Promise(r=>setTimeout(r,Math.min(8000,failures*1200)));const html=await unlock($('password').value);sessionStorage.removeItem('calitoFailures');if('caches'in window)for(const key of await caches.keys())await caches.delete(key);if('serviceWorker'in navigator)for(const reg of await navigator.serviceWorker.getRegistrations())await reg.unregister();document.open();document.write(html);document.close()}catch{failures++;sessionStorage.setItem('calitoFailures',String(failures));status.textContent='Acesso não autorizado.';button.disabled=false;$('password').select()}});<\/script></body></html>`;
+          fs.writeFileSync('/tmp/calito-public/index.html',loader);
+          fs.writeFileSync('/tmp/calito-public/.nojekyll','');
           NODE
           cp calito-app/meta-oauth-callback.html /tmp/calito-public/meta-oauth-callback.html
-          test -f /tmp/calito-public/index.html && test -f /tmp/calito-public/payload-joao.json && test -f /tmp/calito-public/meta-oauth-callback.html
+          test -f /tmp/calito-public/index.html
+          test -f /tmp/calito-public/payload-proprietarios.json
+          test -f /tmp/calito-public/payload-admin.json
+          test -f /tmp/calito-public/meta-oauth-callback.html
+
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
         with:
           enablement: true
+
       - name: Enviar artefato protegido
         uses: actions/upload-pages-artifact@v3
         with:
           path: /tmp/calito-public
+
       - name: Publicar
         id: deployment
         uses: actions/deploy-pages@v4
