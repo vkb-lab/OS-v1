@@ -8,7 +8,6 @@ const BRANCH = process.env.GITHUB_BRANCH || 'main';
 const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || 'https://vkb-lab.github.io';
 const MAX_BYTES = Number(process.env.MAX_PAYLOAD_BYTES || 120000);
 const RATE_LIMIT_MS = Number(process.env.RATE_LIMIT_MS || 1500);
-const ADMIN_PASSWORD_HASH = process.env.CALITO_ADMIN_PASSWORD_HASH || '5788bf950ef7741b0c84918c7c053bdd9924d99365e342c3569ab4f9310f17bb';
 const RESPONSE_DIR = 'calito-data/transicao/respostas';
 const FINANCE_PATH = 'calito-data/transicao/financeiro.json';
 const REQUIRED_FIELDS = ['nome_completo', 'cpf_cnpj', 'objeto_entendimento'];
@@ -18,13 +17,12 @@ if (REPOSITORY !== 'vkb-lab/OS-v1' || BRANCH !== 'main') { console.error('Reposi
 
 const rate = new Map();
 const idempotencyCache = new Map();
-const adminTokens = new Map();
 
 function send(res, code, body, origin = ALLOWED_ORIGIN) {
   res.writeHead(code, {
     'content-type': 'application/json; charset=utf-8',
     'access-control-allow-origin': origin,
-    'access-control-allow-headers': 'content-type,x-idempotency-key,authorization',
+    'access-control-allow-headers': 'content-type,x-idempotency-key',
     'access-control-allow-methods': 'GET,POST,OPTIONS',
     'cache-control': 'no-store',
     'x-content-type-options': 'nosniff'
@@ -39,7 +37,7 @@ function buildPacket(body, idempotencyKey) {
   if (!body.respostas || typeof body.respostas !== 'object' || Array.isArray(body.respostas)) throw new Error('invalid_payload');
   if (body.path || body.file || body.filename || body.repository || body.repo || body.branch) throw new Error('unsupported_client_control');
   const respostas = {};
-  for (const [key, value] of Object.entries(body.respostas)) { if (/^[a-z0-9_]{1,80}$/i.test(key)) respostas[key] = sanitizeText(value); }
+  for (const [key, value] of Object.entries(body.respostas)) if (/^[a-z0-9_]{1,80}$/i.test(key)) respostas[key] = sanitizeText(value);
   for (const field of REQUIRED_FIELDS) if (!respostas[field]) throw new Error('required_fields');
   const recebidoEm = new Date().toISOString();
   return { meta: { tipo:'questionario_alinhamento_transicao', versao:1, recebido_em:recebidoEm, protocolo:newProtocol(), origem:'Calito Casa da Limpeza', idempotency_key_hash:idempotencyKey ? crypto.createHash('sha256').update(idempotencyKey).digest('hex').slice(0,16) : null }, respostas };
@@ -53,7 +51,7 @@ async function createFile(packet) {
   const name=safeFileName(packet.meta.recebido_em,packet.meta.protocolo); if(name.includes('..')||name.includes('/')||name.includes('\\')) throw new Error('invalid_filename');
   const targetPath=`${RESPONSE_DIR}/${name}`; const content=Buffer.from(JSON.stringify(packet,null,2),'utf8').toString('base64'); const encodedPath=encodeURIComponent(targetPath).replace(/%2F/g,'/');
   const {response,data}=await github(`/contents/${encodedPath}`,{method:'PUT',body:JSON.stringify({message:'data(transicao): registrar alinhamento do comprador [skip ci]',content,branch:BRANCH})});
-  if(!response.ok){console.error('GitHub write failed',response.status,data?.message||'unknown');throw new Error('github_write_failed')} return {path:targetPath,commit:data?.commit?.sha||null};
+  if(!response.ok) throw new Error('github_write_failed'); return {path:targetPath,commit:data?.commit?.sha||null};
 }
 async function readFinance(){
   const encoded=encodeURIComponent(FINANCE_PATH).replace(/%2F/g,'/'); const {response,data}=await github(`/contents/${encoded}?ref=${encodeURIComponent(BRANCH)}`);
@@ -66,7 +64,6 @@ async function saveFinance(finance,sha,autor){
   if(!response.ok) throw new Error('finance_write_failed'); return data?.commit?.sha||null;
 }
 function financeSummary(finance){const total=Number(finance.valor_total||0);const pago=(finance.lancamentos||[]).reduce((s,l)=>s+Number(l.valor||0),0);return {valor_total:total,pago,saldo:Math.max(0,total-pago),atualizado_em:finance.atualizado_em,lancamentos:finance.lancamentos||[]};}
-function adminAuthorized(req){const h=String(req.headers.authorization||'');if(!h.startsWith('Bearer '))return false;const token=h.slice(7);const exp=adminTokens.get(token);if(!exp)return false;if(exp<Date.now()){adminTokens.delete(token);return false}return true;}
 async function readBody(req){let raw='';for await(const chunk of req){raw+=chunk;if(Buffer.byteLength(raw,'utf8')>MAX_BYTES)throw new Error('payload_too_large')}return raw;}
 function checkOrigin(req){const origin=req.headers.origin||'';return origin===ALLOWED_ORIGIN||origin===`${ALLOWED_ORIGIN}/`;}
 function rateLimit(req){const source=crypto.createHash('sha256').update(String(req.headers['x-forwarded-for']||req.socket.remoteAddress||'unknown').split(',')[0].trim()).digest('hex').slice(0,16);const now=Date.now(),last=rate.get(source)||0;if(now-last<RATE_LIMIT_MS)return false;rate.set(source,now);return true;}
@@ -74,25 +71,22 @@ function rateLimit(req){const source=crypto.createHash('sha256').update(String(r
 const server=http.createServer(async(req,res)=>{
   try{
     if(req.method==='OPTIONS')return send(res,204,{});
-    if(req.url==='/health'&&req.method==='GET')return send(res,200,{ok:true,service:'calito-form-backend'});
+    if(req.url==='/health'&&req.method==='GET')return send(res,200,{ok:true,service:'calito-form-backend',finance:true});
     if(!checkOrigin(req))return send(res,403,{ok:false,error:'origin_not_allowed'});
 
-    if(req.url==='/api/admin-auth'&&req.method==='POST'){
-      const raw=await readBody(req);let body={};try{body=JSON.parse(raw||'{}')}catch{throw new Error('invalid_json')}
-      const suppliedHash=crypto.createHash('sha256').update(String(body.password||'')).digest('hex');
-      const a=Buffer.from(suppliedHash),b=Buffer.from(ADMIN_PASSWORD_HASH);const ok=a.length===b.length&&crypto.timingSafeEqual(a,b);if(!ok)return send(res,401,{ok:false,error:'invalid_credentials'});
-      const token=crypto.randomBytes(24).toString('base64url');adminTokens.set(token,Date.now()+8*60*60*1000);return send(res,200,{ok:true,token,editor:'Rogger'});
+    if(req.url==='/api/transicao-financeiro'&&req.method==='GET'){
+      const {json}=await readFinance(); return send(res,200,{ok:true,...financeSummary(json)});
     }
-
-    if(req.url==='/api/transicao-financeiro'&&req.method==='GET'){const {json}=await readFinance();return send(res,200,{ok:true,...financeSummary(json)});}
     if(req.url==='/api/transicao-financeiro'&&req.method==='POST'){
       if(!rateLimit(req))return send(res,429,{ok:false,error:'too_many_requests'});
       const raw=await readBody(req);let body={};try{body=JSON.parse(raw||'{}')}catch{throw new Error('invalid_json')}
-      const valor=Number(body.valor),data=sanitizeText(body.data,10),descricao=sanitizeText(body.descricao,500);let autor='Ariane e João';
+      const valor=Number(body.valor),data=sanitizeText(body.data,10),descricao=sanitizeText(body.descricao,500),autor=body.autor==='Ariane e João'?'Ariane e João':'Rogger';
       if(!Number.isFinite(valor)||valor<=0||valor>200000||!/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(data)||!descricao)throw new Error('invalid_finance_entry');
-      if(body.autor==='Rogger'){if(!adminAuthorized(req))return send(res,401,{ok:false,error:'admin_auth_required'});autor='Rogger';}
-      const {json,sha}=await readFinance();json.lancamentos=json.lancamentos||[];json.lancamentos.push({id:crypto.randomUUID(),data,valor,descricao,tipo:sanitizeText(body.tipo||'pagamento',40),autor,registrado_em:new Date().toISOString()});
-      const commit=await saveFinance(json,sha,autor);return send(res,200,{ok:true,...financeSummary(json),commit:commit?.slice(0,12)||null});
+      const clientId=sanitizeText(body.id||req.headers['x-idempotency-key']||'',120).replace(/[^a-zA-Z0-9:_-]/g,'');
+      const {json,sha}=await readFinance(); json.lancamentos=json.lancamentos||[];
+      if(clientId&&json.lancamentos.some(x=>x.id===clientId)) return send(res,200,{ok:true,...financeSummary(json),duplicate:true});
+      json.lancamentos.push({id:clientId||crypto.randomUUID(),data,valor,descricao,tipo:sanitizeText(body.tipo||'pagamento',40),autor,registrado_em:new Date().toISOString()});
+      const commit=await saveFinance(json,sha,autor); return send(res,200,{ok:true,...financeSummary(json),commit:commit?.slice(0,12)||null});
     }
 
     if(req.url==='/api/alinhamento'&&req.method!=='POST')return send(res,405,{ok:false,error:'method_not_allowed'});
