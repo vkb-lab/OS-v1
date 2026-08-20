@@ -6,8 +6,8 @@
   "username": "accasadalimpeza",
   "portfolio": "Luciana-Rogger Kuzer",
   "business_id": "1810552962324974",
-  "atualizado_em": "2026-08-19T09:58:25.844Z",
-  "total_publicacoes": 1119,
+  "atualizado_em": "2026-08-20T09:58:33.886Z",
+  "total_publicacoes": 1121,
   "meses": [
     {
       "periodo": "2017-09",
@@ -882,6 +882,15 @@
       "comentarios": 12,
       "formatos": {
         "REELS": 1
+      }
+    },
+    {
+      "periodo": "2026-08",
+      "total_publicacoes": 2,
+      "curtidas": 36,
+      "comentarios": 4,
+      "formatos": {
+        "REELS": 2
       }
     }
   ]
