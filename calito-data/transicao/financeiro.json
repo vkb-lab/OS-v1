@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "valor_total": 200000,
-  "atualizado_em": "2026-08-20T22:15:51.031Z",
+  "atualizado_em": "2026-08-22T19:48:53.599Z",
   "lancamentos": [
     {
       "id": "entrada-luciana",
@@ -71,6 +71,15 @@
       "tipo": "pagamento",
       "autor": "Rogger",
       "registrado_em": "2026-08-20T22:15:51.031Z"
+    },
+    {
+      "id": "local-cf74b914-4218-4c14-a3dd-8222413ce953",
+      "data": "2026-08-22",
+      "valor": 2000,
+      "descricao": "Conta de luz cartão",
+      "tipo": "pagamento",
+      "autor": "Rogger",
+      "registrado_em": "2026-08-22T19:48:53.599Z"
     }
   ]
 }
