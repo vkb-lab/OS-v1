@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-08-23T09:51:26.652Z",
+  "gerado_em": "2026-08-24T10:11:28.505Z",
   "fonte": "publicações reais sincronizadas da API oficial do Instagram",
   "total_publicacoes": 1121,
   "categorias_minimas": [
@@ -30582,7 +30582,7 @@
       "metricas": {
         "curtidas": 25,
         "comentarios": 0,
-        "alcance": 737,
+        "alcance": 738,
         "visualizacoes": 1649,
         "salvos": 0,
         "compartilhamentos": 2,
@@ -35595,8 +35595,8 @@
       "metricas": {
         "curtidas": 12,
         "comentarios": 0,
-        "alcance": 444,
-        "visualizacoes": 482,
+        "alcance": 445,
+        "visualizacoes": 483,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 12
@@ -35737,12 +35737,12 @@
       "palavras_chave": [],
       "metricas": {
         "curtidas": 94,
-        "comentarios": 11,
-        "alcance": 1630,
-        "visualizacoes": 3072,
+        "comentarios": 12,
+        "alcance": 1646,
+        "visualizacoes": 3111,
         "salvos": 1,
         "compartilhamentos": 5,
-        "interacoes": 122
+        "interacoes": 123
       },
       "confianca_classificacao": 0.35
     }
