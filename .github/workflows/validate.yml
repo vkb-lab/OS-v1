@@ -1,0 +1,51 @@
+name: Validate K-OS Foundation
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches:
+      - feat/**
+      - fix/**
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip && python -m pip install -r requirements.txt
+
+      - name: Diagnose environment
+        run: |
+          python --version
+          python -c "import os, sys; print('cwd=', os.getcwd()); print('pythonpath=', os.environ.get('PYTHONPATH')); print('sys.path=', sys.path)"
+          python -c "from apps.api.main import app; print('app=', app.title)"
+
+      - name: Run tests
+        run: python -m pytest -q
+
+      - name: Compile Python
+        run: python -m compileall -q apps core
+
+      - name: Validate required files
+        run: |
+          test -f apps/__init__.py
+          test -f apps/api/__init__.py
+          test -f apps/dashboard/index.html
+          test -f apps/api/main.py
+          test -f core/connectors/registry.py
+          test -f core/approvals/engine.py
+          test -f docs/EXECUTION_SEQUENCE.md
+          test -f Dockerfile
