@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "valor_total": 200000,
-  "atualizado_em": "2026-08-27T00:38:04.116Z",
+  "atualizado_em": "2026-08-27T00:38:31.648Z",
   "lancamentos": [
     {
       "id": "entrada-luciana",
@@ -116,6 +116,15 @@
       "tipo": "pagamento",
       "autor": "Rogger",
       "registrado_em": "2026-08-27T00:38:04.116Z"
+    },
+    {
+      "id": "local-6a590732-de37-4efd-a6be-765c7886aae9",
+      "data": "2026-08-26",
+      "valor": 805,
+      "descricao": "Cartão crédito incensos",
+      "tipo": "pagamento",
+      "autor": "Rogger",
+      "registrado_em": "2026-08-27T00:38:31.648Z"
     }
   ]
 }
