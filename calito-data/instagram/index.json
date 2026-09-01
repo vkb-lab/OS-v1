@@ -6,8 +6,8 @@
   "username": "accasadalimpeza",
   "portfolio": "Luciana-Rogger Kuzer",
   "business_id": "1810552962324974",
-  "atualizado_em": "2026-08-31T17:16:44.045Z",
-  "total_publicacoes": 1121,
+  "atualizado_em": "2026-09-01T14:16:56.981Z",
+  "total_publicacoes": 1122,
   "meses": [
     {
       "periodo": "2017-09",
@@ -805,7 +805,7 @@
     {
       "periodo": "2025-09",
       "total_publicacoes": 2,
-      "curtidas": 7,
+      "curtidas": 8,
       "comentarios": 1,
       "formatos": {
         "REELS": 2
@@ -842,7 +842,7 @@
     {
       "periodo": "2026-01",
       "total_publicacoes": 6,
-      "curtidas": 52,
+      "curtidas": 53,
       "comentarios": 1,
       "formatos": {
         "REELS": 6
@@ -851,7 +851,7 @@
     {
       "periodo": "2026-02",
       "total_publicacoes": 11,
-      "curtidas": 101,
+      "curtidas": 102,
       "comentarios": 0,
       "formatos": {
         "REELS": 11
@@ -860,7 +860,7 @@
     {
       "periodo": "2026-03",
       "total_publicacoes": 23,
-      "curtidas": 262,
+      "curtidas": 264,
       "comentarios": 11,
       "formatos": {
         "REELS": 23
@@ -886,11 +886,12 @@
     },
     {
       "periodo": "2026-08",
-      "total_publicacoes": 2,
-      "curtidas": 100,
-      "comentarios": 12,
+      "total_publicacoes": 3,
+      "curtidas": 124,
+      "comentarios": 18,
       "formatos": {
-        "REELS": 2
+        "REELS": 2,
+        "FEED": 1
       }
     }
   ]
