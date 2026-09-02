@@ -1,0 +1,38 @@
+name: Discover K-OS Compute Node
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/gcp-discover-kos-node.yml'
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: 'projects/772534983436/locations/global/workloadIdentityPools/kos-github-pool/providers/kos-github-provider'
+          service_account: 'kos-github-deployer@k-os-ultimate.iam.gserviceaccount.com'
+      - uses: google-github-actions/setup-gcloud@v2
+      - name: Discover existing compute and GPU resources
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo '=== PROJECT ==='
+          gcloud config set project k-os-ultimate >/dev/null
+          gcloud config get-value project
+          echo '=== COMPUTE INSTANCES ==='
+          gcloud compute instances list --project k-os-ultimate --format='table(name,zone,status,machineType.basename(),networkInterfaces[0].networkIP,networkInterfaces[0].accessConfigs[0].natIP)'
+          echo '=== DISKS ==='
+          gcloud compute disks list --project k-os-ultimate --format='table(name,zone,status,sizeGb,type.basename(),users.list():label=ATTACHED_TO)'
+          echo '=== GPU QUOTAS / ACCELERATORS ==='
+          gcloud compute accelerator-types list --project k-os-ultimate --filter='zone:(us-central1-a us-central1-b us-central1-c us-central1-f)' --format='table(name,zone)' | head -80 || true
+          echo '=== ARTIFACT REGISTRY ==='
+          gcloud artifacts repositories list --project k-os-ultimate --location=us-central1 --format='table(name,format,location)' || true
+          echo 'DISCOVERY_COMPLETE'
