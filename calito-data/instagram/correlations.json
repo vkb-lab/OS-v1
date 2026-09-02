@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-01T14:16:57.289Z",
+  "gerado_em": "2026-09-02T13:57:22.720Z",
   "metodologia": "Cruzamento mensal entre publicações reais do Instagram e resumo mensal de vendas. Nunca afirma causalidade.",
   "linguagem_permitida": [
     "associação temporal",
@@ -6171,7 +6171,7 @@
             "total": 1
           }
         ],
-        "alcance": 148,
+        "alcance": 149,
         "interacoes": 206,
         "links_analisados": [
           "https://www.instagram.com/p/Cw-ViHju1a1/",
@@ -6504,8 +6504,8 @@
             "total": 1
           }
         ],
-        "alcance": 603,
-        "interacoes": 531,
+        "alcance": 630,
+        "interacoes": 540,
         "links_analisados": [
           "https://www.instagram.com/reel/CzL2QZAuBT_/",
           "https://www.instagram.com/reel/CzL74fiOybl/",
@@ -6622,7 +6622,7 @@
             "total": 1
           }
         ],
-        "alcance": 99,
+        "alcance": 106,
         "interacoes": 91,
         "links_analisados": [
           "https://www.instagram.com/reel/C0ha-Ymxa5d/",
@@ -6808,8 +6808,8 @@
             "total": 1
           }
         ],
-        "alcance": 868,
-        "interacoes": 115,
+        "alcance": 881,
+        "interacoes": 116,
         "links_analisados": [
           "https://www.instagram.com/reel/C1xjnHwxl7v/",
           "https://www.instagram.com/reel/C12KWBaLjoD/",
@@ -7023,8 +7023,8 @@
             "total": 1
           }
         ],
-        "alcance": 567,
-        "interacoes": 92,
+        "alcance": 578,
+        "interacoes": 93,
         "links_analisados": [
           "https://www.instagram.com/p/C2yWKDutZxz/",
           "https://www.instagram.com/reel/C22Oi5_u3W-/",
@@ -7229,7 +7229,7 @@
             "total": 1
           }
         ],
-        "alcance": 169,
+        "alcance": 172,
         "interacoes": 43,
         "links_analisados": [
           "https://www.instagram.com/reel/C4YJ4dyOOVL/",
@@ -7421,7 +7421,7 @@
             "total": 1
           }
         ],
-        "alcance": 207,
+        "alcance": 213,
         "interacoes": 53,
         "links_analisados": [
           "https://www.instagram.com/reel/C5RJKyarmuw/",
@@ -7628,7 +7628,7 @@
             "total": 1
           }
         ],
-        "alcance": 511,
+        "alcance": 515,
         "interacoes": 99,
         "links_analisados": [
           "https://www.instagram.com/reel/C6bMY3NOyfc/",
@@ -8071,7 +8071,7 @@
             "total": 1
           }
         ],
-        "alcance": 2569,
+        "alcance": 2572,
         "interacoes": 433,
         "links_analisados": [
           "https://www.instagram.com/reel/C84YiWCRU-H/",
@@ -9060,7 +9060,7 @@
             "total": 1
           }
         ],
-        "alcance": 5313,
+        "alcance": 5315,
         "interacoes": 174,
         "links_analisados": [
           "https://www.instagram.com/reel/DDHadwoRqlT/",
@@ -9364,7 +9364,7 @@
             "total": 1
           }
         ],
-        "alcance": 1694,
+        "alcance": 1695,
         "interacoes": 24,
         "links_analisados": [
           "https://www.instagram.com/reel/DF8XqEsy86K/",
@@ -11052,7 +11052,7 @@
             "total": 1
           }
         ],
-        "alcance": 2048,
+        "alcance": 2050,
         "interacoes": 58,
         "links_analisados": [
           "https://www.instagram.com/reel/DTlDWRuEXyA/",
@@ -11444,7 +11444,7 @@
             "total": 1
           }
         ],
-        "alcance": 10923,
+        "alcance": 10946,
         "interacoes": 290,
         "links_analisados": [
           "https://www.instagram.com/reel/DVWHm9ljhCK/",
@@ -12062,12 +12062,70 @@
             "total": 1
           }
         ],
-        "alcance": 2680,
-        "interacoes": 167,
+        "alcance": 2840,
+        "interacoes": 170,
         "links_analisados": [
           "https://www.instagram.com/reel/DcPob9Ysbms/",
           "https://www.instagram.com/reel/DcPo12pMTW0/",
           "https://www.instagram.com/p/DcuNJQPSApD/"
+        ]
+      },
+      "vendas": null,
+      "comparacao_mes_anterior": null,
+      "comparacao_ano_anterior": null,
+      "leitura": "Há associação temporal entre as publicações/campanhas do mês e os dados de venda do mesmo período. Os dados não comprovam causalidade; é uma hipótese a investigar."
+    },
+    {
+      "periodo": "2026-09",
+      "marketing": {
+        "total_publicacoes": 3,
+        "total_reels": 0,
+        "formatos": {
+          "FEED": 3
+        },
+        "campanhas": [
+          {
+            "nome": "promoção",
+            "total": 2
+          },
+          {
+            "nome": "higiene institucional",
+            "total": 1
+          }
+        ],
+        "categorias_divulgadas": [
+          {
+            "nome": "promoção",
+            "total": 3
+          },
+          {
+            "nome": "institucional",
+            "total": 2
+          },
+          {
+            "nome": "oferta",
+            "total": 1
+          },
+          {
+            "nome": "higiene institucional",
+            "total": 1
+          },
+          {
+            "nome": "utilidades",
+            "total": 1
+          },
+          {
+            "nome": "evento local",
+            "total": 1
+          }
+        ],
+        "produtos_mencionados": [],
+        "alcance": 655,
+        "interacoes": 17,
+        "links_analisados": [
+          "https://www.instagram.com/p/Dcv-dXOyIwG/",
+          "https://www.instagram.com/p/DcwD0yQSC-T/",
+          "https://www.instagram.com/p/DcwzzX_S7sq/"
         ]
       },
       "vendas": null,
