@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "valor_total": 200000,
-  "atualizado_em": "2026-08-27T00:38:31.648Z",
+  "atualizado_em": "2026-09-07T20:02:09.950Z",
   "lancamentos": [
     {
       "id": "entrada-luciana",
@@ -125,6 +125,15 @@
       "tipo": "pagamento",
       "autor": "Rogger",
       "registrado_em": "2026-08-27T00:38:31.648Z"
+    },
+    {
+      "id": "local-cf0f94e7-b396-406b-a5ae-f92efcbb46e5",
+      "data": "2026-09-07",
+      "valor": 500,
+      "descricao": "Vale",
+      "tipo": "pagamento",
+      "autor": "Rogger",
+      "registrado_em": "2026-09-07T20:02:09.950Z"
     }
   ]
 }
