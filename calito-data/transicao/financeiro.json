@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "valor_total": 200000,
-  "atualizado_em": "2026-09-07T20:02:09.950Z",
+  "atualizado_em": "2026-09-07T20:02:49.554Z",
   "lancamentos": [
     {
       "id": "entrada-luciana",
@@ -134,6 +134,15 @@
       "tipo": "pagamento",
       "autor": "Rogger",
       "registrado_em": "2026-09-07T20:02:09.950Z"
+    },
+    {
+      "id": "local-f6fce9e1-bea6-4582-8061-57041f684b78",
+      "data": "2026-09-05",
+      "valor": 200,
+      "descricao": "Vale motoserra",
+      "tipo": "pagamento",
+      "autor": "Rogger",
+      "registrado_em": "2026-09-07T20:02:49.554Z"
     }
   ]
 }
