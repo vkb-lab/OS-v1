@@ -1,7 +1,7 @@
 {
-  "gerado_em": "2026-09-07T15:13:18.151Z",
+  "gerado_em": "2026-09-08T13:48:36.139Z",
   "fonte": "publicações reais sincronizadas da API oficial do Instagram",
-  "total_publicacoes": 1132,
+  "total_publicacoes": 1133,
   "categorias_minimas": [
     "piscina",
     "limpeza pesada",
@@ -3725,8 +3725,8 @@
     },
     {
       "periodo": "2026-09",
-      "total_publicacoes": 10,
-      "reels": 1,
+      "total_publicacoes": 11,
+      "reels": 2,
       "campanhas": {
         "promoção": 4,
         "higiene institucional": 1,
@@ -3734,12 +3734,13 @@
         "lavanderia": 1,
         "piscina": 1,
         "aniversário": 1,
-        "institucional": 1
+        "institucional": 1,
+        "inverno": 1
       },
       "categorias": {
         "promoção": 7,
         "oferta": 4,
-        "institucional": 8,
+        "institucional": 9,
         "higiene institucional": 2,
         "utilidades": 2,
         "evento local": 6,
@@ -3747,7 +3748,8 @@
         "lavanderia": 1,
         "piscina": 1,
         "limpeza pesada": 1,
-        "aniversário": 1
+        "aniversário": 1,
+        "inverno": 1
       },
       "produtos": {
         "desinfetante": 1,
@@ -3766,7 +3768,8 @@
         "https://www.instagram.com/p/Dc11wh_vOY7/",
         "https://www.instagram.com/p/Dc3vCz5ymjt/",
         "https://www.instagram.com/reel/Dc6ksxUCYKB/",
-        "https://www.instagram.com/p/Dc9Hj-LmE9I/"
+        "https://www.instagram.com/p/Dc9Hj-LmE9I/",
+        "https://www.instagram.com/reel/Dc_9Yj-vkSW/"
       ]
     }
   ],
@@ -19057,8 +19060,8 @@
       "metricas": {
         "curtidas": 52,
         "comentarios": 0,
-        "alcance": 102,
-        "visualizacoes": 1236,
+        "alcance": 106,
+        "visualizacoes": 1240,
         "salvos": 2,
         "compartilhamentos": 0,
         "interacoes": 54
@@ -20677,8 +20680,8 @@
       "metricas": {
         "curtidas": 7,
         "comentarios": 0,
-        "alcance": 3,
-        "visualizacoes": 594,
+        "alcance": 4,
+        "visualizacoes": 595,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 7
@@ -27821,8 +27824,8 @@
       "metricas": {
         "curtidas": 31,
         "comentarios": 0,
-        "alcance": 91,
-        "visualizacoes": 1238,
+        "alcance": 95,
+        "visualizacoes": 1242,
         "salvos": 3,
         "compartilhamentos": 0,
         "interacoes": 34
@@ -32276,8 +32279,8 @@
       "metricas": {
         "curtidas": 53,
         "comentarios": 3,
-        "alcance": 779,
-        "visualizacoes": 2117,
+        "alcance": 781,
+        "visualizacoes": 2120,
         "salvos": 3,
         "compartilhamentos": 0,
         "interacoes": 59
@@ -32575,7 +32578,7 @@
         "curtidas": 15,
         "comentarios": 5,
         "alcance": 169,
-        "visualizacoes": 731,
+        "visualizacoes": 732,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 20
@@ -33264,7 +33267,7 @@
         "curtidas": 54,
         "comentarios": 6,
         "alcance": 263,
-        "visualizacoes": 2396,
+        "visualizacoes": 2397,
         "salvos": 2,
         "compartilhamentos": 3,
         "interacoes": 65
@@ -33342,7 +33345,7 @@
         "curtidas": 16,
         "comentarios": 0,
         "alcance": 657,
-        "visualizacoes": 985,
+        "visualizacoes": 986,
         "salvos": 0,
         "compartilhamentos": 1,
         "interacoes": 17
@@ -33426,7 +33429,7 @@
         "curtidas": 5,
         "comentarios": 3,
         "alcance": 418,
-        "visualizacoes": 587,
+        "visualizacoes": 588,
         "salvos": 0,
         "compartilhamentos": 3,
         "interacoes": 11
@@ -33668,7 +33671,7 @@
       "metricas": {
         "curtidas": 24,
         "comentarios": 1,
-        "alcance": 1815,
+        "alcance": 1820,
         "visualizacoes": 2573,
         "salvos": 0,
         "compartilhamentos": 3,
@@ -33717,7 +33720,7 @@
         "curtidas": 41,
         "comentarios": 4,
         "alcance": 889,
-        "visualizacoes": 1621,
+        "visualizacoes": 1623,
         "salvos": 0,
         "compartilhamentos": 1,
         "interacoes": 46
@@ -33743,8 +33746,8 @@
       "metricas": {
         "curtidas": 7,
         "comentarios": 1,
-        "alcance": 466,
-        "visualizacoes": 621,
+        "alcance": 469,
+        "visualizacoes": 622,
         "salvos": 1,
         "compartilhamentos": 0,
         "interacoes": 9
@@ -33774,7 +33777,7 @@
       "metricas": {
         "curtidas": 4,
         "comentarios": 0,
-        "alcance": 292,
+        "alcance": 294,
         "visualizacoes": 457,
         "salvos": 0,
         "compartilhamentos": 0,
@@ -33798,7 +33801,7 @@
       "metricas": {
         "curtidas": 7,
         "comentarios": 0,
-        "alcance": 330,
+        "alcance": 333,
         "visualizacoes": 444,
         "salvos": 0,
         "compartilhamentos": 0,
@@ -33824,7 +33827,7 @@
       "metricas": {
         "curtidas": 2,
         "comentarios": 0,
-        "alcance": 612,
+        "alcance": 615,
         "visualizacoes": 823,
         "salvos": 0,
         "compartilhamentos": 2,
@@ -33848,7 +33851,7 @@
       "metricas": {
         "curtidas": 2,
         "comentarios": 0,
-        "alcance": 303,
+        "alcance": 306,
         "visualizacoes": 379,
         "salvos": 0,
         "compartilhamentos": 0,
@@ -33897,7 +33900,7 @@
       "metricas": {
         "curtidas": 10,
         "comentarios": 0,
-        "alcance": 338,
+        "alcance": 341,
         "visualizacoes": 499,
         "salvos": 0,
         "compartilhamentos": 1,
@@ -33945,8 +33948,8 @@
       "metricas": {
         "curtidas": 9,
         "comentarios": 0,
-        "alcance": 485,
-        "visualizacoes": 693,
+        "alcance": 488,
+        "visualizacoes": 694,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 9
@@ -33993,8 +33996,8 @@
       "metricas": {
         "curtidas": 28,
         "comentarios": 1,
-        "alcance": 1010,
-        "visualizacoes": 1792,
+        "alcance": 1013,
+        "visualizacoes": 1794,
         "salvos": 0,
         "compartilhamentos": 1,
         "interacoes": 30
@@ -34019,8 +34022,8 @@
       "metricas": {
         "curtidas": 9,
         "comentarios": 0,
-        "alcance": 299,
-        "visualizacoes": 1386,
+        "alcance": 301,
+        "visualizacoes": 1390,
         "salvos": 0,
         "compartilhamentos": 1,
         "interacoes": 10
@@ -34045,8 +34048,8 @@
       "metricas": {
         "curtidas": 4,
         "comentarios": 0,
-        "alcance": 355,
-        "visualizacoes": 469,
+        "alcance": 357,
+        "visualizacoes": 470,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 4
@@ -34071,8 +34074,8 @@
       "metricas": {
         "curtidas": 5,
         "comentarios": 0,
-        "alcance": 317,
-        "visualizacoes": 1349,
+        "alcance": 320,
+        "visualizacoes": 1352,
         "salvos": 0,
         "compartilhamentos": 1,
         "interacoes": 6
@@ -34099,8 +34102,8 @@
       "metricas": {
         "curtidas": 10,
         "comentarios": 0,
-        "alcance": 403,
-        "visualizacoes": 557,
+        "alcance": 406,
+        "visualizacoes": 558,
         "salvos": 1,
         "compartilhamentos": 0,
         "interacoes": 11
@@ -34131,8 +34134,8 @@
       "metricas": {
         "curtidas": 3,
         "comentarios": 0,
-        "alcance": 361,
-        "visualizacoes": 460,
+        "alcance": 363,
+        "visualizacoes": 461,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 3
@@ -34155,7 +34158,7 @@
       "metricas": {
         "curtidas": 6,
         "comentarios": 1,
-        "alcance": 360,
+        "alcance": 362,
         "visualizacoes": 689,
         "salvos": 0,
         "compartilhamentos": 0,
@@ -34179,8 +34182,8 @@
       "metricas": {
         "curtidas": 2,
         "comentarios": 0,
-        "alcance": 277,
-        "visualizacoes": 400,
+        "alcance": 279,
+        "visualizacoes": 401,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 2
@@ -34203,7 +34206,7 @@
       "metricas": {
         "curtidas": 5,
         "comentarios": 0,
-        "alcance": 435,
+        "alcance": 438,
         "visualizacoes": 782,
         "salvos": 0,
         "compartilhamentos": 0,
@@ -34253,7 +34256,7 @@
       "metricas": {
         "curtidas": 18,
         "comentarios": 0,
-        "alcance": 555,
+        "alcance": 557,
         "visualizacoes": 1208,
         "salvos": 0,
         "compartilhamentos": 2,
@@ -34337,8 +34340,8 @@
       "metricas": {
         "curtidas": 12,
         "comentarios": 0,
-        "alcance": 630,
-        "visualizacoes": 928,
+        "alcance": 632,
+        "visualizacoes": 929,
         "salvos": 0,
         "compartilhamentos": 5,
         "interacoes": 20
@@ -34363,7 +34366,7 @@
       "metricas": {
         "curtidas": 12,
         "comentarios": 0,
-        "alcance": 379,
+        "alcance": 381,
         "visualizacoes": 666,
         "salvos": 0,
         "compartilhamentos": 4,
@@ -34392,7 +34395,7 @@
       "metricas": {
         "curtidas": 8,
         "comentarios": 1,
-        "alcance": 426,
+        "alcance": 429,
         "visualizacoes": 609,
         "salvos": 0,
         "compartilhamentos": 0,
@@ -34421,7 +34424,7 @@
       "metricas": {
         "curtidas": 9,
         "comentarios": 0,
-        "alcance": 279,
+        "alcance": 281,
         "visualizacoes": 370,
         "salvos": 0,
         "compartilhamentos": 0,
@@ -34447,8 +34450,8 @@
       "metricas": {
         "curtidas": 7,
         "comentarios": 2,
-        "alcance": 292,
-        "visualizacoes": 468,
+        "alcance": 294,
+        "visualizacoes": 470,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 9
@@ -34471,8 +34474,8 @@
       "metricas": {
         "curtidas": 6,
         "comentarios": 0,
-        "alcance": 198,
-        "visualizacoes": 985,
+        "alcance": 200,
+        "visualizacoes": 987,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 6
@@ -34497,8 +34500,8 @@
       "metricas": {
         "curtidas": 8,
         "comentarios": 2,
-        "alcance": 408,
-        "visualizacoes": 552,
+        "alcance": 411,
+        "visualizacoes": 553,
         "salvos": 0,
         "compartilhamentos": 1,
         "interacoes": 12
@@ -34523,8 +34526,8 @@
       "metricas": {
         "curtidas": 10,
         "comentarios": 2,
-        "alcance": 362,
-        "visualizacoes": 564,
+        "alcance": 365,
+        "visualizacoes": 565,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 12
@@ -34549,8 +34552,8 @@
       "metricas": {
         "curtidas": 6,
         "comentarios": 1,
-        "alcance": 264,
-        "visualizacoes": 399,
+        "alcance": 269,
+        "visualizacoes": 400,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 7
@@ -34575,8 +34578,8 @@
       "metricas": {
         "curtidas": 7,
         "comentarios": 0,
-        "alcance": 320,
-        "visualizacoes": 490,
+        "alcance": 321,
+        "visualizacoes": 491,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 8
@@ -34599,8 +34602,8 @@
       "metricas": {
         "curtidas": 6,
         "comentarios": 1,
-        "alcance": 420,
-        "visualizacoes": 556,
+        "alcance": 423,
+        "visualizacoes": 558,
         "salvos": 0,
         "compartilhamentos": 1,
         "interacoes": 9
@@ -34626,8 +34629,8 @@
       "metricas": {
         "curtidas": 8,
         "comentarios": 0,
-        "alcance": 461,
-        "visualizacoes": 680,
+        "alcance": 463,
+        "visualizacoes": 681,
         "salvos": 0,
         "compartilhamentos": 1,
         "interacoes": 10
@@ -34654,8 +34657,8 @@
       "metricas": {
         "curtidas": 12,
         "comentarios": 0,
-        "alcance": 423,
-        "visualizacoes": 624,
+        "alcance": 424,
+        "visualizacoes": 625,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 12
@@ -34684,8 +34687,8 @@
       "metricas": {
         "curtidas": 11,
         "comentarios": 0,
-        "alcance": 239,
-        "visualizacoes": 344,
+        "alcance": 240,
+        "visualizacoes": 345,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 11
@@ -34712,8 +34715,8 @@
       "metricas": {
         "curtidas": 8,
         "comentarios": 0,
-        "alcance": 299,
-        "visualizacoes": 477,
+        "alcance": 301,
+        "visualizacoes": 479,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 8
@@ -34740,8 +34743,8 @@
       "metricas": {
         "curtidas": 9,
         "comentarios": 0,
-        "alcance": 323,
-        "visualizacoes": 529,
+        "alcance": 327,
+        "visualizacoes": 533,
         "salvos": 1,
         "compartilhamentos": 1,
         "interacoes": 11
@@ -34770,8 +34773,8 @@
       "metricas": {
         "curtidas": 5,
         "comentarios": 1,
-        "alcance": 315,
-        "visualizacoes": 421,
+        "alcance": 317,
+        "visualizacoes": 424,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 6
@@ -34796,8 +34799,8 @@
       "metricas": {
         "curtidas": 12,
         "comentarios": 0,
-        "alcance": 418,
-        "visualizacoes": 528,
+        "alcance": 420,
+        "visualizacoes": 530,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 12
@@ -34820,8 +34823,8 @@
       "metricas": {
         "curtidas": 12,
         "comentarios": 0,
-        "alcance": 435,
-        "visualizacoes": 603,
+        "alcance": 438,
+        "visualizacoes": 606,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 12
@@ -34844,8 +34847,8 @@
       "metricas": {
         "curtidas": 8,
         "comentarios": 0,
-        "alcance": 307,
-        "visualizacoes": 403,
+        "alcance": 308,
+        "visualizacoes": 404,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 8
@@ -34870,8 +34873,8 @@
       "metricas": {
         "curtidas": 9,
         "comentarios": 0,
-        "alcance": 357,
-        "visualizacoes": 446,
+        "alcance": 361,
+        "visualizacoes": 447,
         "salvos": 0,
         "compartilhamentos": 1,
         "interacoes": 10
@@ -34896,8 +34899,8 @@
       "metricas": {
         "curtidas": 9,
         "comentarios": 0,
-        "alcance": 404,
-        "visualizacoes": 506,
+        "alcance": 408,
+        "visualizacoes": 507,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 9
@@ -34922,8 +34925,8 @@
       "metricas": {
         "curtidas": 10,
         "comentarios": 0,
-        "alcance": 393,
-        "visualizacoes": 485,
+        "alcance": 396,
+        "visualizacoes": 488,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 10
@@ -34946,8 +34949,8 @@
       "metricas": {
         "curtidas": 6,
         "comentarios": 0,
-        "alcance": 220,
-        "visualizacoes": 267,
+        "alcance": 222,
+        "visualizacoes": 270,
         "salvos": 1,
         "compartilhamentos": 0,
         "interacoes": 7
@@ -34970,8 +34973,8 @@
       "metricas": {
         "curtidas": 4,
         "comentarios": 0,
-        "alcance": 299,
-        "visualizacoes": 353,
+        "alcance": 302,
+        "visualizacoes": 357,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 4
@@ -34994,8 +34997,8 @@
       "metricas": {
         "curtidas": 12,
         "comentarios": 0,
-        "alcance": 344,
-        "visualizacoes": 450,
+        "alcance": 348,
+        "visualizacoes": 453,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 12
@@ -35020,8 +35023,8 @@
       "metricas": {
         "curtidas": 13,
         "comentarios": 0,
-        "alcance": 450,
-        "visualizacoes": 630,
+        "alcance": 454,
+        "visualizacoes": 633,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 13
@@ -35046,8 +35049,8 @@
       "metricas": {
         "curtidas": 8,
         "comentarios": 0,
-        "alcance": 331,
-        "visualizacoes": 403,
+        "alcance": 334,
+        "visualizacoes": 406,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 8
@@ -35070,8 +35073,8 @@
       "metricas": {
         "curtidas": 7,
         "comentarios": 0,
-        "alcance": 392,
-        "visualizacoes": 539,
+        "alcance": 396,
+        "visualizacoes": 541,
         "salvos": 1,
         "compartilhamentos": 1,
         "interacoes": 9
@@ -35096,8 +35099,8 @@
       "metricas": {
         "curtidas": 19,
         "comentarios": 2,
-        "alcance": 423,
-        "visualizacoes": 547,
+        "alcance": 425,
+        "visualizacoes": 550,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 21
@@ -35120,8 +35123,8 @@
       "metricas": {
         "curtidas": 9,
         "comentarios": 0,
-        "alcance": 193,
-        "visualizacoes": 266,
+        "alcance": 196,
+        "visualizacoes": 270,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 9
@@ -35144,8 +35147,8 @@
       "metricas": {
         "curtidas": 8,
         "comentarios": 0,
-        "alcance": 268,
-        "visualizacoes": 349,
+        "alcance": 271,
+        "visualizacoes": 352,
         "salvos": 1,
         "compartilhamentos": 0,
         "interacoes": 9
@@ -35175,8 +35178,8 @@
       "metricas": {
         "curtidas": 14,
         "comentarios": 0,
-        "alcance": 404,
-        "visualizacoes": 559,
+        "alcance": 407,
+        "visualizacoes": 561,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 14
@@ -35203,8 +35206,8 @@
       "metricas": {
         "curtidas": 15,
         "comentarios": 0,
-        "alcance": 538,
-        "visualizacoes": 926,
+        "alcance": 543,
+        "visualizacoes": 929,
         "salvos": 0,
         "compartilhamentos": 1,
         "interacoes": 16
@@ -35233,8 +35236,8 @@
       "metricas": {
         "curtidas": 14,
         "comentarios": 2,
-        "alcance": 402,
-        "visualizacoes": 580,
+        "alcance": 407,
+        "visualizacoes": 582,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 16
@@ -35261,8 +35264,8 @@
       "metricas": {
         "curtidas": 7,
         "comentarios": 0,
-        "alcance": 449,
-        "visualizacoes": 613,
+        "alcance": 455,
+        "visualizacoes": 617,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 7
@@ -35290,8 +35293,8 @@
       "metricas": {
         "curtidas": 7,
         "comentarios": 0,
-        "alcance": 415,
-        "visualizacoes": 557,
+        "alcance": 419,
+        "visualizacoes": 561,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 7
@@ -35314,8 +35317,8 @@
       "metricas": {
         "curtidas": 11,
         "comentarios": 0,
-        "alcance": 403,
-        "visualizacoes": 496,
+        "alcance": 408,
+        "visualizacoes": 500,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 11
@@ -35346,8 +35349,8 @@
       "metricas": {
         "curtidas": 15,
         "comentarios": 1,
-        "alcance": 490,
-        "visualizacoes": 760,
+        "alcance": 494,
+        "visualizacoes": 764,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 16
@@ -35375,8 +35378,8 @@
       "metricas": {
         "curtidas": 13,
         "comentarios": 0,
-        "alcance": 555,
-        "visualizacoes": 746,
+        "alcance": 560,
+        "visualizacoes": 752,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 13
@@ -35405,8 +35408,8 @@
       "metricas": {
         "curtidas": 12,
         "comentarios": 0,
-        "alcance": 884,
-        "visualizacoes": 1142,
+        "alcance": 889,
+        "visualizacoes": 1148,
         "salvos": 0,
         "compartilhamentos": 1,
         "interacoes": 13
@@ -35429,8 +35432,8 @@
       "metricas": {
         "curtidas": 10,
         "comentarios": 0,
-        "alcance": 419,
-        "visualizacoes": 555,
+        "alcance": 424,
+        "visualizacoes": 559,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 10
@@ -35457,8 +35460,8 @@
       "metricas": {
         "curtidas": 9,
         "comentarios": 2,
-        "alcance": 529,
-        "visualizacoes": 782,
+        "alcance": 535,
+        "visualizacoes": 788,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 11
@@ -35487,8 +35490,8 @@
       "metricas": {
         "curtidas": 9,
         "comentarios": 0,
-        "alcance": 481,
-        "visualizacoes": 635,
+        "alcance": 488,
+        "visualizacoes": 644,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 9
@@ -35511,8 +35514,8 @@
       "metricas": {
         "curtidas": 14,
         "comentarios": 0,
-        "alcance": 616,
-        "visualizacoes": 908,
+        "alcance": 620,
+        "visualizacoes": 912,
         "salvos": 0,
         "compartilhamentos": 1,
         "interacoes": 15
@@ -35538,8 +35541,8 @@
       "metricas": {
         "curtidas": 10,
         "comentarios": 0,
-        "alcance": 507,
-        "visualizacoes": 647,
+        "alcance": 509,
+        "visualizacoes": 651,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 11
@@ -35564,8 +35567,8 @@
       "metricas": {
         "curtidas": 11,
         "comentarios": 3,
-        "alcance": 591,
-        "visualizacoes": 856,
+        "alcance": 597,
+        "visualizacoes": 868,
         "salvos": 1,
         "compartilhamentos": 0,
         "interacoes": 15
@@ -35588,8 +35591,8 @@
       "metricas": {
         "curtidas": 12,
         "comentarios": 0,
-        "alcance": 604,
-        "visualizacoes": 801,
+        "alcance": 612,
+        "visualizacoes": 814,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 13
@@ -35622,8 +35625,8 @@
       "metricas": {
         "curtidas": 12,
         "comentarios": 0,
-        "alcance": 767,
-        "visualizacoes": 1163,
+        "alcance": 775,
+        "visualizacoes": 1169,
         "salvos": 1,
         "compartilhamentos": 4,
         "interacoes": 17
@@ -35648,8 +35651,8 @@
       "metricas": {
         "curtidas": 13,
         "comentarios": 0,
-        "alcance": 522,
-        "visualizacoes": 566,
+        "alcance": 530,
+        "visualizacoes": 584,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 13
@@ -35676,8 +35679,8 @@
       "metricas": {
         "curtidas": 13,
         "comentarios": 1,
-        "alcance": 485,
-        "visualizacoes": 578,
+        "alcance": 490,
+        "visualizacoes": 586,
         "salvos": 0,
         "compartilhamentos": 1,
         "interacoes": 15
@@ -35705,8 +35708,8 @@
       "metricas": {
         "curtidas": 13,
         "comentarios": 1,
-        "alcance": 662,
-        "visualizacoes": 775,
+        "alcance": 669,
+        "visualizacoes": 785,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 14
@@ -35743,8 +35746,8 @@
       "metricas": {
         "curtidas": 54,
         "comentarios": 12,
-        "alcance": 1646,
-        "visualizacoes": 2498,
+        "alcance": 1657,
+        "visualizacoes": 2510,
         "salvos": 1,
         "compartilhamentos": 20,
         "interacoes": 89
@@ -35791,8 +35794,8 @@
       "metricas": {
         "curtidas": 100,
         "comentarios": 14,
-        "alcance": 1770,
-        "visualizacoes": 3450,
+        "alcance": 1779,
+        "visualizacoes": 3481,
         "salvos": 1,
         "compartilhamentos": 6,
         "interacoes": 132
@@ -35827,8 +35830,8 @@
       "metricas": {
         "curtidas": 25,
         "comentarios": 6,
-        "alcance": 1138,
-        "visualizacoes": 2409,
+        "alcance": 1152,
+        "visualizacoes": 2441,
         "salvos": 0,
         "compartilhamentos": 5,
         "interacoes": 41
@@ -35857,13 +35860,13 @@
         "loja"
       ],
       "metricas": {
-        "curtidas": 4,
+        "curtidas": 5,
         "comentarios": 0,
-        "alcance": 365,
-        "visualizacoes": 672,
+        "alcance": 379,
+        "visualizacoes": 690,
         "salvos": 0,
         "compartilhamentos": 0,
-        "interacoes": 6
+        "interacoes": 7
       },
       "confianca_classificacao": 1
     },
@@ -35885,13 +35888,13 @@
         "promo"
       ],
       "metricas": {
-        "curtidas": 1,
+        "curtidas": 2,
         "comentarios": 0,
-        "alcance": 205,
-        "visualizacoes": 364,
+        "alcance": 224,
+        "visualizacoes": 398,
         "salvos": 0,
         "compartilhamentos": 0,
-        "interacoes": 1
+        "interacoes": 2
       },
       "confianca_classificacao": 0.65
     },
@@ -35922,13 +35925,13 @@
         "antônio carlos"
       ],
       "metricas": {
-        "curtidas": 7,
+        "curtidas": 8,
         "comentarios": 0,
-        "alcance": 443,
-        "visualizacoes": 800,
+        "alcance": 457,
+        "visualizacoes": 828,
         "salvos": 0,
         "compartilhamentos": 2,
-        "interacoes": 10
+        "interacoes": 11
       },
       "confianca_classificacao": 1
     },
@@ -35961,13 +35964,13 @@
         "antônio carlos"
       ],
       "metricas": {
-        "curtidas": 3,
+        "curtidas": 4,
         "comentarios": 0,
-        "alcance": 338,
-        "visualizacoes": 635,
+        "alcance": 365,
+        "visualizacoes": 677,
         "salvos": 0,
         "compartilhamentos": 0,
-        "interacoes": 4
+        "interacoes": 5
       },
       "confianca_classificacao": 1
     },
@@ -35994,13 +35997,13 @@
         "antônio carlos"
       ],
       "metricas": {
-        "curtidas": 10,
+        "curtidas": 11,
         "comentarios": 0,
-        "alcance": 429,
-        "visualizacoes": 814,
+        "alcance": 446,
+        "visualizacoes": 840,
         "salvos": 0,
         "compartilhamentos": 1,
-        "interacoes": 13
+        "interacoes": 14
       },
       "confianca_classificacao": 1
     },
@@ -36040,13 +36043,13 @@
         "antônio carlos"
       ],
       "metricas": {
-        "curtidas": 4,
+        "curtidas": 5,
         "comentarios": 0,
-        "alcance": 424,
-        "visualizacoes": 815,
+        "alcance": 443,
+        "visualizacoes": 851,
         "salvos": 0,
         "compartilhamentos": 1,
-        "interacoes": 5
+        "interacoes": 6
       },
       "confianca_classificacao": 1
     },
@@ -36074,13 +36077,13 @@
         "antônio carlos"
       ],
       "metricas": {
-        "curtidas": 5,
+        "curtidas": 6,
         "comentarios": 0,
-        "alcance": 439,
-        "visualizacoes": 848,
+        "alcance": 456,
+        "visualizacoes": 884,
         "salvos": 0,
         "compartilhamentos": 1,
-        "interacoes": 6
+        "interacoes": 7
       },
       "confianca_classificacao": 1
     },
@@ -36116,13 +36119,13 @@
         "antônio carlos"
       ],
       "metricas": {
-        "curtidas": 2,
+        "curtidas": 3,
         "comentarios": 0,
-        "alcance": 269,
-        "visualizacoes": 491,
+        "alcance": 302,
+        "visualizacoes": 558,
         "salvos": 1,
         "compartilhamentos": 0,
-        "interacoes": 3
+        "interacoes": 4
       },
       "confianca_classificacao": 1
     },
@@ -36143,13 +36146,13 @@
         "parabens"
       ],
       "metricas": {
-        "curtidas": 53,
+        "curtidas": 55,
         "comentarios": 0,
-        "alcance": 1784,
-        "visualizacoes": 3491,
+        "alcance": 1852,
+        "visualizacoes": 3572,
         "salvos": 0,
         "compartilhamentos": 0,
-        "interacoes": 54
+        "interacoes": 56
       },
       "confianca_classificacao": 0.61
     },
@@ -36170,15 +36173,43 @@
         "atendimento"
       ],
       "metricas": {
-        "curtidas": 84,
-        "comentarios": 3,
-        "alcance": 1668,
-        "visualizacoes": 4420,
+        "curtidas": 94,
+        "comentarios": 4,
+        "alcance": 1910,
+        "visualizacoes": 5050,
         "salvos": 2,
         "compartilhamentos": 2,
-        "interacoes": 94
+        "interacoes": 105
       },
       "confianca_classificacao": 0.61
+    },
+    {
+      "id": "18019659212717166",
+      "data": "2026-09-07T20:22:52+0000",
+      "periodo": "2026-09",
+      "legenda": "Já pensou ter um produto que trabalha por você? Nosso queridinho ALVEX faz isso e muito mais por você! Não precisa esfregar, é isso mesmo! É só passar e deixar que ele faz o serviço pesado por você! Super concentrado, não tem cheiro, não descora a tinta. Seria o sonho de toda dona de casa? Vem pra casa da limpeza e garanta já o seu!🫧🧼 #limpeza #limpezapesada #produtodequalidade #mofo #tiramanchas",
+      "formato": "REELS",
+      "permalink": "https://www.instagram.com/reel/Dc_9Yj-vkSW/",
+      "campanha_detectada": "inverno",
+      "categorias_mencionadas": [
+        "inverno",
+        "institucional"
+      ],
+      "produtos_mencionados": [],
+      "palavras_chave": [
+        "mofo",
+        "casa da limpeza"
+      ],
+      "metricas": {
+        "curtidas": 39,
+        "comentarios": 1,
+        "alcance": 1256,
+        "visualizacoes": 2372,
+        "salvos": 4,
+        "compartilhamentos": 14,
+        "interacoes": 60
+      },
+      "confianca_classificacao": 0.79
     }
   ]
 }
