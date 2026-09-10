@@ -6,8 +6,8 @@
   "username": "accasadalimpeza",
   "portfolio": "Luciana-Rogger Kuzer",
   "business_id": "1810552962324974",
-  "atualizado_em": "2026-09-09T13:53:46.634Z",
-  "total_publicacoes": 1133,
+  "atualizado_em": "2026-09-10T13:46:46.753Z",
+  "total_publicacoes": 1135,
   "meses": [
     {
       "periodo": "2017-09",
@@ -887,7 +887,7 @@
     {
       "periodo": "2026-08",
       "total_publicacoes": 3,
-      "curtidas": 129,
+      "curtidas": 130,
       "comentarios": 20,
       "formatos": {
         "REELS": 2,
@@ -896,11 +896,11 @@
     },
     {
       "periodo": "2026-09",
-      "total_publicacoes": 11,
-      "curtidas": 239,
+      "total_publicacoes": 13,
+      "curtidas": 243,
       "comentarios": 6,
       "formatos": {
-        "FEED": 9,
+        "FEED": 11,
         "REELS": 2
       }
     }

@@ -1,7 +1,7 @@
 {
-  "gerado_em": "2026-09-09T13:53:46.798Z",
+  "gerado_em": "2026-09-10T13:46:46.886Z",
   "fonte": "publicações reais sincronizadas da API oficial do Instagram",
-  "total_publicacoes": 1133,
+  "total_publicacoes": 1135,
   "categorias_minimas": [
     "piscina",
     "limpeza pesada",
@@ -3725,38 +3725,42 @@
     },
     {
       "periodo": "2026-09",
-      "total_publicacoes": 11,
+      "total_publicacoes": 13,
       "reels": 2,
       "campanhas": {
         "promoção": 4,
-        "higiene institucional": 1,
+        "higiene institucional": 2,
         "aromas": 1,
         "lavanderia": 1,
         "piscina": 1,
         "aniversário": 1,
         "institucional": 1,
-        "inverno": 1
+        "inverno": 1,
+        "limpeza pesada": 1
       },
       "categorias": {
-        "promoção": 7,
-        "oferta": 4,
-        "institucional": 9,
-        "higiene institucional": 2,
-        "utilidades": 2,
-        "evento local": 6,
+        "promoção": 9,
+        "oferta": 6,
+        "institucional": 11,
+        "higiene institucional": 3,
+        "utilidades": 3,
+        "evento local": 8,
         "aromas": 1,
         "lavanderia": 1,
         "piscina": 1,
-        "limpeza pesada": 1,
+        "limpeza pesada": 2,
         "aniversário": 1,
-        "inverno": 1
+        "inverno": 1,
+        "conteúdo educativo": 1
       },
       "produtos": {
         "desinfetante": 1,
         "detergente": 1,
         "amaciante": 1,
         "cloro": 1,
-        "cloroativo": 1
+        "cloroativo": 1,
+        "balde": 1,
+        "mop360": 1
       },
       "links": [
         "https://www.instagram.com/p/Dcv-dXOyIwG/",
@@ -3769,7 +3773,9 @@
         "https://www.instagram.com/p/Dc3vCz5ymjt/",
         "https://www.instagram.com/reel/Dc6ksxUCYKB/",
         "https://www.instagram.com/p/Dc9Hj-LmE9I/",
-        "https://www.instagram.com/reel/Dc_9Yj-vkSW/"
+        "https://www.instagram.com/reel/Dc_9Yj-vkSW/",
+        "https://www.instagram.com/p/DdEsbEyyl2N/",
+        "https://www.instagram.com/p/DdG3Vyoy9nI/"
       ]
     }
   ],
@@ -34367,7 +34373,7 @@
         "curtidas": 12,
         "comentarios": 0,
         "alcance": 381,
-        "visualizacoes": 666,
+        "visualizacoes": 667,
         "salvos": 0,
         "compartilhamentos": 4,
         "interacoes": 16
@@ -34657,8 +34663,8 @@
       "metricas": {
         "curtidas": 12,
         "comentarios": 0,
-        "alcance": 425,
-        "visualizacoes": 628,
+        "alcance": 426,
+        "visualizacoes": 631,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 12
@@ -35317,8 +35323,8 @@
       "metricas": {
         "curtidas": 11,
         "comentarios": 0,
-        "alcance": 408,
-        "visualizacoes": 500,
+        "alcance": 409,
+        "visualizacoes": 502,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 11
@@ -35349,7 +35355,7 @@
       "metricas": {
         "curtidas": 15,
         "comentarios": 1,
-        "alcance": 494,
+        "alcance": 495,
         "visualizacoes": 764,
         "salvos": 0,
         "compartilhamentos": 0,
@@ -35651,7 +35657,7 @@
       "metricas": {
         "curtidas": 13,
         "comentarios": 0,
-        "alcance": 530,
+        "alcance": 531,
         "visualizacoes": 584,
         "salvos": 0,
         "compartilhamentos": 0,
@@ -35795,7 +35801,7 @@
         "curtidas": 100,
         "comentarios": 14,
         "alcance": 1779,
-        "visualizacoes": 3485,
+        "visualizacoes": 3486,
         "salvos": 1,
         "compartilhamentos": 6,
         "interacoes": 132
@@ -35828,13 +35834,13 @@
         "antônio carlos"
       ],
       "metricas": {
-        "curtidas": 25,
+        "curtidas": 26,
         "comentarios": 6,
-        "alcance": 1152,
-        "visualizacoes": 2445,
+        "alcance": 1155,
+        "visualizacoes": 2453,
         "salvos": 0,
         "compartilhamentos": 5,
-        "interacoes": 41
+        "interacoes": 42
       },
       "confianca_classificacao": 1
     },
@@ -35862,8 +35868,8 @@
       "metricas": {
         "curtidas": 5,
         "comentarios": 0,
-        "alcance": 381,
-        "visualizacoes": 697,
+        "alcance": 386,
+        "visualizacoes": 701,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 7
@@ -35890,8 +35896,8 @@
       "metricas": {
         "curtidas": 2,
         "comentarios": 0,
-        "alcance": 228,
-        "visualizacoes": 406,
+        "alcance": 230,
+        "visualizacoes": 408,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 2
@@ -35927,8 +35933,8 @@
       "metricas": {
         "curtidas": 8,
         "comentarios": 0,
-        "alcance": 460,
-        "visualizacoes": 833,
+        "alcance": 463,
+        "visualizacoes": 836,
         "salvos": 0,
         "compartilhamentos": 2,
         "interacoes": 11
@@ -35966,8 +35972,8 @@
       "metricas": {
         "curtidas": 4,
         "comentarios": 0,
-        "alcance": 369,
-        "visualizacoes": 684,
+        "alcance": 372,
+        "visualizacoes": 688,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 5
@@ -35999,8 +36005,8 @@
       "metricas": {
         "curtidas": 11,
         "comentarios": 0,
-        "alcance": 453,
-        "visualizacoes": 848,
+        "alcance": 456,
+        "visualizacoes": 857,
         "salvos": 0,
         "compartilhamentos": 1,
         "interacoes": 14
@@ -36045,8 +36051,8 @@
       "metricas": {
         "curtidas": 5,
         "comentarios": 0,
-        "alcance": 448,
-        "visualizacoes": 860,
+        "alcance": 451,
+        "visualizacoes": 867,
         "salvos": 0,
         "compartilhamentos": 1,
         "interacoes": 6
@@ -36079,8 +36085,8 @@
       "metricas": {
         "curtidas": 6,
         "comentarios": 0,
-        "alcance": 463,
-        "visualizacoes": 891,
+        "alcance": 466,
+        "visualizacoes": 895,
         "salvos": 0,
         "compartilhamentos": 1,
         "interacoes": 7
@@ -36121,8 +36127,8 @@
       "metricas": {
         "curtidas": 3,
         "comentarios": 0,
-        "alcance": 310,
-        "visualizacoes": 571,
+        "alcance": 315,
+        "visualizacoes": 586,
         "salvos": 1,
         "compartilhamentos": 0,
         "interacoes": 4
@@ -36148,8 +36154,8 @@
       "metricas": {
         "curtidas": 55,
         "comentarios": 0,
-        "alcance": 1865,
-        "visualizacoes": 3613,
+        "alcance": 1877,
+        "visualizacoes": 3631,
         "salvos": 0,
         "compartilhamentos": 0,
         "interacoes": 56
@@ -36173,13 +36179,13 @@
         "atendimento"
       ],
       "metricas": {
-        "curtidas": 98,
+        "curtidas": 100,
         "comentarios": 5,
-        "alcance": 2006,
-        "visualizacoes": 5253,
+        "alcance": 2027,
+        "visualizacoes": 5322,
         "salvos": 2,
         "compartilhamentos": 2,
-        "interacoes": 110
+        "interacoes": 112
       },
       "confianca_classificacao": 0.61
     },
@@ -36203,13 +36209,98 @@
       "metricas": {
         "curtidas": 42,
         "comentarios": 1,
-        "alcance": 1430,
-        "visualizacoes": 2732,
+        "alcance": 1448,
+        "visualizacoes": 2790,
         "salvos": 4,
         "compartilhamentos": 18,
         "interacoes": 67
       },
       "confianca_classificacao": 0.79
+    },
+    {
+      "id": "18115169129063231",
+      "data": "2026-09-09T16:30:49+0000",
+      "periodo": "2026-09",
+      "legenda": "🧡💙 PROMOÇÃO DO DIA — MÊS DO CLIENTE!\nHoje tem oferta especial para facilitar a sua rotina de limpeza! ✨\n🪣 Mop 360° Tornado Pro Inox Condor\nPrático, resistente e ideal para deixar a limpeza do dia a dia muito mais rápida e eficiente.\n✅ Cesto inox 360°\n✅ Balde com até 12 litros\n✅ Mais praticidade para limpar sua casa\n💰 De R$ 179,90 por apenas R$ 149,99\n⏰ Válido somente até o próximo dia, às 11:59 da manhã!\nAproveite o Mês do Cliente e acompanhe nossas redes todos os dias, porque sempre tem uma nova oferta esperando por você! 🔥\n📍 Rua João Henrique Pauli, 365 — Centro, Antônio Carlos/SC\n📲 WhatsApp: (48) 98451-8638\nCasa da Limpeza — tudo que você precisa e mais um pouco ainda!\n#CasaDaLimpeza #MesDoCliente #PromocaoDoDia #Mop360 #Condor UtilidadesEHigiene AntonioCarlosSC Oferta Limpeza Promoção",
+      "formato": "FEED",
+      "permalink": "https://www.instagram.com/p/DdEsbEyyl2N/",
+      "campanha_detectada": "higiene institucional",
+      "categorias_mencionadas": [
+        "higiene institucional",
+        "utilidades",
+        "promoção",
+        "oferta",
+        "institucional",
+        "evento local"
+      ],
+      "produtos_mencionados": [
+        "balde",
+        "mop360"
+      ],
+      "palavras_chave": [
+        "higiene",
+        "utilidades",
+        "mop",
+        "balde",
+        "promoção",
+        "promocao",
+        "promo",
+        "oferta especial",
+        "oferta",
+        "por apenas",
+        "casa da limpeza",
+        "antonio carlos",
+        "antônio carlos"
+      ],
+      "metricas": {
+        "curtidas": 2,
+        "comentarios": 0,
+        "alcance": 276,
+        "visualizacoes": 470,
+        "salvos": 0,
+        "compartilhamentos": 0,
+        "interacoes": 2
+      },
+      "confianca_classificacao": 1
+    },
+    {
+      "id": "18052078619587442",
+      "data": "2026-09-10T12:44:32+0000",
+      "periodo": "2026-09",
+      "legenda": "🧡💙 PROMOÇÃO DO DIA — MÊS DO CLIENTE!\nHoje a oferta é para quem precisa de limpeza pesada de verdade! 💪✨\n🧴 Facimol JJ — Desengraxante Industrial / Limpa Alumínio Concentrado — 2 litros\n✅ Alta diluição\n✅ Remove sujeiras difíceis\n✅ Ação desengraxante\n✅ Ideal para limpeza de alumínio e superfícies compatíveis\n✅ Produto concentrado, com ótimo rendimento\n💰 De R$ 32,99 por apenas R$ 24,99\n⏰ Válido somente até o próximo dia, às 11:59 da manhã!\nNo Mês do Cliente, todo dia tem uma nova oportunidade de economizar. Acompanhe nossas redes para não perder nenhuma promoção! 🔥\n📍 Rua João Henrique Pauli, 365 — Centro, Antônio Carlos/SC\n📲 WhatsApp: (48) 98451-8638\nUse conforme as instruções do rótulo e faça a diluição indicada pelo fabricante.\n#CasaDaLimpeza #MesDoCliente #PromocaoDoDia #FacimolJJ #LimpezaPesada Desengraxante LimpaAluminio AltaDiluicao AntonioCarlosSC",
+      "formato": "FEED",
+      "permalink": "https://www.instagram.com/p/DdG3Vyoy9nI/",
+      "campanha_detectada": "limpeza pesada",
+      "categorias_mencionadas": [
+        "limpeza pesada",
+        "promoção",
+        "conteúdo educativo",
+        "oferta",
+        "institucional",
+        "evento local"
+      ],
+      "produtos_mencionados": [],
+      "palavras_chave": [
+        "limpeza pesada",
+        "promoção",
+        "promocao",
+        "promo",
+        "dica",
+        "oferta",
+        "por apenas",
+        "antonio carlos",
+        "antônio carlos"
+      ],
+      "metricas": {
+        "curtidas": 0,
+        "comentarios": 0,
+        "alcance": 61,
+        "visualizacoes": 172,
+        "salvos": 0,
+        "compartilhamentos": 0,
+        "interacoes": 0
+      },
+      "confianca_classificacao": 1
     }
   ]
 }

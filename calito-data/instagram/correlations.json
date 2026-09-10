@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-09T13:53:46.952Z",
+  "gerado_em": "2026-09-10T13:46:47.012Z",
   "metodologia": "Cruzamento mensal entre publicações reais do Instagram e resumo mensal de vendas. Nunca afirma causalidade.",
   "linguagem_permitida": [
     "associação temporal",
@@ -11052,7 +11052,7 @@
             "total": 1
           }
         ],
-        "alcance": 2082,
+        "alcance": 2083,
         "interacoes": 58,
         "links_analisados": [
           "https://www.instagram.com/reel/DTlDWRuEXyA/",
@@ -11444,7 +11444,7 @@
             "total": 1
           }
         ],
-        "alcance": 11456,
+        "alcance": 11459,
         "interacoes": 290,
         "links_analisados": [
           "https://www.instagram.com/reel/DVWHm9ljhCK/",
@@ -12062,8 +12062,8 @@
             "total": 1
           }
         ],
-        "alcance": 3045,
-        "interacoes": 177,
+        "alcance": 3048,
+        "interacoes": 178,
         "links_analisados": [
           "https://www.instagram.com/reel/DcPob9Ysbms/",
           "https://www.instagram.com/reel/DcPo12pMTW0/",
@@ -12078,10 +12078,10 @@
     {
       "periodo": "2026-09",
       "marketing": {
-        "total_publicacoes": 11,
+        "total_publicacoes": 13,
         "total_reels": 2,
         "formatos": {
-          "FEED": 9,
+          "FEED": 11,
           "REELS": 2
         },
         "campanhas": [
@@ -12091,7 +12091,7 @@
           },
           {
             "nome": "higiene institucional",
-            "total": 1
+            "total": 2
           },
           {
             "nome": "aromas",
@@ -12116,31 +12116,39 @@
           {
             "nome": "inverno",
             "total": 1
+          },
+          {
+            "nome": "limpeza pesada",
+            "total": 1
           }
         ],
         "categorias_divulgadas": [
           {
             "nome": "institucional",
-            "total": 9
+            "total": 11
           },
           {
             "nome": "promoção",
-            "total": 7
+            "total": 9
           },
           {
             "nome": "evento local",
-            "total": 6
+            "total": 8
           },
           {
             "nome": "oferta",
-            "total": 4
+            "total": 6
           },
           {
             "nome": "higiene institucional",
-            "total": 2
+            "total": 3
           },
           {
             "nome": "utilidades",
+            "total": 3
+          },
+          {
+            "nome": "limpeza pesada",
             "total": 2
           },
           {
@@ -12153,10 +12161,6 @@
           },
           {
             "nome": "piscina",
-            "total": 1
-          },
-          {
-            "nome": "limpeza pesada",
             "total": 1
           },
           {
@@ -12188,10 +12192,18 @@
           {
             "nome": "cloroativo",
             "total": 1
+          },
+          {
+            "nome": "balde",
+            "total": 1
+          },
+          {
+            "nome": "mop360",
+            "total": 1
           }
         ],
-        "alcance": 8413,
-        "interacoes": 289,
+        "alcance": 8828,
+        "interacoes": 293,
         "links_analisados": [
           "https://www.instagram.com/p/Dcv-dXOyIwG/",
           "https://www.instagram.com/p/DcwD0yQSC-T/",
@@ -12203,7 +12215,9 @@
           "https://www.instagram.com/p/Dc3vCz5ymjt/",
           "https://www.instagram.com/reel/Dc6ksxUCYKB/",
           "https://www.instagram.com/p/Dc9Hj-LmE9I/",
-          "https://www.instagram.com/reel/Dc_9Yj-vkSW/"
+          "https://www.instagram.com/reel/Dc_9Yj-vkSW/",
+          "https://www.instagram.com/p/DdEsbEyyl2N/",
+          "https://www.instagram.com/p/DdG3Vyoy9nI/"
         ]
       },
       "vendas": null,
