@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-11T13:43:32.948Z",
+  "gerado_em": "2026-09-12T12:59:54.363Z",
   "metodologia": "Cruzamento mensal entre publicações reais do Instagram e resumo mensal de vendas. Nunca afirma causalidade.",
   "linguagem_permitida": [
     "associação temporal",
@@ -2619,7 +2619,7 @@
           }
         ],
         "alcance": 79,
-        "interacoes": 710,
+        "interacoes": 708,
         "links_analisados": [
           "https://www.instagram.com/p/CL4QkC-AgNx/",
           "https://www.instagram.com/p/CL7InjsA7w-/",
@@ -4319,7 +4319,7 @@
             "total": 2
           }
         ],
-        "alcance": 142,
+        "alcance": 143,
         "interacoes": 215,
         "links_analisados": [
           "https://www.instagram.com/reel/CdEt2bWJXhV/",
@@ -8712,7 +8712,7 @@
             "total": 1
           }
         ],
-        "alcance": 1973,
+        "alcance": 1974,
         "interacoes": 71,
         "links_analisados": [
           "https://www.instagram.com/reel/DAotySoyN5m/",
@@ -8871,7 +8871,7 @@
           }
         ],
         "produtos_mencionados": [],
-        "alcance": 2328,
+        "alcance": 2335,
         "interacoes": 50,
         "links_analisados": [
           "https://www.instagram.com/reel/DB9geItyekq/",
@@ -9060,7 +9060,7 @@
             "total": 1
           }
         ],
-        "alcance": 5329,
+        "alcance": 5342,
         "interacoes": 174,
         "links_analisados": [
           "https://www.instagram.com/reel/DDHadwoRqlT/",
@@ -9364,7 +9364,7 @@
             "total": 1
           }
         ],
-        "alcance": 1711,
+        "alcance": 1717,
         "interacoes": 24,
         "links_analisados": [
           "https://www.instagram.com/reel/DF8XqEsy86K/",
@@ -9509,7 +9509,7 @@
           }
         ],
         "produtos_mencionados": [],
-        "alcance": 306,
+        "alcance": 307,
         "interacoes": 2,
         "links_analisados": [
           "https://www.instagram.com/reel/DG8NTzNR9VW/"
@@ -9683,7 +9683,7 @@
           }
         ],
         "produtos_mencionados": [],
-        "alcance": 1422,
+        "alcance": 1425,
         "interacoes": 23,
         "links_analisados": [
           "https://www.instagram.com/reel/DIO-Uqivrzf/",
@@ -9827,7 +9827,7 @@
           }
         ],
         "produtos_mencionados": [],
-        "alcance": 1608,
+        "alcance": 1611,
         "interacoes": 65,
         "links_analisados": [
           "https://www.instagram.com/reel/DJ8zUv1IhKQ/",
@@ -10246,7 +10246,7 @@
             "total": 1
           }
         ],
-        "alcance": 1751,
+        "alcance": 1757,
         "interacoes": 34,
         "links_analisados": [
           "https://www.instagram.com/p/DM-NRfKMde0/",
@@ -10551,7 +10551,7 @@
           }
         ],
         "produtos_mencionados": [],
-        "alcance": 2937,
+        "alcance": 2940,
         "interacoes": 103,
         "links_analisados": [
           "https://www.instagram.com/reel/DPWyAVIieiS/",
@@ -10713,7 +10713,7 @@
           }
         ],
         "produtos_mencionados": [],
-        "alcance": 1013,
+        "alcance": 1017,
         "interacoes": 36,
         "links_analisados": [
           "https://www.instagram.com/reel/DQxBfPFj4Uz/",
@@ -10865,7 +10865,7 @@
           }
         ],
         "produtos_mencionados": [],
-        "alcance": 3006,
+        "alcance": 3008,
         "interacoes": 81,
         "links_analisados": [
           "https://www.instagram.com/reel/DR5QZfjj9Wu/",
@@ -11223,7 +11223,7 @@
           }
         ],
         "produtos_mencionados": [],
-        "alcance": 4006,
+        "alcance": 4014,
         "interacoes": 105,
         "links_analisados": [
           "https://www.instagram.com/reel/DURLz7cDzuk/",
@@ -11444,7 +11444,7 @@
             "total": 1
           }
         ],
-        "alcance": 11461,
+        "alcance": 11480,
         "interacoes": 290,
         "links_analisados": [
           "https://www.instagram.com/reel/DVWHm9ljhCK/",
@@ -12062,7 +12062,7 @@
             "total": 1
           }
         ],
-        "alcance": 3048,
+        "alcance": 3050,
         "interacoes": 178,
         "links_analisados": [
           "https://www.instagram.com/reel/DcPob9Ysbms/",
@@ -12078,10 +12078,10 @@
     {
       "periodo": "2026-09",
       "marketing": {
-        "total_publicacoes": 13,
+        "total_publicacoes": 15,
         "total_reels": 2,
         "formatos": {
-          "FEED": 11,
+          "FEED": 13,
           "REELS": 2
         },
         "campanhas": [
@@ -12095,7 +12095,7 @@
           },
           {
             "nome": "aromas",
-            "total": 1
+            "total": 2
           },
           {
             "nome": "lavanderia",
@@ -12120,24 +12120,28 @@
           {
             "nome": "limpeza pesada",
             "total": 1
+          },
+          {
+            "nome": "automotivo",
+            "total": 1
           }
         ],
         "categorias_divulgadas": [
           {
             "nome": "institucional",
-            "total": 11
+            "total": 13
           },
           {
             "nome": "promoção",
-            "total": 9
+            "total": 11
           },
           {
             "nome": "evento local",
-            "total": 8
+            "total": 10
           },
           {
             "nome": "oferta",
-            "total": 6
+            "total": 8
           },
           {
             "nome": "higiene institucional",
@@ -12148,12 +12152,12 @@
             "total": 3
           },
           {
-            "nome": "limpeza pesada",
+            "nome": "aromas",
             "total": 2
           },
           {
-            "nome": "aromas",
-            "total": 1
+            "nome": "limpeza pesada",
+            "total": 2
           },
           {
             "nome": "lavanderia",
@@ -12174,11 +12178,11 @@
         ],
         "produtos_mencionados": [
           {
-            "nome": "desinfetante",
-            "total": 1
+            "nome": "detergente",
+            "total": 2
           },
           {
-            "nome": "detergente",
+            "nome": "desinfetante",
             "total": 1
           },
           {
@@ -12202,8 +12206,8 @@
             "total": 1
           }
         ],
-        "alcance": 9110,
-        "interacoes": 297,
+        "alcance": 9524,
+        "interacoes": 301,
         "links_analisados": [
           "https://www.instagram.com/p/Dcv-dXOyIwG/",
           "https://www.instagram.com/p/DcwD0yQSC-T/",
@@ -12217,7 +12221,9 @@
           "https://www.instagram.com/p/Dc9Hj-LmE9I/",
           "https://www.instagram.com/reel/Dc_9Yj-vkSW/",
           "https://www.instagram.com/p/DdEsbEyyl2N/",
-          "https://www.instagram.com/p/DdG3Vyoy9nI/"
+          "https://www.instagram.com/p/DdG3Vyoy9nI/",
+          "https://www.instagram.com/p/DdJzVY4yd0M/",
+          "https://www.instagram.com/p/DdLtOwfy-_D/"
         ]
       },
       "vendas": null,
