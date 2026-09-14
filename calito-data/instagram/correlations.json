@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-13T13:55:25.405Z",
+  "gerado_em": "2026-09-14T16:01:15.178Z",
   "metodologia": "Cruzamento mensal entre publicações reais do Instagram e resumo mensal de vendas. Nunca afirma causalidade.",
   "linguagem_permitida": [
     "associação temporal",
@@ -7023,7 +7023,7 @@
             "total": 1
           }
         ],
-        "alcance": 574,
+        "alcance": 575,
         "interacoes": 93,
         "links_analisados": [
           "https://www.instagram.com/p/C2yWKDutZxz/",
@@ -9060,7 +9060,7 @@
             "total": 1
           }
         ],
-        "alcance": 5344,
+        "alcance": 5345,
         "interacoes": 174,
         "links_analisados": [
           "https://www.instagram.com/reel/DDHadwoRqlT/",
@@ -11223,7 +11223,7 @@
           }
         ],
         "produtos_mencionados": [],
-        "alcance": 4017,
+        "alcance": 4020,
         "interacoes": 105,
         "links_analisados": [
           "https://www.instagram.com/reel/DURLz7cDzuk/",
@@ -11444,7 +11444,7 @@
             "total": 1
           }
         ],
-        "alcance": 11489,
+        "alcance": 11508,
         "interacoes": 290,
         "links_analisados": [
           "https://www.instagram.com/reel/DVWHm9ljhCK/",
@@ -12062,7 +12062,7 @@
             "total": 1
           }
         ],
-        "alcance": 3052,
+        "alcance": 3060,
         "interacoes": 178,
         "links_analisados": [
           "https://www.instagram.com/reel/DcPob9Ysbms/",
@@ -12078,10 +12078,10 @@
     {
       "periodo": "2026-09",
       "marketing": {
-        "total_publicacoes": 15,
+        "total_publicacoes": 16,
         "total_reels": 2,
         "formatos": {
-          "FEED": 13,
+          "FEED": 14,
           "REELS": 2
         },
         "campanhas": [
@@ -12091,7 +12091,7 @@
           },
           {
             "nome": "higiene institucional",
-            "total": 2
+            "total": 3
           },
           {
             "nome": "aromas",
@@ -12129,31 +12129,31 @@
         "categorias_divulgadas": [
           {
             "nome": "institucional",
-            "total": 13
+            "total": 14
           },
           {
             "nome": "promoção",
-            "total": 11
+            "total": 12
           },
           {
             "nome": "evento local",
-            "total": 10
+            "total": 11
           },
           {
             "nome": "oferta",
-            "total": 8
+            "total": 9
           },
           {
             "nome": "higiene institucional",
-            "total": 3
+            "total": 4
           },
           {
             "nome": "utilidades",
-            "total": 3
+            "total": 4
           },
           {
             "nome": "aromas",
-            "total": 2
+            "total": 3
           },
           {
             "nome": "limpeza pesada",
@@ -12206,8 +12206,8 @@
             "total": 1
           }
         ],
-        "alcance": 10071,
-        "interacoes": 303,
+        "alcance": 10194,
+        "interacoes": 307,
         "links_analisados": [
           "https://www.instagram.com/p/Dcv-dXOyIwG/",
           "https://www.instagram.com/p/DcwD0yQSC-T/",
@@ -12223,7 +12223,8 @@
           "https://www.instagram.com/p/DdEsbEyyl2N/",
           "https://www.instagram.com/p/DdG3Vyoy9nI/",
           "https://www.instagram.com/p/DdJzVY4yd0M/",
-          "https://www.instagram.com/p/DdLtOwfy-_D/"
+          "https://www.instagram.com/p/DdLtOwfy-_D/",
+          "https://www.instagram.com/p/DdRdydlyXI0/"
         ]
       },
       "vendas": null,
