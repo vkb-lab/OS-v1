@@ -29,7 +29,6 @@ jobs:
     steps:
       - name: Baixar código
         uses: actions/checkout@v4
-
       - name: Montar aplicação exclusiva dos novos proprietários
         shell: bash
         env:
@@ -44,6 +43,7 @@ jobs:
           test -f calito-app/assets/icon.svg
           test -f CALITO_BASE_CONSOLIDADA_COMPLETA.json
           test -f calito-skills/inteligencia-da-loja/skill.js
+          test -f calito-skills/consulta-avancada/skill.js
           test -f calito-skills/conhecimento-operacional/skill.js
           test -f calito-skills/memoria-aprendizado/skill.js
           test -f calito-skills/calito-smart-transition/skill.js
@@ -57,6 +57,7 @@ jobs:
           const skills=[
             'calito-skills/memoria-aprendizado/skill.js',
             'calito-skills/inteligencia-da-loja/skill.js',
+            'calito-skills/consulta-avancada/skill.js',
             'calito-skills/conhecimento-operacional/skill.js',
             'calito-skills/calito-smart-transition/skill.js'
           ].map(p=>fs.readFileSync(p,'utf8'));
@@ -84,7 +85,6 @@ jobs:
           cp calito-app/sw.js /tmp/calito-public/sw.js
           cp calito-app/assets/icon.svg /tmp/calito-public/assets/icon.svg
           test -f /tmp/calito-public/index.html && test -f /tmp/calito-public/payload-joao.json && test -f /tmp/calito-public/manifest.webmanifest && test -f /tmp/calito-public/sw.js && test -f /tmp/calito-public/assets/icon.svg
-
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
         with:
