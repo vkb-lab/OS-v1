@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "valor_total": 200000,
-  "atualizado_em": "2026-09-14T11:21:34.636Z",
+  "atualizado_em": "2026-09-16T13:18:09.367Z",
   "lancamentos": [
     {
       "id": "entrada-luciana",
@@ -152,6 +152,16 @@
       "tipo": "pagamento",
       "autor": "Rogger",
       "registrado_em": "2026-09-14T11:21:34.635Z"
+    },
+    {
+      "id": "local-fedc60fe-9085-4fc1-a74f-095de7017e6b",
+      "data": "2026-08-27",
+      "valor": 2250,
+      "descricao": "Grama , expositor , gancheiras , energéticos",
+      "natureza": "acrescimo",
+      "tipo": "acrescimo",
+      "autor": "Rogger",
+      "registrado_em": "2026-09-16T13:18:09.367Z"
     }
   ]
 }
