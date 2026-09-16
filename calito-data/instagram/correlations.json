@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-15T14:28:55.975Z",
+  "gerado_em": "2026-09-16T14:19:08.547Z",
   "metodologia": "Cruzamento mensal entre publicações reais do Instagram e resumo mensal de vendas. Nunca afirma causalidade.",
   "linguagem_permitida": [
     "associação temporal",
@@ -4319,7 +4319,7 @@
             "total": 2
           }
         ],
-        "alcance": 143,
+        "alcance": 144,
         "interacoes": 215,
         "links_analisados": [
           "https://www.instagram.com/reel/CdEt2bWJXhV/",
@@ -5605,7 +5605,7 @@
             "total": 1
           }
         ],
-        "alcance": 63,
+        "alcance": 64,
         "interacoes": 270,
         "links_analisados": [
           "https://www.instagram.com/reel/CqlXbSDLzDA/",
@@ -10713,7 +10713,7 @@
           }
         ],
         "produtos_mencionados": [],
-        "alcance": 1017,
+        "alcance": 1018,
         "interacoes": 36,
         "links_analisados": [
           "https://www.instagram.com/reel/DQxBfPFj4Uz/",
@@ -11444,7 +11444,7 @@
             "total": 1
           }
         ],
-        "alcance": 11529,
+        "alcance": 11546,
         "interacoes": 290,
         "links_analisados": [
           "https://www.instagram.com/reel/DVWHm9ljhCK/",
@@ -12062,7 +12062,7 @@
             "total": 1
           }
         ],
-        "alcance": 3060,
+        "alcance": 3063,
         "interacoes": 178,
         "links_analisados": [
           "https://www.instagram.com/reel/DcPob9Ysbms/",
@@ -12078,10 +12078,10 @@
     {
       "periodo": "2026-09",
       "marketing": {
-        "total_publicacoes": 16,
+        "total_publicacoes": 17,
         "total_reels": 2,
         "formatos": {
-          "FEED": 14,
+          "FEED": 15,
           "REELS": 2
         },
         "campanhas": [
@@ -12099,7 +12099,7 @@
           },
           {
             "nome": "lavanderia",
-            "total": 1
+            "total": 2
           },
           {
             "nome": "piscina",
@@ -12129,39 +12129,39 @@
         "categorias_divulgadas": [
           {
             "nome": "institucional",
-            "total": 14
+            "total": 15
           },
           {
             "nome": "promoção",
-            "total": 12
+            "total": 13
           },
           {
             "nome": "evento local",
-            "total": 11
+            "total": 12
           },
           {
             "nome": "oferta",
-            "total": 9
+            "total": 10
           },
           {
             "nome": "higiene institucional",
-            "total": 4
+            "total": 5
           },
           {
             "nome": "utilidades",
-            "total": 4
+            "total": 5
           },
           {
             "nome": "aromas",
             "total": 3
           },
           {
-            "nome": "limpeza pesada",
+            "nome": "lavanderia",
             "total": 2
           },
           {
-            "nome": "lavanderia",
-            "total": 1
+            "nome": "limpeza pesada",
+            "total": 2
           },
           {
             "nome": "piscina",
@@ -12206,8 +12206,8 @@
             "total": 1
           }
         ],
-        "alcance": 10611,
-        "interacoes": 310,
+        "alcance": 10914,
+        "interacoes": 313,
         "links_analisados": [
           "https://www.instagram.com/p/Dcv-dXOyIwG/",
           "https://www.instagram.com/p/DcwD0yQSC-T/",
@@ -12224,7 +12224,8 @@
           "https://www.instagram.com/p/DdG3Vyoy9nI/",
           "https://www.instagram.com/p/DdJzVY4yd0M/",
           "https://www.instagram.com/p/DdLtOwfy-_D/",
-          "https://www.instagram.com/p/DdRdydlyXI0/"
+          "https://www.instagram.com/p/DdRdydlyXI0/",
+          "https://www.instagram.com/p/DdUbA9cSJWC/"
         ]
       },
       "vendas": null,
