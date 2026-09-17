@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-16T14:19:08.547Z",
+  "gerado_em": "2026-09-17T14:24:43.240Z",
   "metodologia": "Cruzamento mensal entre publicações reais do Instagram e resumo mensal de vendas. Nunca afirma causalidade.",
   "linguagem_permitida": [
     "associação temporal",
@@ -6504,7 +6504,7 @@
             "total": 1
           }
         ],
-        "alcance": 642,
+        "alcance": 643,
         "interacoes": 540,
         "links_analisados": [
           "https://www.instagram.com/reel/CzL2QZAuBT_/",
@@ -6808,8 +6808,8 @@
             "total": 1
           }
         ],
-        "alcance": 852,
-        "interacoes": 116,
+        "alcance": 861,
+        "interacoes": 117,
         "links_analisados": [
           "https://www.instagram.com/reel/C1xjnHwxl7v/",
           "https://www.instagram.com/reel/C12KWBaLjoD/",
@@ -7023,7 +7023,7 @@
             "total": 1
           }
         ],
-        "alcance": 575,
+        "alcance": 579,
         "interacoes": 93,
         "links_analisados": [
           "https://www.instagram.com/p/C2yWKDutZxz/",
@@ -9827,8 +9827,8 @@
           }
         ],
         "produtos_mencionados": [],
-        "alcance": 1611,
-        "interacoes": 65,
+        "alcance": 1613,
+        "interacoes": 66,
         "links_analisados": [
           "https://www.instagram.com/reel/DJ8zUv1IhKQ/",
           "https://www.instagram.com/reel/DJ_-yoTOlXG/"
@@ -12078,10 +12078,10 @@
     {
       "periodo": "2026-09",
       "marketing": {
-        "total_publicacoes": 17,
+        "total_publicacoes": 18,
         "total_reels": 2,
         "formatos": {
-          "FEED": 15,
+          "FEED": 16,
           "REELS": 2
         },
         "campanhas": [
@@ -12091,7 +12091,7 @@
           },
           {
             "nome": "higiene institucional",
-            "total": 3
+            "total": 4
           },
           {
             "nome": "aromas",
@@ -12129,27 +12129,27 @@
         "categorias_divulgadas": [
           {
             "nome": "institucional",
-            "total": 15
+            "total": 16
           },
           {
             "nome": "promoção",
-            "total": 13
+            "total": 14
           },
           {
             "nome": "evento local",
-            "total": 12
+            "total": 13
           },
           {
             "nome": "oferta",
-            "total": 10
+            "total": 11
           },
           {
             "nome": "higiene institucional",
-            "total": 5
+            "total": 6
           },
           {
             "nome": "utilidades",
-            "total": 5
+            "total": 6
           },
           {
             "nome": "aromas",
@@ -12206,8 +12206,8 @@
             "total": 1
           }
         ],
-        "alcance": 10914,
-        "interacoes": 313,
+        "alcance": 11183,
+        "interacoes": 314,
         "links_analisados": [
           "https://www.instagram.com/p/Dcv-dXOyIwG/",
           "https://www.instagram.com/p/DcwD0yQSC-T/",
@@ -12225,7 +12225,8 @@
           "https://www.instagram.com/p/DdJzVY4yd0M/",
           "https://www.instagram.com/p/DdLtOwfy-_D/",
           "https://www.instagram.com/p/DdRdydlyXI0/",
-          "https://www.instagram.com/p/DdUbA9cSJWC/"
+          "https://www.instagram.com/p/DdUbA9cSJWC/",
+          "https://www.instagram.com/p/DdW1f8_pGRb/"
         ]
       },
       "vendas": null,
