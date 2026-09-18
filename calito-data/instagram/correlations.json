@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-17T14:24:43.240Z",
+  "gerado_em": "2026-09-18T13:44:03.038Z",
   "metodologia": "Cruzamento mensal entre publicações reais do Instagram e resumo mensal de vendas. Nunca afirma causalidade.",
   "linguagem_permitida": [
     "associação temporal",
@@ -3977,7 +3977,7 @@
             "total": 1
           }
         ],
-        "alcance": 36,
+        "alcance": 37,
         "interacoes": 103,
         "links_analisados": [
           "https://www.instagram.com/p/CZcG9gIr5n2/",
@@ -5170,7 +5170,7 @@
             "total": 1
           }
         ],
-        "alcance": 55,
+        "alcance": 56,
         "interacoes": 399,
         "links_analisados": [
           "https://www.instagram.com/reel/Cm6dVQWhOUb/",
@@ -5326,7 +5326,7 @@
             "total": 1
           }
         ],
-        "alcance": 98,
+        "alcance": 100,
         "interacoes": 213,
         "links_analisados": [
           "https://www.instagram.com/reel/CoIY7_EDbqa/",
@@ -5452,7 +5452,7 @@
             "total": 1
           }
         ],
-        "alcance": 86,
+        "alcance": 88,
         "interacoes": 291,
         "links_analisados": [
           "https://www.instagram.com/p/CpP1IbMOQXI/",
@@ -5605,7 +5605,7 @@
             "total": 1
           }
         ],
-        "alcance": 64,
+        "alcance": 65,
         "interacoes": 270,
         "links_analisados": [
           "https://www.instagram.com/reel/CqlXbSDLzDA/",
@@ -6086,7 +6086,7 @@
             "total": 1
           }
         ],
-        "alcance": 200,
+        "alcance": 208,
         "interacoes": 261,
         "links_analisados": [
           "https://www.instagram.com/reel/CvpVk0KNY9a/",
@@ -6171,7 +6171,7 @@
             "total": 1
           }
         ],
-        "alcance": 156,
+        "alcance": 158,
         "interacoes": 206,
         "links_analisados": [
           "https://www.instagram.com/p/Cw-ViHju1a1/",
@@ -6320,7 +6320,7 @@
             "total": 1
           }
         ],
-        "alcance": 280,
+        "alcance": 285,
         "interacoes": 225,
         "links_analisados": [
           "https://www.instagram.com/reel/Cx-681mr6VN/",
@@ -6504,8 +6504,8 @@
             "total": 1
           }
         ],
-        "alcance": 643,
-        "interacoes": 540,
+        "alcance": 658,
+        "interacoes": 541,
         "links_analisados": [
           "https://www.instagram.com/reel/CzL2QZAuBT_/",
           "https://www.instagram.com/reel/CzL74fiOybl/",
@@ -6622,8 +6622,8 @@
             "total": 1
           }
         ],
-        "alcance": 104,
-        "interacoes": 91,
+        "alcance": 105,
+        "interacoes": 92,
         "links_analisados": [
           "https://www.instagram.com/reel/C0ha-Ymxa5d/",
           "https://www.instagram.com/reel/C0htFqYxWJF/",
@@ -8542,7 +8542,7 @@
             "total": 1
           }
         ],
-        "alcance": 2733,
+        "alcance": 2734,
         "interacoes": 326,
         "links_analisados": [
           "https://www.instagram.com/reel/C_Y40X-StRL/",
@@ -9060,7 +9060,7 @@
             "total": 1
           }
         ],
-        "alcance": 5347,
+        "alcance": 5351,
         "interacoes": 174,
         "links_analisados": [
           "https://www.instagram.com/reel/DDHadwoRqlT/",
@@ -9364,7 +9364,7 @@
             "total": 1
           }
         ],
-        "alcance": 1717,
+        "alcance": 1719,
         "interacoes": 24,
         "links_analisados": [
           "https://www.instagram.com/reel/DF8XqEsy86K/",
@@ -10713,7 +10713,7 @@
           }
         ],
         "produtos_mencionados": [],
-        "alcance": 1018,
+        "alcance": 1019,
         "interacoes": 36,
         "links_analisados": [
           "https://www.instagram.com/reel/DQxBfPFj4Uz/",
@@ -11223,7 +11223,7 @@
           }
         ],
         "produtos_mencionados": [],
-        "alcance": 4029,
+        "alcance": 4031,
         "interacoes": 105,
         "links_analisados": [
           "https://www.instagram.com/reel/DURLz7cDzuk/",
@@ -11444,7 +11444,7 @@
             "total": 1
           }
         ],
-        "alcance": 11546,
+        "alcance": 11548,
         "interacoes": 290,
         "links_analisados": [
           "https://www.instagram.com/reel/DVWHm9ljhCK/",
@@ -12062,7 +12062,7 @@
             "total": 1
           }
         ],
-        "alcance": 3063,
+        "alcance": 3065,
         "interacoes": 178,
         "links_analisados": [
           "https://www.instagram.com/reel/DcPob9Ysbms/",
@@ -12078,19 +12078,19 @@
     {
       "periodo": "2026-09",
       "marketing": {
-        "total_publicacoes": 18,
+        "total_publicacoes": 19,
         "total_reels": 2,
         "formatos": {
-          "FEED": 16,
+          "FEED": 17,
           "REELS": 2
         },
         "campanhas": [
           {
-            "nome": "promoção",
-            "total": 4
+            "nome": "higiene institucional",
+            "total": 5
           },
           {
-            "nome": "higiene institucional",
+            "nome": "promoção",
             "total": 4
           },
           {
@@ -12129,27 +12129,27 @@
         "categorias_divulgadas": [
           {
             "nome": "institucional",
-            "total": 16
+            "total": 17
           },
           {
             "nome": "promoção",
-            "total": 14
+            "total": 15
           },
           {
             "nome": "evento local",
-            "total": 13
+            "total": 14
           },
           {
             "nome": "oferta",
-            "total": 11
+            "total": 12
           },
           {
             "nome": "higiene institucional",
-            "total": 6
+            "total": 7
           },
           {
             "nome": "utilidades",
-            "total": 6
+            "total": 7
           },
           {
             "nome": "aromas",
@@ -12204,9 +12204,13 @@
           {
             "nome": "mop360",
             "total": 1
+          },
+          {
+            "nome": "vassoura",
+            "total": 1
           }
         ],
-        "alcance": 11183,
+        "alcance": 11412,
         "interacoes": 314,
         "links_analisados": [
           "https://www.instagram.com/p/Dcv-dXOyIwG/",
@@ -12226,7 +12230,8 @@
           "https://www.instagram.com/p/DdLtOwfy-_D/",
           "https://www.instagram.com/p/DdRdydlyXI0/",
           "https://www.instagram.com/p/DdUbA9cSJWC/",
-          "https://www.instagram.com/p/DdW1f8_pGRb/"
+          "https://www.instagram.com/p/DdW1f8_pGRb/",
+          "https://www.instagram.com/p/DdZQhDdS-8H/"
         ]
       },
       "vendas": null,
