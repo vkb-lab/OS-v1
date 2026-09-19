@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-18T13:44:03.038Z",
+  "gerado_em": "2026-09-19T13:21:05.393Z",
   "metodologia": "Cruzamento mensal entre publicações reais do Instagram e resumo mensal de vendas. Nunca afirma causalidade.",
   "linguagem_permitida": [
     "associação temporal",
@@ -12078,27 +12078,27 @@
     {
       "periodo": "2026-09",
       "marketing": {
-        "total_publicacoes": 19,
+        "total_publicacoes": 21,
         "total_reels": 2,
         "formatos": {
-          "FEED": 17,
+          "FEED": 19,
           "REELS": 2
         },
         "campanhas": [
           {
             "nome": "higiene institucional",
-            "total": 5
+            "total": 6
           },
           {
             "nome": "promoção",
             "total": 4
           },
           {
-            "nome": "aromas",
-            "total": 2
+            "nome": "lavanderia",
+            "total": 3
           },
           {
-            "nome": "lavanderia",
+            "nome": "aromas",
             "total": 2
           },
           {
@@ -12129,27 +12129,27 @@
         "categorias_divulgadas": [
           {
             "nome": "institucional",
-            "total": 17
+            "total": 19
           },
           {
             "nome": "promoção",
-            "total": 15
+            "total": 17
           },
           {
             "nome": "evento local",
-            "total": 14
+            "total": 16
           },
           {
             "nome": "oferta",
-            "total": 12
+            "total": 14
           },
           {
             "nome": "higiene institucional",
-            "total": 7
+            "total": 8
           },
           {
             "nome": "utilidades",
-            "total": 7
+            "total": 8
           },
           {
             "nome": "aromas",
@@ -12157,10 +12157,14 @@
           },
           {
             "nome": "lavanderia",
-            "total": 2
+            "total": 3
           },
           {
             "nome": "limpeza pesada",
+            "total": 2
+          },
+          {
+            "nome": "inverno",
             "total": 2
           },
           {
@@ -12169,10 +12173,6 @@
           },
           {
             "nome": "aniversário",
-            "total": 1
-          },
-          {
-            "nome": "inverno",
             "total": 1
           }
         ],
@@ -12208,10 +12208,14 @@
           {
             "nome": "vassoura",
             "total": 1
+          },
+          {
+            "nome": "rodo",
+            "total": 1
           }
         ],
-        "alcance": 11412,
-        "interacoes": 314,
+        "alcance": 11626,
+        "interacoes": 318,
         "links_analisados": [
           "https://www.instagram.com/p/Dcv-dXOyIwG/",
           "https://www.instagram.com/p/DcwD0yQSC-T/",
@@ -12231,7 +12235,9 @@
           "https://www.instagram.com/p/DdRdydlyXI0/",
           "https://www.instagram.com/p/DdUbA9cSJWC/",
           "https://www.instagram.com/p/DdW1f8_pGRb/",
-          "https://www.instagram.com/p/DdZQhDdS-8H/"
+          "https://www.instagram.com/p/DdZQhDdS-8H/",
+          "https://www.instagram.com/p/Ddbl-SYSQn4/",
+          "https://www.instagram.com/p/DdeFF5FytIj/"
         ]
       },
       "vendas": null,
