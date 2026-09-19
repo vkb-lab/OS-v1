@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "valor_total": 200000,
-  "atualizado_em": "2026-09-16T13:18:09.367Z",
+  "atualizado_em": "2026-09-19T15:41:23.579Z",
   "lancamentos": [
     {
       "id": "entrada-luciana",
@@ -162,6 +162,16 @@
       "tipo": "acrescimo",
       "autor": "Rogger",
       "registrado_em": "2026-09-16T13:18:09.367Z"
+    },
+    {
+      "id": "local-14706a9e-6d03-4c15-9351-d8064befa7af",
+      "data": "2026-09-19",
+      "valor": 2062.95,
+      "descricao": "Conta de luz cachoeira",
+      "natureza": "abatimento",
+      "tipo": "abatimento",
+      "autor": "Rogger",
+      "registrado_em": "2026-09-19T15:41:23.579Z"
     }
   ]
 }
