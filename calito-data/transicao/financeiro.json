@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "valor_total": 200000,
-  "atualizado_em": "2026-09-19T15:42:09.124Z",
+  "atualizado_em": "2026-09-25T11:32:40.210Z",
   "lancamentos": [
     {
       "id": "entrada-luciana",
@@ -182,6 +182,16 @@
       "tipo": "abatimento",
       "autor": "Rogger",
       "registrado_em": "2026-09-19T15:42:09.124Z"
+    },
+    {
+      "id": "local-4465d02d-011b-4494-aa1c-2ef053bffa7c",
+      "data": "2026-09-24",
+      "valor": 1750,
+      "descricao": "Acerto contabilidade.",
+      "natureza": "abatimento",
+      "tipo": "abatimento",
+      "autor": "Rogger",
+      "registrado_em": "2026-09-25T11:32:40.208Z"
     }
   ]
 }
