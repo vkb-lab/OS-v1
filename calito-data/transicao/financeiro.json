@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "valor_total": 200000,
-  "atualizado_em": "2026-10-01T22:38:57.115Z",
+  "atualizado_em": "2026-10-07T16:16:13.226Z",
   "lancamentos": [
     {
       "id": "entrada-luciana",
@@ -202,6 +202,16 @@
       "tipo": "abatimento",
       "autor": "Rogger",
       "registrado_em": "2026-10-01T22:38:57.115Z"
+    },
+    {
+      "id": "local-0811617f-23cf-4368-a377-ce31b5abcccc",
+      "data": "2026-10-07",
+      "valor": 1597,
+      "descricao": "Luz parada Atlântida",
+      "natureza": "abatimento",
+      "tipo": "abatimento",
+      "autor": "Rogger",
+      "registrado_em": "2026-10-07T16:16:13.226Z"
     }
   ]
 }
