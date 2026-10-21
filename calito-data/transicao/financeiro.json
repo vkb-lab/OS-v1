@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "valor_total": 200000,
-  "atualizado_em": "2026-10-21T09:44:45.044Z",
+  "atualizado_em": "2026-10-21T09:45:22.538Z",
   "lancamentos": [
     {
       "id": "entrada-luciana",
@@ -272,6 +272,16 @@
       "tipo": "abatimento",
       "autor": "Rogger",
       "registrado_em": "2026-10-21T09:44:45.044Z"
+    },
+    {
+      "id": "local-f91ba941-8610-4a03-9326-6b8c3347099e",
+      "data": "2026-10-16",
+      "valor": 363.18,
+      "descricao": "Leroy Merlin",
+      "natureza": "abatimento",
+      "tipo": "abatimento",
+      "autor": "Rogger",
+      "registrado_em": "2026-10-21T09:45:22.538Z"
     }
   ]
 }
