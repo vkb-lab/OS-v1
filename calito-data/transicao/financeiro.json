@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "valor_total": 200000,
-  "atualizado_em": "2026-10-21T09:38:38.864Z",
+  "atualizado_em": "2026-10-21T09:44:45.044Z",
   "lancamentos": [
     {
       "id": "entrada-luciana",
@@ -262,6 +262,16 @@
       "tipo": "abatimento",
       "autor": "Rogger",
       "registrado_em": "2026-10-21T09:38:38.864Z"
+    },
+    {
+      "id": "local-1d9b7e1e-db91-49a4-bd6d-75ac62d82a8e",
+      "data": "2026-10-16",
+      "valor": 571,
+      "descricao": "Posto gasolina óleo",
+      "natureza": "abatimento",
+      "tipo": "abatimento",
+      "autor": "Rogger",
+      "registrado_em": "2026-10-21T09:44:45.044Z"
     }
   ]
 }
