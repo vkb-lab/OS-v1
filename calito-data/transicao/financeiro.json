@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "valor_total": 200000,
-  "atualizado_em": "2026-10-21T09:45:22.538Z",
+  "atualizado_em": "2026-10-22T14:02:52.575Z",
   "lancamentos": [
     {
       "id": "entrada-luciana",
@@ -282,6 +282,16 @@
       "tipo": "abatimento",
       "autor": "Rogger",
       "registrado_em": "2026-10-21T09:45:22.538Z"
+    },
+    {
+      "id": "local-d37e5a4c-671a-4983-ada2-40fbd7ba9812",
+      "data": "2026-10-21",
+      "valor": 864,
+      "descricao": "Dinheiro , conserto scenic",
+      "natureza": "abatimento",
+      "tipo": "abatimento",
+      "autor": "Rogger",
+      "registrado_em": "2026-10-22T14:02:52.575Z"
     }
   ]
 }
