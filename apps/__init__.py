@@ -1,1 +1,0 @@
-"""K-OS application packages."""

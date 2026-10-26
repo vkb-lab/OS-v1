@@ -1,0 +1,14 @@
+{
+  "name": "@kaizen/k-compute",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0-sandbox.1",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/server.mjs",
+    "test": "node --test",
+    "check": "node --check src/server.mjs && node --test"
+  }
+}

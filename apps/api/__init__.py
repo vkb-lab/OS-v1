@@ -1,1 +1,0 @@
-"""K-OS FastAPI service."""
