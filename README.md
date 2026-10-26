@@ -1,30 +1,61 @@
-# K-Compute V1 — ramo de homologação exclusivo
+# KAIZEN K-Compute V1 — Homologação isolada
 
-Serviço independente do ecossistema KAIZEN, executado no Render **sem IA externa, sem gastos pagos e sem bancos produtivos**.
+**Status:** V1 implementada para teste sem provedores externos, sem gravação em bancos existentes e sem cobrança de IA. **Não é a fila de produção**; o estado de trabalhos é efêmero nesta versão.
 
-Este ramo `k-compute-v1-sandbox-20261026` substitui a árvore de arquivos **apenas neste branch**, não altera `main` e não traz workflows do GitHub Actions. O código foi feito para migrar a um repositório exclusivo quando a função de criação de repos estiver disponível.
+O K-Compute é um serviço de processamento independente, consumido por outros produtos exclusivamente via HTTP API. Não possui dependência de SmartPDV, K-Publish, K-Market ou banco central Kaizen.
 
-## Iniciar
-Node 20+, sem dependências externas. `npm test`; `npm start`.
-No Render: plano `free`; autoDeploy `no`; build `npm test`; start `npm start`.
-O segredo `K_COMPUTE_KEYS_JSON` (exemplo: `{"homologacao":"<token-aleatorio-32+caracteres>"}`) vai em Environment e nunca no repo.
+## Rodar e testar
 
-## Endpoints
-- `GET /health` público
-- `GET /ready` readiness (sem secrets = 503)
-- `GET /v1/capabilities` Bearer + X-Kaizen-Tenant
-- `POST /v1/jobs` Bearer, X-Kaizen-Tenant, Idempotency-Key (8-128), JSON `{"type":"echo.test","input":{"text":"hello"}}`
-- `GET /v1/jobs/:id`, `GET /v1/usage` isolados por tenant
+Requer Node.js >=20; **nenhuma dependência NPM externa**.
 
-Execução somente em RAM: jobs, limites, idempotência e consumo **são efêmeros e não servem para cobrança**. Sem integração com SmartPDV, K-Market, Publish, produção, GPU ou IA paga. Antes de clientes reais: banco isolado, filas duráveis, custo token real, auditoria, RLS e controles financeiros persistentes.
+```bash
+npm run check
+K_COMPUTE_KEYS_JSON='{"homolog-tenant":"uma-chave-forte-de-mais-de-trinta-e-dois-caracteres"}' PORT=10000 npm start
+```
 
-## Proteções
-`K_COMPUTE_MODE=sandbox`, `K_COMPUTE_EXTERNAL_AI_ENABLED=false`, `K_COMPUTE_MONTHLY_PAID_BUDGET_USD=0`. Qualquer produção/IA paga é rejeitada no startup. Quotas por tenant em memória; sem CORS geral; sem shell ou URL arbitrárias. Não armazenar dados reais.
+Exemplo (apenas ambiente local; não publique chaves em repositórios):
 
-## Financeiro confirmado
-Render workspace `tea-d8cu13jtqb8s739adr50`. Screenshots de 26/10/2026 mostraram **US$ 500.00** de Startup Launch Credits, válidos até **31/05/2027**, US$ 0.00 de cobranças outubro. Créditos não são autorização de upgrade. 5 serviços existentes preservados.
+```bash
+curl -fsS http://localhost:10000/health
+curl -fsS -X POST http://localhost:10000/v1/jobs \
+  -H 'Content-Type: application/json' \
+  -H 'X-Kaizen-Tenant: homolog-tenant' \
+  -H "Authorization: Bearer $K_COMPUTE_TOKEN" \
+  -H 'Idempotency-Key: exemplo-unico-0001' \
+  --data '{"type":"estimate.tokens","input":{"text":"Olá, Kaizen"}}'
+```
 
-## Gates
-H0: código/testes locais. H1: Render free deploy live + smoke /health e validação Billing. H2: SDK EVO/K-OS apenas sandbox. H3: migração para repo próprio, armazenamento transacional e gateway com billing antes do primeiro cliente real.
+`K_COMPUTE_TOKEN` deve ser o valor privado correspondente ao tenant em `K_COMPUTE_KEYS_JSON`.
 
-**Proibido:** merge no `main` dos sistemas legados, gastos pagos, inclusão de cartões, consumo de API de IA paga, integração produtiva sem aprovação explícita.
+## HTTP API
+
+| Método | Rota | Auth | Resposta |
+|---|---|---|---|
+| GET | `/health` | Pública | Status, modo, persistência |
+| GET | `/ready` | Pública | 200 se credenciais configuradas; caso contrário 503 |
+| GET | `/v1/capabilities` | Bearer + tenant | Tipos suportados e chamadas externas desabilitadas |
+| POST | `/v1/jobs` | Bearer + tenant + Idempotency-Key | Cria job de teste, devolve 202 e location |
+| GET | `/v1/jobs/:id` | Bearer + tenant | Busca job somente do tenant autenticado |
+| GET | `/v1/usage` | Bearer + tenant | Contadores efêmeros, gastos de IA = 0 |
+
+Corpo de POST: `{"type":"echo.test"|"estimate.tokens","input":{"text":"até 2000 caracteres"}}`.
+
+**Limites:** 8KB por pedido, 25 jobs/tenant/dia por padrão, 30 chamadas/tenant/minuto, 50 jobs em fila e 500 jobs em memória. São limites por instância, não distribuídos. Todos os dados de jobs desaparecem quando a instância reinicia. Não envie dados pessoais ou de clientes reais.
+
+## Segurança / custo
+
+- API privada por tenant e token Bearer forte; credenciais só nas environment variables do Render.
+- Não há endpoints para executar comandos, abrir URLs ou gerar conteúdo pago.
+- Qualquer `K_COMPUTE_EXTERNAL_AI_ENABLED` diferente de `false`, orçamento diferente de `0` ou modo diferente de `sandbox` faz o processo **falhar antes de subir**.
+- Não há chaves de terceiros nem integração com bancos de dados neste marco.
+- `autoDeploy=no`, plano `free`, nenhuma assinatura paga, nenhuma integração produtiva.
+
+## Deploy Render isolado
+
+Workspace: **Rogger's workspace** / `tea-d8cu13jtqb8s739adr50`.
+
+Fonte temporária: ramificação exclusiva `k-compute-v1-sandbox-20261026` em `vkb-lab/OS-v1` (a API do conector GitHub não permite criar repositório novo). Essa ramificação tem a aplicação em sua raiz e **não deve ser mesclada na main**. Pode ser exportada para um repositório próprio sem alterações no código.
+
+Runtime `node`, build `npm run check`, start `npm start`, plano `free`, auto deploy `no`, região Oregon. Configurar `K_COMPUTE_KEYS_JSON` com segredo de teste, `K_COMPUTE_EXTERNAL_AI_ENABLED=false`, `K_COMPUTE_MONTHLY_PAID_BUDGET_USD=0`, `K_COMPUTE_MODE=sandbox`.
+
+Consulte `docs/HANDOFF_K_COMPUTE_V1_2026-10-26.md` para arquitetura, critérios de aceite, limites e sequência de homologação.
