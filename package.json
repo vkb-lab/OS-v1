@@ -10,6 +10,6 @@
   "scripts": {
     "start": "node src/server.mjs",
     "test": "node --test",
-    "check": "node --check src/app.mjs && node --check src/server.mjs && node --check src/client.mjs && node --test"
+    "check": "node --check src/app.mjs && node --check src/server.mjs && node --check src/client.mjs && node --check src/khemp-pilot.mjs && node --check src/khemp-staging.mjs && node --test"
   }
 }

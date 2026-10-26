@@ -65,3 +65,6 @@ Consulte `docs/HANDOFF_K_COMPUTE_V1_2026-10-26.md` para arquitetura, critérios 
 `src/khemp-pilot.mjs` e `test/khemp-pilot.test.mjs` fornecem quatro cenários de homologação com a identidade **fictícia** `khemp-pilot-ficticio`, distinta de `k-hemp`. Testa Brand Brain (eco de texto), preparação de rascunho (estimativa de tokens), Sales (eco de interesse simulado) e gate de aprovação (estimativa). Não chama a função real do K-Hemp, nem faz qualquer publicação, gravação em banco ou IA paga.
 
 Execute `npm run check`; veja `docs/KHEMP_PILOT_H3_2026-10-26.md`. A lista de testes agora inclui 8 casos adicionais K-Hemp. Isso **não comprova** processamento real das funções Publish/Sales/Brand Brain; comprova a segurança do contrato K-Compute que poderá ser integrado posteriormente por EVO/K-OS.
+
+## H4 — K-Hemp staging shadow flow (somente homologação)
+`src/khemp-staging.mjs` cria e analisa propostas com **dados totalmente sintéticos**. Percorre cliente HTTP K-Compute, recebe retorno de echo/estimativa, cria resposta de formato compatível com `khemp-agent-chat`, registra rascunho pendente e simula decisão humana com credencial distinta. Todas as ações externas permanecem permanentemente desabilitadas, inclusive depois de aprovação simulada. Não conectar K-Hemp real, Publish, Sales ou banco produtivo. Ver `docs/KHEMP_H4_HANDOFF_2026-10-26.md`.
