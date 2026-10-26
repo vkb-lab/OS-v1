@@ -60,5 +60,8 @@ Runtime `node`, build `npm run check`, start `npm start`, plano `free`, auto dep
 
 Consulte `docs/HANDOFF_K_COMPUTE_V1_2026-10-26.md` para arquitetura, critérios de aceite, limites e sequência de homologação.
 
-## Cliente HTTP de homologação H2
-O módulo `src/client.mjs` exporta `KComputeSandboxClient`, **apenas para backend**. HTTPS obrigatório (HTTP loopback só em testes), Bearer privado e tenant. Oferece `capabilities`, `usage`, `getJob`, `createJob`; impõe timeout, repete apenas GET em erro temporário e **nunca** repete POST. O cliente evita expor tokens em erros. Não integrar a produtos ou frontends sem homologação.
+## Piloto K-Hemp (H3-a, dados fictícios)
+
+`src/khemp-pilot.mjs` e `test/khemp-pilot.test.mjs` fornecem quatro cenários de homologação com a identidade **fictícia** `khemp-pilot-ficticio`, distinta de `k-hemp`. Testa Brand Brain (eco de texto), preparação de rascunho (estimativa de tokens), Sales (eco de interesse simulado) e gate de aprovação (estimativa). Não chama a função real do K-Hemp, nem faz qualquer publicação, gravação em banco ou IA paga.
+
+Execute `npm run check`; veja `docs/KHEMP_PILOT_H3_2026-10-26.md`. A lista de testes agora inclui 8 casos adicionais K-Hemp. Isso **não comprova** processamento real das funções Publish/Sales/Brand Brain; comprova a segurança do contrato K-Compute que poderá ser integrado posteriormente por EVO/K-OS.
