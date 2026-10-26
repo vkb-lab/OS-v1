@@ -151,3 +151,9 @@ Erro esperado: 401 autenticação, 404 job ausente/de outro tenant, 409 reuso co
 | Perda de integração atual | Nenhuma alteração a apps/bancos existentes | Contratos de API versionados |
 
 **Papel do próximo executor:** verificar deploy Render e smoke sem writes reais; só depois executar H2/H3 isoladamente. **Proibido** merge na main dos repositórios existentes, criação de conta paga, alteração de Cloudflare/SmartPDV/Supabase ou entrada de usuários reais sem autorização explícita.
+
+## Continuação de 26/10/2026 — marco H2
+- H1: commit 503f808 implantado no Render e confirmado `live`, testes 13/13 e validações HTTP externas /health 200, /ready 200 e endpoint privado retornando 401 sem token.
+- H2: SDK `src/client.mjs` server-to-server e cinco novos testes locais (18 testes no total); integração com EVO/K-OS **ainda não conectada**.
+- Não houve merge em main, escrita em bancos produtivos, cobrança de API externa nem habilitação de IA.
+- Ainda não foi executado POST autenticado diretamente no endpoint público; a credencial do Render foi preservada e não extraída.

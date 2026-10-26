@@ -59,3 +59,6 @@ Fonte temporária: ramificação exclusiva `k-compute-v1-sandbox-20261026` em `v
 Runtime `node`, build `npm run check`, start `npm start`, plano `free`, auto deploy `no`, região Oregon. Configurar `K_COMPUTE_KEYS_JSON` com segredo de teste, `K_COMPUTE_EXTERNAL_AI_ENABLED=false`, `K_COMPUTE_MONTHLY_PAID_BUDGET_USD=0`, `K_COMPUTE_MODE=sandbox`.
 
 Consulte `docs/HANDOFF_K_COMPUTE_V1_2026-10-26.md` para arquitetura, critérios de aceite, limites e sequência de homologação.
+
+## Cliente HTTP de homologação H2
+O módulo `src/client.mjs` exporta `KComputeSandboxClient`, **apenas para backend**. HTTPS obrigatório (HTTP loopback só em testes), Bearer privado e tenant. Oferece `capabilities`, `usage`, `getJob`, `createJob`; impõe timeout, repete apenas GET em erro temporário e **nunca** repete POST. O cliente evita expor tokens em erros. Não integrar a produtos ou frontends sem homologação.
