@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "valor_total": 200000,
-  "atualizado_em": "2026-10-22T14:02:52.575Z",
+  "atualizado_em": "2026-10-27T12:14:32.542Z",
   "lancamentos": [
     {
       "id": "entrada-luciana",
@@ -292,6 +292,16 @@
       "tipo": "abatimento",
       "autor": "Rogger",
       "registrado_em": "2026-10-22T14:02:52.575Z"
+    },
+    {
+      "id": "local-e54767dc-3e79-424b-84bd-b25347a99206",
+      "data": "2026-10-27",
+      "valor": 179.95,
+      "descricao": "Cartão de crédito/seguro",
+      "natureza": "abatimento",
+      "tipo": "abatimento",
+      "autor": "Rogger",
+      "registrado_em": "2026-10-27T12:14:32.541Z"
     }
   ]
 }
