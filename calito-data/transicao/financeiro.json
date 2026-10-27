@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "valor_total": 200000,
-  "atualizado_em": "2026-10-27T12:15:06.921Z",
+  "atualizado_em": "2026-10-27T12:22:15.646Z",
   "lancamentos": [
     {
       "id": "entrada-luciana",
@@ -312,6 +312,16 @@
       "tipo": "abatimento",
       "autor": "Rogger",
       "registrado_em": "2026-10-27T12:15:06.921Z"
+    },
+    {
+      "id": "local-800221d1-281d-4fdd-921e-8b60c9032773",
+      "data": "2026-10-27",
+      "valor": 628.2,
+      "descricao": "Extorno roçadeira .",
+      "natureza": "acrescimo",
+      "tipo": "acrescimo",
+      "autor": "Rogger",
+      "registrado_em": "2026-10-27T12:22:15.646Z"
     }
   ]
 }
