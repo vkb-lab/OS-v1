@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "valor_total": 200000,
-  "atualizado_em": "2026-10-27T12:14:32.542Z",
+  "atualizado_em": "2026-10-27T12:15:06.921Z",
   "lancamentos": [
     {
       "id": "entrada-luciana",
@@ -302,6 +302,16 @@
       "tipo": "abatimento",
       "autor": "Rogger",
       "registrado_em": "2026-10-27T12:14:32.541Z"
+    },
+    {
+      "id": "local-237b7be9-34da-45a6-9f75-cc7a39903b82",
+      "data": "2026-10-27",
+      "valor": 294,
+      "descricao": "Cartão de crédito starlink",
+      "natureza": "abatimento",
+      "tipo": "abatimento",
+      "autor": "Rogger",
+      "registrado_em": "2026-10-27T12:15:06.921Z"
     }
   ]
 }
