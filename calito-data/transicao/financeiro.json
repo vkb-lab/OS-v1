@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "valor_total": 200000,
-  "atualizado_em": "2026-11-10T12:53:37.596Z",
+  "atualizado_em": "2026-11-10T12:54:08.460Z",
   "lancamentos": [
     {
       "id": "entrada-luciana",
@@ -352,6 +352,16 @@
       "tipo": "acrescimo",
       "autor": "Rogger",
       "registrado_em": "2026-11-10T12:53:37.595Z"
+    },
+    {
+      "id": "local-5a1201c1-3d70-4aae-8c82-679c4f16073b",
+      "data": "2026-11-10",
+      "valor": 4000,
+      "descricao": "Aquisição da moto .",
+      "natureza": "abatimento",
+      "tipo": "abatimento",
+      "autor": "Rogger",
+      "registrado_em": "2026-11-10T12:54:08.460Z"
     }
   ]
 }
