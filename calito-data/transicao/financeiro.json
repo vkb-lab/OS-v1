@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "valor_total": 200000,
-  "atualizado_em": "2026-11-09T10:07:29.941Z",
+  "atualizado_em": "2026-11-10T12:53:37.596Z",
   "lancamentos": [
     {
       "id": "entrada-luciana",
@@ -342,6 +342,16 @@
       "tipo": "abatimento",
       "autor": "Rogger",
       "registrado_em": "2026-11-09T10:07:29.941Z"
+    },
+    {
+      "id": "local-db0a24b4-28eb-424d-aefe-d7c78390694b",
+      "data": "2026-11-05",
+      "valor": 5000,
+      "descricao": "Combinado suporte consultoria .",
+      "natureza": "acrescimo",
+      "tipo": "acrescimo",
+      "autor": "Rogger",
+      "registrado_em": "2026-11-10T12:53:37.595Z"
     }
   ]
 }
