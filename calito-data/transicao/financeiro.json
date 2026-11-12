@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "valor_total": 200000,
-  "atualizado_em": "2026-11-10T12:54:08.460Z",
+  "atualizado_em": "2026-11-12T14:54:06.227Z",
   "lancamentos": [
     {
       "id": "entrada-luciana",
@@ -362,6 +362,16 @@
       "tipo": "abatimento",
       "autor": "Rogger",
       "registrado_em": "2026-11-10T12:54:08.460Z"
+    },
+    {
+      "id": "local-07a00700-131c-4883-a1be-7c2d6d4e11e7",
+      "data": "2026-11-10",
+      "valor": 7300,
+      "descricao": "Dinheiro",
+      "natureza": "abatimento",
+      "tipo": "abatimento",
+      "autor": "Rogger",
+      "registrado_em": "2026-11-12T14:54:06.227Z"
     }
   ]
 }
