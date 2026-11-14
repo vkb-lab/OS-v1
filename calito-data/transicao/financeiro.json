@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "valor_total": 200000,
-  "atualizado_em": "2026-11-12T14:54:06.227Z",
+  "atualizado_em": "2026-11-14T12:55:31.643Z",
   "lancamentos": [
     {
       "id": "entrada-luciana",
@@ -372,6 +372,16 @@
       "tipo": "abatimento",
       "autor": "Rogger",
       "registrado_em": "2026-11-12T14:54:06.227Z"
+    },
+    {
+      "id": "local-460c0b32-de59-4075-bc3c-749a2567d5b4",
+      "data": "2026-11-13",
+      "valor": 250,
+      "descricao": "50-gasolila,80alex,120pizza",
+      "natureza": "abatimento",
+      "tipo": "abatimento",
+      "autor": "Rogger",
+      "registrado_em": "2026-11-14T12:55:31.643Z"
     }
   ]
 }
