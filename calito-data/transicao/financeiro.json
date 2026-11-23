@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "valor_total": 200000,
-  "atualizado_em": "2026-11-21T15:57:31.460Z",
+  "atualizado_em": "2026-11-23T17:27:34.300Z",
   "lancamentos": [
     {
       "id": "entrada-luciana",
@@ -392,6 +392,16 @@
       "tipo": "abatimento",
       "autor": "Rogger",
       "registrado_em": "2026-11-21T15:57:31.460Z"
+    },
+    {
+      "id": "local-ce1f005b-415c-4def-af3c-0f1de4d14c19",
+      "data": "2026-11-23",
+      "valor": 850,
+      "descricao": "Hugo",
+      "natureza": "abatimento",
+      "tipo": "abatimento",
+      "autor": "Rogger",
+      "registrado_em": "2026-11-23T17:27:34.300Z"
     }
   ]
 }
