@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "valor_total": 200000,
-  "atualizado_em": "2026-11-23T17:27:34.300Z",
+  "atualizado_em": "2026-11-27T00:02:28.994Z",
   "lancamentos": [
     {
       "id": "entrada-luciana",
@@ -402,6 +402,16 @@
       "tipo": "abatimento",
       "autor": "Rogger",
       "registrado_em": "2026-11-23T17:27:34.300Z"
+    },
+    {
+      "id": "local-cdaa9dd4-c6c8-46bf-98d9-ba70fc6771b2",
+      "data": "2026-11-27",
+      "valor": 2500,
+      "descricao": "Compra cartão crédito",
+      "natureza": "abatimento",
+      "tipo": "abatimento",
+      "autor": "Rogger",
+      "registrado_em": "2026-11-27T00:02:28.994Z"
     }
   ]
 }
